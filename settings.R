@@ -62,7 +62,7 @@ txt_path <- paste0(project_path, "/", project_name, "/txt")
 dem_path <- paste0(out_path, buildr_data, 'DEM1.tif')
 
 ##Soil raster layer and soil tables paths
-soil_layer_path  <- paste0(out_path, buildr_data, 'soil.tif')
+soil_layer_path  <- paste0(out_path, buildr_data, 'soil1.tif')
 soil_lookup_path <- paste0(out_path, buildr_data, 'Soil_SWAT_cod.csv')
 soil_data_path   <- paste0(out_path, buildr_data, 'usersoil_lrew.csv')
 
