@@ -1,0 +1,337 @@
+crop_mgt,mon_1,day_1,mon_2,day_2,operation,op_data1,op_data2,op_data3,doy1,doy2,land_use,year
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl207,1998
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl207,1998
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl207,1998
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl207,1998
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl207,1998
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl207,1998
+pota,9,1,9,15,tillage,fallplow,NA,NA,244,258,agrl207,1998
+pota,10,1,10,15,fertilizer,swine_fr,broadcast,25000,274,288,agrl207,1998
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl246,1997
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl246,1997
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl246,1997
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl246,1997
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl246,1997
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl246,1997
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl246,1997
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl246,1997
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl246,1997
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl247,1997
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl247,1997
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl247,1997
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl247,1997
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl247,1997
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl247,1997
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl247,1997
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl247,1997
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl247,1997
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl247,1999
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl247,1999
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl247,1999
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl247,1999
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl247,1999
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl247,1999
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl247,1999
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl247,1999
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl247,1999
+alfa,3,20,3,30,tillage,landlevl,NA,NA,79,89,agrl253,1996
+alfa,4,1,4,10,plant,lupn,NA,NA,91,100,agrl253,1996
+alfa,8,20,8,30,harvest_only,lupn,grain,NA,232,242,agrl253,1996
+alfa,8,20,8,30,kill_only,lupn,NA,NA,232,242,agrl253,1996
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl253,1996
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl253,1996
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl253,1996
+alfa,3,20,3,30,tillage,landlevl,NA,NA,79,89,agrl253,2001
+alfa,4,1,4,10,plant,lupn,NA,NA,91,100,agrl253,2001
+alfa,8,20,8,30,harvest_only,lupn,grain,NA,232,242,agrl253,2001
+alfa,8,20,8,30,kill_only,lupn,NA,NA,232,242,agrl253,2001
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl253,2001
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl253,2001
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl253,2001
+alfa,3,20,3,30,tillage,landlevl,NA,NA,79,89,agrl258,1996
+alfa,4,1,4,10,plant,lupn,NA,NA,91,100,agrl258,1996
+alfa,8,20,8,30,harvest_only,lupn,grain,NA,232,242,agrl258,1996
+alfa,8,20,8,30,kill_only,lupn,NA,NA,232,242,agrl258,1996
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl258,1996
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl258,1996
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl258,1996
+alfa,3,20,3,30,tillage,landlevl,NA,NA,79,89,agrl258,2001
+alfa,4,1,4,10,plant,lupn,NA,NA,91,100,agrl258,2001
+alfa,8,20,8,30,harvest_only,lupn,grain,NA,232,242,agrl258,2001
+alfa,8,20,8,30,kill_only,lupn,NA,NA,232,242,agrl258,2001
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl258,2001
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl258,2001
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl258,2001
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl343,1999
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl343,1999
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl343,1999
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl343,1999
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl343,1999
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl343,1999
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl343,1999
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl343,1999
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl343,1999
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl344,1999
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl344,1999
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl344,1999
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl344,1999
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl344,1999
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl344,1999
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl344,1999
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl344,1999
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl344,1999
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl996,1998
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl996,1998
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl996,1998
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl996,1998
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl996,1998
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl996,1998
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl996,1998
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl996,1998
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl996,1998
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl1008,1999
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl1008,1999
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl1008,1999
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl1008,1999
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl1008,1999
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl1008,1999
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl1008,1999
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl1008,1999
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl1008,1999
+alfa,3,20,3,30,tillage,landlevl,NA,NA,79,89,agrl1145,1999
+alfa,4,1,4,10,plant,lupn,NA,NA,91,100,agrl1145,1999
+alfa,8,20,8,30,harvest_only,lupn,grain,NA,232,242,agrl1145,1999
+alfa,8,20,8,30,kill_only,lupn,NA,NA,232,242,agrl1145,1999
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1145,1999
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1145,1999
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1145,1999
+fes2,6,15,6,30,harvest_only,fesc,hay_cut_low,NA,166,181,agrl1163,1995
+fes2,9,1,9,15,harvest_only,fesc,hay_cut_low,NA,244,258,agrl1163,1995
+fes2,9,1,9,15,kill_only,fesc,NA,NA,244,258,agrl1163,1995
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1163,1995
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1163,1995
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1163,1995
+fes2,3,10,3,20,plant,fesc,NA,NA,69,79,agrl1163,1998
+fes2,6,15,6,30,harvest_only,fesc,hay_cut_low,NA,166,181,agrl1163,1998
+fes2,9,1,9,15,harvest_only,fesc,hay_cut_low,NA,244,258,agrl1163,1998
+fes2,9,1,9,15,kill_only,fesc,NA,NA,244,258,agrl1163,1998
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1163,1998
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1163,1998
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1163,1998
+fes2,3,10,3,20,plant,fesc,NA,NA,69,79,agrl1163,2000
+fes2,6,15,6,30,harvest_only,fesc,hay_cut_low,NA,166,181,agrl1163,2000
+fes2,9,1,9,15,harvest_only,fesc,hay_cut_low,NA,244,258,agrl1163,2000
+fes2,9,1,9,15,kill_only,fesc,NA,NA,244,258,agrl1163,2000
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1163,2000
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1163,2000
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1163,2000
+fes2,3,10,3,20,plant,fesc,NA,NA,69,79,agrl1164,1998
+fes2,6,15,6,30,harvest_only,fesc,hay_cut_low,NA,166,181,agrl1164,1998
+fes2,9,1,9,15,harvest_only,fesc,hay_cut_low,NA,244,258,agrl1164,1998
+fes2,9,1,9,15,kill_only,fesc,NA,NA,244,258,agrl1164,1998
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1164,1998
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1164,1998
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1164,1998
+pota,4,1,4,20,fertilizer,elem_n,broadcast,70,91,110,agrl1169,1995
+pota,4,20,4,30,plant,pota,NA,NA,110,120,agrl1169,1995
+pota,8,10,9,15,harvest_only,pota,tuber,NA,222,258,agrl1169,1995
+pota,8,10,9,15,kill_only,pota,NA,NA,222,258,agrl1169,1995
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1169,1995
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1169,1995
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1169,1995
+pota,4,1,4,20,tillage,fallplow,NA,NA,91,110,agrl1169,2000
+pota,4,1,4,20,fertilizer,elem_n,broadcast,70,91,110,agrl1169,2000
+pota,4,20,4,30,plant,pota,NA,NA,110,120,agrl1169,2000
+pota,8,10,9,15,harvest_only,pota,tuber,NA,222,258,agrl1169,2000
+pota,8,10,9,15,kill_only,pota,NA,NA,222,258,agrl1169,2000
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1169,2000
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1169,2000
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1169,2000
+pota,4,1,4,20,fertilizer,elem_n,broadcast,70,91,110,agrl1190,1995
+pota,4,20,4,30,plant,pota,NA,NA,110,120,agrl1190,1995
+pota,8,10,9,15,harvest_only,pota,tuber,NA,222,258,agrl1190,1995
+pota,8,10,9,15,kill_only,pota,NA,NA,222,258,agrl1190,1995
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1190,1995
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1190,1995
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1190,1995
+pota,4,1,4,20,tillage,fallplow,NA,NA,91,110,agrl1190,2000
+pota,4,1,4,20,fertilizer,elem_n,broadcast,70,91,110,agrl1190,2000
+pota,4,20,4,30,plant,pota,NA,NA,110,120,agrl1190,2000
+pota,8,10,9,15,harvest_only,pota,tuber,NA,222,258,agrl1190,2000
+pota,8,10,9,15,kill_only,pota,NA,NA,222,258,agrl1190,2000
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1190,2000
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1190,2000
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1190,2000
+pota,4,1,4,20,fertilizer,elem_n,broadcast,70,91,110,agrl1191,1995
+pota,4,20,4,30,plant,pota,NA,NA,110,120,agrl1191,1995
+pota,8,10,9,15,harvest_only,pota,tuber,NA,222,258,agrl1191,1995
+pota,8,10,9,15,kill_only,pota,NA,NA,222,258,agrl1191,1995
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1191,1995
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1191,1995
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1191,1995
+pota,4,1,4,20,tillage,fallplow,NA,NA,91,110,agrl1191,2000
+pota,4,1,4,20,fertilizer,elem_n,broadcast,70,91,110,agrl1191,2000
+pota,4,20,4,30,plant,pota,NA,NA,110,120,agrl1191,2000
+pota,8,10,9,15,harvest_only,pota,tuber,NA,222,258,agrl1191,2000
+pota,8,10,9,15,kill_only,pota,NA,NA,222,258,agrl1191,2000
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1191,2000
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1191,2000
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1191,2000
+alfa,3,20,3,30,tillage,landlevl,NA,NA,79,89,agrl1272,1999
+alfa,4,1,4,10,plant,lupn,NA,NA,91,100,agrl1272,1999
+alfa,8,20,8,30,harvest_only,lupn,grain,NA,232,242,agrl1272,1999
+alfa,8,20,8,30,kill_only,lupn,NA,NA,232,242,agrl1272,1999
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1272,1999
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1272,1999
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1272,1999
+csil,4,1,4,15,tillage,cchplow,NA,NA,91,105,agrl1345,1995
+csil,5,1,5,10,plant,csil,NA,NA,121,130,agrl1345,1995
+csil,6,10,6,20,fertilizer,elem_n,broadcast,100,161,171,agrl1345,1995
+csil,6,10,6,20,fertilizer,elem_p,broadcast,60,161,171,agrl1345,1995
+csil,8,20,9,20,harvest_only,csil,silage,NA,232,263,agrl1345,1995
+csil,8,20,9,20,kill_only,csil,NA,NA,232,263,agrl1345,1995
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1345,1995
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1345,1995
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1345,1995
+pota,4,1,4,20,tillage,fallplow,NA,NA,91,110,agrl1345,1998
+pota,4,1,4,20,fertilizer,elem_n,broadcast,70,91,110,agrl1345,1998
+pota,4,20,4,30,plant,pota,NA,NA,110,120,agrl1345,1998
+pota,8,10,9,15,harvest_only,pota,tuber,NA,222,258,agrl1345,1998
+pota,8,10,9,15,kill_only,pota,NA,NA,222,258,agrl1345,1998
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl1345,1998
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl1345,1998
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl1345,1998
+csil,4,1,4,15,fertilizer,swine_fr,broadcast,30000,91,105,agrl1345,2000
+csil,4,1,4,15,tillage,cchplow,NA,NA,91,105,agrl1345,2000
+csil,5,1,5,10,plant,csil,NA,NA,121,130,agrl1345,2000
+csil,6,10,6,20,fertilizer,elem_n,broadcast,100,161,171,agrl1345,2000
+csil,6,10,6,20,fertilizer,elem_p,broadcast,60,161,171,agrl1345,2000
+csil,8,20,9,20,harvest_only,csil,silage,NA,232,263,agrl1345,2000
+csil,8,20,9,20,kill_only,csil,NA,NA,232,263,agrl1345,2000
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1345,2000
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1345,2000
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1345,2000
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl1409,1999
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl1409,1999
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl1409,1999
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl1409,1999
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl1409,1999
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl1409,1999
+pota,9,1,9,15,tillage,fallplow,NA,NA,244,258,agrl1409,1999
+pota,10,1,10,15,fertilizer,swine_fr,broadcast,25000,274,288,agrl1409,1999
+fes2,3,10,3,20,plant,fesc,NA,NA,69,79,agrl1594,1996
+fes2,6,15,6,30,harvest_only,fesc,hay_cut_low,NA,166,181,agrl1594,1996
+fes2,9,1,9,15,harvest_only,fesc,hay_cut_low,NA,244,258,agrl1594,1996
+fes2,9,1,9,15,kill_only,fesc,NA,NA,244,258,agrl1594,1996
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1594,1996
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1594,1996
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1594,1996
+fes2,3,10,3,20,plant,fesc,NA,NA,69,79,agrl1594,2001
+fes2,6,15,6,30,harvest_only,fesc,hay_cut_low,NA,166,181,agrl1594,2001
+fes2,9,1,9,15,harvest_only,fesc,hay_cut_low,NA,244,258,agrl1594,2001
+fes2,9,1,9,15,kill_only,fesc,NA,NA,244,258,agrl1594,2001
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl1594,2001
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl1594,2001
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl1594,2001
+alfa,3,20,3,30,tillage,landlevl,NA,NA,79,89,agrl2026,1999
+alfa,4,1,4,10,plant,lupn,NA,NA,91,100,agrl2026,1999
+alfa,8,20,8,30,harvest_only,lupn,grain,NA,232,242,agrl2026,1999
+alfa,8,20,8,30,kill_only,lupn,NA,NA,232,242,agrl2026,1999
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl2026,1999
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl2026,1999
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl2026,1999
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl2248,1998
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl2248,1998
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl2248,1998
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl2248,1998
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl2248,1998
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl2248,1998
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl2248,1998
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl2248,1998
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl2248,1998
+alfa,3,20,3,30,tillage,landlevl,NA,NA,79,89,agrl2272,1999
+alfa,4,1,4,10,plant,lupn,NA,NA,91,100,agrl2272,1999
+alfa,8,20,8,30,harvest_only,lupn,grain,NA,232,242,agrl2272,1999
+alfa,8,20,8,30,kill_only,lupn,NA,NA,232,242,agrl2272,1999
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl2272,1999
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl2272,1999
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl2272,1999
+alfa,3,20,3,30,tillage,landlevl,NA,NA,79,89,agrl2284,1999
+alfa,4,1,4,10,plant,lupn,NA,NA,91,100,agrl2284,1999
+alfa,8,20,8,30,harvest_only,lupn,grain,NA,232,242,agrl2284,1999
+alfa,8,20,8,30,kill_only,lupn,NA,NA,232,242,agrl2284,1999
+canp,8,1,8,15,tillage,fallplow,NA,NA,213,227,agrl2284,1999
+canp,8,1,8,15,fertilizer,elem_n ,broadcast,25,213,227,agrl2284,1999
+canp,8,15,8,30,plant,canp,NA,NA,227,242,agrl2284,1999
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl3462,1995
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl3462,1995
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl3462,1995
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl3462,1995
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl3462,1995
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl3462,1995
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl3462,1995
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl3462,1995
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl3462,1998
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl3462,1998
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl3462,1998
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl3462,1998
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl3462,1998
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl3462,1998
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl3462,1998
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl3462,1998
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl3462,1998
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl3462,2000
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl3462,2000
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl3462,2000
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl3462,2000
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl3462,2000
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl3462,2000
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl3462,2000
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl3462,2000
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl3462,2000
+berm,9,1,9,15,tillage,fallplow,NA,NA,244,258,agrl3649,1995
+berm,9,16,10,1,kill_only,lmix,NA,NA,259,274,agrl3649,1995
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl3649,1995
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl3649,1995
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl3649,1995
+berm,3,10,3,20,plant,lmix,NA,NA,69,79,agrl3649,2000
+berm,9,1,9,15,tillage,fallplow,NA,NA,244,258,agrl3649,2000
+berm,9,16,10,1,kill_only,lmix,NA,NA,259,274,agrl3649,2000
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl3649,2000
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl3649,2000
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl3649,2000
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl3713,1999
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl3713,1999
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl3713,1999
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl3713,1999
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl3713,1999
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl3713,1999
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl3713,1999
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl3713,1999
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl3713,1999
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl3714,1999
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl3714,1999
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl3714,1999
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl3714,1999
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl3714,1999
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl3714,1999
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl3714,1999
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl3714,1999
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl3714,1999
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl4187,1998
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl4187,1998
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl4187,1998
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl4187,1998
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl4187,1998
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl4187,1998
+pota,9,1,9,15,tillage,fallplow,NA,NA,244,258,agrl4187,1998
+pota,10,1,10,15,fertilizer,swine_fr,broadcast,25000,274,288,agrl4187,1998
+buck,5,15,5,25,tillage,landlevl,NA,NA,135,145,agrl4313,1999
+buck,5,15,5,25,fertilizer,elem_n,broadcast,40,135,145,agrl4313,1999
+buck,5,15,5,25,fertilizer,elem_p,broadcast,13,135,145,agrl4313,1999
+buck,5,15,5,25,plant,buck,NA,NA,135,145,agrl4313,1999
+buck,8,1,9,30,harvest_only,buck,grain,NA,213,273,agrl4313,1999
+buck,8,1,9,30,kill_only,buck,NA,NA,213,273,agrl4313,1999
+rye,8,15,9,5,tillage,landlevl,NA,NA,227,248,agrl4313,1999
+rye,9,5,9,20,fertilizer,elem_n ,broadcast,30,248,263,agrl4313,1999
+rye,9,20,10,10,plant,rye,NA,NA,263,283,agrl4313,1999
