@@ -1,0 +1,8 @@
+'atmodep.cli' file was written by SWATprepR R package 2026-02-04 16:57:41.916879
+NUM_STA	TIMESTEP	MO_INIT	YR_INIT	NUM_AA
+1	aa	0	0	0
+atmodep.cli
+0.449	NH4_RF
+0.498	NO3_RF
+1.729	NH4_DRY
+2.574	NO3_DRY
