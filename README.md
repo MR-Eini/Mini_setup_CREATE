@@ -11,6 +11,8 @@ This repository is organized as a **minimal, step-by-step workflow** for setting
 - **`3_CropYield/softcal/`** — crop-yield **soft calibration** workflow. citeturn6view0  
 - **`4_RiverDischarge/hardcal/`** — river-discharge **hard calibration** workflow. 
 
+![Workflow overview](unnamed.png) 
+
 ## How to use
 
 Clone the repository:
