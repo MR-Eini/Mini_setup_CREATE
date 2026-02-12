@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/MR-Eini/Mini_setup_CREATE/main/1_Setup/SWAT_p_OPTAIN.png" alt="SWAT+ OPTAIN setup" width="900">
+  <img src="https://raw.githubusercontent.com/MR-Eini/Mini_setup_CREATE/main/1_Setup/SWAT_p_OPTAIN.png" alt="SWAT+ OPTAIN setup" width="1100">
 </p>
 
 # SWAT+ Uncalibrated Setup Preparation Workflow
