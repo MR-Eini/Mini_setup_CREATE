@@ -2,14 +2,14 @@
 
 ![Workflow overview](Workflow.png)
 
-This repository is organized as a **minimal, step-by-step workflow** for setting up a SWAT+ project and running a calibration workflow in distinct stages. citeturn6view0
+This repository is organized as a **minimal, step-by-step workflow** for setting up a SWAT+ project and running a calibration workflow in distinct stages.
 
 ## Repository structure
 
-- **`1_Setup/`** — project setup materials (inputs/layout/checks) and the workflow overview figure. citeturn6view0turn7view0  
-- **`2_SWATdoctR/`** — documentation-related materials (for SWAT project documentation using SWATdoctR). citeturn6view0  
+- **`1_Setup/`** — project setup materials (inputs/layout/checks) and the workflow overview figure.
+- **`2_SWATdoctR/`** — documentation-related materials (for SWAT project documentation using SWATdoctR). 
 - **`3_CropYield/softcal/`** — crop-yield **soft calibration** workflow. citeturn6view0  
-- **`4_RiverDischarge/hardcal/`** — river-discharge **hard calibration** workflow. citeturn6view0  
+- **`4_RiverDischarge/hardcal/`** — river-discharge **hard calibration** workflow. 
 
 ## How to use
 
