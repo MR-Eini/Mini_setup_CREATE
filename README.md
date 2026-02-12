@@ -1,6 +1,6 @@
 # Mini SWAT+ Setup (OPTAIN-style workflow)
 
-![Workflow overview](1_Setup/SWAT_p_OPTAIN.png)
+![Workflow overview](Workflow.png)
 
 This repository is organized as a **minimal, step-by-step workflow** for setting up a SWAT+ project and running a calibration workflow in distinct stages. citeturn6view0
 
