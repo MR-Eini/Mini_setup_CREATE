@@ -54,4 +54,4 @@ MR-Eini. Mini_setup_CREATE. GitHub repository. https://github.com/MR-Eini/Mini_s
 
 ## License
 
-No license file is included in the repository root at the moment. If you intend others to reuse the code, consider adding a license (e.g., MIT, GPL-3.0). citeturn6view0
+MIT, GPL-3.0
