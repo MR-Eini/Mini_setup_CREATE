@@ -1,6 +1,6 @@
 # Mini SWAT+ Setup (OPTAIN-style workflow)
 
-![Workflow overview](Workflow.png)
+![Workflow overview](2.png)
 
 This repository is organized as a **minimal, step-by-step workflow** for setting up a SWAT+ project and running a calibration workflow in distinct stages.
 
@@ -11,7 +11,7 @@ This repository is organized as a **minimal, step-by-step workflow** for setting
 - **`3_CropYield/softcal/`** — crop-yield **soft calibration** workflow.
 - **`4_RiverDischarge/hardcal/`** — river-discharge **hard calibration** workflow. 
 
-![Workflow overview](unnamed.png) 
+![Workflow overview](1.png) 
 
 ## How to use
 
