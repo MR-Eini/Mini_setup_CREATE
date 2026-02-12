@@ -52,7 +52,7 @@ If you use this workflow in a report/paper, you can cite the repository:
 MR-Eini. Mini_setup_CREATE. GitHub repository. https://github.com/MR-Eini/Mini_setup_CREATE
 ```
 
-(Replace with a DOI if you later archive a release on Zenodo.)
+https://zenodo.org/communities/optain-h2020-project/ 
 
 ## License
 
