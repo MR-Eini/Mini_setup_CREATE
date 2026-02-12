@@ -25,7 +25,7 @@ cd Mini_setup_CREATE
 Recommended workflow order (follow folders in ascending order):
 
 1. Start with **`1_Setup/`** and complete the setup steps/files provided there.
-2. Generate or update documentation via **`2_SWATdoctR/`** (if you use SWATdoctR in your workflow).
+2. Check the initial outputs via **`2_SWATdoctR/`** (if you use SWATdoctR in your workflow).
 3. Run crop-yield calibration steps in **`3_CropYield/softcal/`**.
 4. Run discharge calibration steps in **`4_RiverDischarge/hardcal/`**.
 
