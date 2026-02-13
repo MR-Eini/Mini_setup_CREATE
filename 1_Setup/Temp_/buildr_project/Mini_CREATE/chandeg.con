@@ -1,8 +1,0 @@
-chandeg.con: written by SWAT+ editor v2.1.0 on 2026-02-04 16:56 for SWAT+ rev.2.1.4
-      id  name                gis_id          area           lat           lon          elev      lcha               wst       cst      ovfl      rule   out_tot       obj_typ    obj_id       hyd_typ          frac  
-       1  cha1                     0      15.63590      54.43529      17.33443      74.12876         1     s54426n17292e         0         0         0         1           sdc         6           tot       1.00000  
-       2  cha2                     0       3.56910      54.39362      17.36258      91.35576         2     s54381n17294e         0         0         0         1           res         1           tot       1.00000  
-       3  cha3                     0      12.32845      54.40786      17.34945      82.56508         3     s54426n17292e         0         0         0         1           sdc         5           tot       1.00000  
-       4  cha4                     0      18.63990      54.40631      17.32620      77.84523         4     s54426n17292e         0         0         0         1           sdc         5           tot       1.00000  
-       5  cha5                     0      57.51590      54.42656      17.34477      74.40268         5     s54426n17292e         0         0         0         1           sdc         6           tot       1.00000  
-       6  cha6                     0      86.86210      54.43792      17.35245      71.43733         6     s54426n17292e         0         0         0         0  

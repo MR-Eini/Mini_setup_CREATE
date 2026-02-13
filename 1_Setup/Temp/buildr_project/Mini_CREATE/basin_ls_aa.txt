@@ -1,0 +1,4 @@
+ Mini_CREATE               SWAT+ Jan 11 2024        MODULAR Rev 2024.61.0                                 
+   jday   mon   day    yr   unit  gis_id  name                 sedyld     sedorgn     sedorgp     surqno3     lat3no3    surqsolp        usle     sedminp     tileno3     lchlabp    tilelabp      satexn
+                                                                  tha        kgha        kgha        kgha        kgha        kgha        tons        kgha        kgha        kgha        kgha        kgha
+   365    12    31  2021       1       1  Mini_CREATE            0.184       1.107       0.157       1.455       1.260       0.619       0.000       0.489       1.833      19.628       1.009       0.000

@@ -8,7 +8,7 @@ swat_exe <- "SWATp_jan_sept.exe"
 ## Folder names
 
 ## Folder for saving results
-res_path <- "Temp_"
+res_path <- "Temp"
 ## Data folder
 data_path <- "Data"
 ## Scripts folder
@@ -24,7 +24,10 @@ end_year <- 2021
 ## Path to weather data
 ## Description of functions and how data example was prepared is on this webpage
 ## https://biopsichas.github.io/SWATprepR/articles/weather.html
-weather_path <- paste0(data_path, '/for_prepr/met_int.rds')
+# weather_path <- paste0(data_path, '/for_prepr/weather_data_mini_model.xlsx')
+
+weather_path <- paste0(data_path, '/for_prepr/met_int_mini_model.rds')
+
 
 ## Path to point data
 ## Description of functions and how data example was prepared is on this webpage

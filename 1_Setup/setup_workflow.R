@@ -8,18 +8,26 @@
 ##
 ## 
 
-# # If the package 'remotes' is not installed run first:
+# Install:
+
 # install.packages("remotes")
-# 
+# install.packages("RNetCDF")
+# install.packages("tidyverse")
+# install.packages("mapview")
+# install.packages("sf")
+# install.packages("dplyr")
+# install.packages("gstat")
 # remotes::install_github("biopsichas/SWATtunR")
 # remotes::install_github("biopsichas/SWATprepR")
 # remotes::install_github("tkdweber/euptf2")
 # remotes::install_github("chrisschuerz/SWATfarmR")
-# remotes::install_github("chrisschuerz/SWATrunR")
-# remotes::install_git("https://git.ufz.de/schuerz/swatdoctr.git")
-# remotes::install_git("https://git.ufz.de/schuerz/swatmeasr.git")
+# remotes::install_github("chrisschuerz/SWATrunR@remove_legacy")
+# remotes::install_github("biopsichas/SWATdoctR")
+# remotes::install_github('chrisschuerz/SWATmeasR')
+# remotes::install_github('chrisschuerz/SWATreadR')
+# whitebox::install_whitebox()
 
-# ------------------------------------------------------------------------------
+# # ------------------------------------------------------------------------------
 ## Please read before starting!!! The preparation of input data is not part of 
 ## this workflow and needs to be done externally. However, if you have already 
 ## prepared and tested the data using the scripts provided by the developer 
@@ -39,6 +47,9 @@ library(SWATprepR)
 library(SWATfarmR)
 library(SWATtunR)
 library(SWATdoctR)
+library(mapview)
+library(sf)
+library(dplyr)
 source('settings.R')
 source('functions.R')
 
@@ -81,18 +92,40 @@ if(length(db_path)>1){
   file.remove(dest_db_path)
 }
 
-# met_int <- interpolate(met, "Data/for_buildr/basin.shp", 
-#                        "Data/for_buildr/DEM.tif", 5000) 
+# template_path
+# Character, the path to the *.xlsx file containing the data template.
+# epsg_code (optional) Integer, EPSG code for station coordinates. 
+# Default epsg_code = 4326, which stands for WGS 84 coordinate system.
+
+# *.xlsx file
+# met <- load_template(weather_path, 2180)
+
+# Or rds file (already interpolated)
+met <- readRDS(weather_path, 2180)
 
 
-## Loading weather data and downloading atmospheric deposition
-# met <- load_template(weather_path, 4326)
-# 
-# ## Fixed input values 
-# met$data$ID2$RELHUM$RELHUM <- ifelse(met$data$ID2$RELHUM$RELHUM >= 0,
-#                                      met$data$ID2$RELHUM$RELHUM/100, 
-#                                      met$data$ID2$RELHUM$RELHUM)
-met <- readRDS(weather_path)
+##------------------
+## Interpolate Weather Data if you have gaps and missing data
+## Otherwise go to line 129
+##------------------
+
+# This function interpolates weather data for a SWAT model and saves results into
+# nested list format. The function uses Inverse Distance Weighting (IDW) 
+# interpolation method to fill gaps in weather data. This function uses 
+# sp, gstat and raster packages for spatial operations. Please make sure
+# that these packages are installed before using this function.
+# https://biopsichas.github.io/SWATprepR/reference/interpolate.html
+
+# met <- load_template(weather_path, 2180)
+# met_int <- SWATprepR::interpolate(met, "Data/for_buildr/basin1.shp", 
+#                                   "Data/for_buildr/DEM1.tif", 10000)
+## Calculating weather generator statistics
+# wgn <- prepare_wgn(met_int)
+
+## Adding weather and atmospheric deposition data into setup
+# add_weather(db_path, met_int, wgn)
+
+
 ## Calculating weather generator statistics
 wgn <- prepare_wgn(met)
 
@@ -186,17 +219,18 @@ file.copy(paste0(in_dir, "/", files), paste0(res_path, "/farmR_input"))
 
 ## Cleaning calculation directory
 file.remove(paste0(in_dir, "/", files))
+mgt <- paste0(out_dir, "/farmR_input.csv")
 
 ##------------------------------------------------------------------------------
 ## 10) Additional editing of the farmR_input.csv file
 ##------------------------------------------------------------------------------
 # 
-# ## Reading the file 
-mgt <- paste0(out_dir, "/farmR_input.csv")
+# ## Reading the file
+# mgt <- paste0(out_dir, "/farmR_input.csv")
 # mgt_file <- read.csv(mgt)
 # 
 # ## Updating farmR_input.csv for providing management schedules in drained areas
-# mgt_file <- bind_rows(mgt_file, mgt_file %>% 
+# mgt_file <- bind_rows(mgt_file, mgt_file %>%
 #                         mutate(land_use = gsub("_lum", "_drn_lum", land_use)))
 # write_csv(mgt_file, file = mgt, quote = "needed", na = '')
 
@@ -325,7 +359,9 @@ frm$add_variable(api, "api", asgn)
 frm$read_management(mgt, discard_schedule = TRUE)
 frm$schedule_operations(start_year = 1995, end_year = 2021,
                         replace = 'all')
+
 # save.image(file = "my_environment.RData")
+#Must match with calibration and vlidation period + warm up period.
 frm$write_operations(start_year = 1995, end_year = 2021)
 
 
