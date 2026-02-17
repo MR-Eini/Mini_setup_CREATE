@@ -1,4 +1,4 @@
-weather-sta.cli: written by SWAT+ editor v2.1.0 on 2026-02-13 13:24 for SWAT+ rev.2.1.4
+weather-sta.cli: written by SWAT+ editor v2.1.0 on 2026-02-17 11:29 for SWAT+ rev.2.1.4
 name                           wgn                        pcp                        tmp                        slr                        hmd                        wnd           wnd_dir          atmo_dep  
 s54067n17383e                 ID64               sta_id64.pcp               sta_id64.tmp               sta_id64.slr               sta_id64.hmd               sta_id64.wnd              null              null  
 s54111n17305e                 ID60               sta_id60.pcp               sta_id60.tmp               sta_id60.slr               sta_id60.hmd               sta_id60.wnd              null              null  

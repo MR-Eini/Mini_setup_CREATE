@@ -1,4 +1,4 @@
-sta_id59.pcp: Precipitation data - file written by SWATprepR R package 2026-02-13 13:21:49.376815
+sta_id59.pcp: Precipitation data - file written by SWATprepR R package 2026-02-17 11:29:37.252128
 nbyr	tstep	lat	lon	elev
 27	0	54.11	17.229	201.49
 1995	1	3.326

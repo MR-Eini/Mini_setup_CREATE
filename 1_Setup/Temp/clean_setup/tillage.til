@@ -1,4 +1,4 @@
-SWAT+ input file written with SWATreadR at 2026-02-13 13:27:43.730969
+SWAT+ input file written with SWATreadR at 2026-02-17 11:31:25.377383
 name                     mix_eff        mix_dp         rough      ridge_ht      ridge_sp  description                             
 fallplow                    0.95           150            75             0             0  genericfallplowingoperation             
 sprgplow                     0.5           125            50             0             0  genericspringplowingoperation           
@@ -78,5 +78,4 @@ furwdike                     0.7           100            13             0      
 beetcult                    0.25            25            15             0             0  beetcultivator                          
 cltiweed                     0.3           100            15             0             0  cultiweeder                             
 packer                      0.35            40             0             0             0  packer                                  
-plow25                      0.95           250            75             0             0  plowingoperation25cm                    
 plow25                      0.95           250            75             0             0  plowingoperation25cm                    

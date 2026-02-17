@@ -1,0 +1,112 @@
+# Installation -----------------------------------------------------
+# Check if dependencies are installed and install otherwise.
+#pkg_depend <- c('dplyr', 'lubridate', 'purrr', 'R6', 'readr', 'rlang', 'stringr', 'tibble', 'tidyselect')
+#is_installed <- pkg_depend %in% rownames(installed.packages())
+#install.packages(pkg_depend[!is_installed])
+# Maybe not necessary but update installed package dependencies
+#update.packages(oldPkgs = pkg_depend[is_installed])
+
+# Install SWATfarmR from tar file
+#install.packages("Your/path/to/SWATfarmR_1.4.2.tar.gz", repos = NULL, type = "source")
+
+# If the package 'remotes' is not installed run first:
+#install.packages("remotes")
+
+#remotes::install_github("chrisschuerz/SWATfarmR", force = TRUE)
+
+#---------------------------------------------------
+# Load the farmR
+library(SWATfarmR)
+library(tidyverse)
+library(zoo)
+
+#---------------------------------------------------
+# Define the path to your SWAT project
+pth <- './clean_setup'
+# Define the path to your management schedule csv
+mgt <- 'farmR_input.csv'
+
+#load_farmr(paste(pth, 'statusquo.farm', sep = '/'))
+
+
+
+# Create a new farmR project. The new farmR will have the name 'farmR_ilm' in
+# your R environment in this case. You can give it an individual name.
+#statusquo.farm$reset_files()
+
+new_farmr('statusquo', pth)
+
+# Interpolate NA's in pcp data (if you have any)
+statusquo$.data$variables$pcp[-1] <- na.approx(statusquo$.data$variables$pcp[-1])
+
+# You can use by default the variables pcp, tmn, tmx, and tav, for dynamic
+# rules in your management schedule. But you can also calculate and use new
+# ones. You can also see in the example csv file how I used the variable
+# in the dynamic rules. In this case I calculated the antecedent precipi-
+# tation as a proxy for soil moisture using an exponential decay function
+# (included in the R package). I used the pcp from the SWAT project for
+# that which is stored in the farmR project.
+api <- variable_decay(statusquo$.data$variables$pcp, -5,0.8)
+
+# To add the variable to the farmR you have to tell it which variables are
+# assigned to which HRUs for that I just copied the connections of pcp to
+# HRUs and use the same for api
+asgn <- select(statusquo$.data$meta$hru_var_connect, hru, pcp)
+
+# You can add a variable to the farmR project with the internal function
+# .$add_variable
+statusquo$add_variable(api, "api", asgn, overwrite = T)
+
+# Read your management table into your farmR project with .$read_management
+statusquo$read_management(mgt, discard_schedule = TRUE)
+
+# Study your management inputs
+sched <- statusquo$.data$management$schedule
+unique(sched$op_data1)
+hru_attributes <- statusquo$.data$meta$hru_attributes
+
+
+# #######################################################################
+# #### Probelm in CS5 and CS6: a lot of duplicates should be removed
+# load_farmr(paste(pth, 'statusquo.farm', sep = '/'))
+#
+# # extract schedule
+# sched1 <- statusquo[[".data"]][["management"]][["schedule"]]
+#
+# # keep only first occurrence of each land_use
+# sched_nodup <- sched1[!duplicated(sched1$land_use), ]
+#
+# # write back into statusquo
+# statusquo[[".data"]][["management"]][["schedule"]] <- sched_nodup
+#
+
+#statusquo[[".data"]][["scheduled_operations"]][["assigned_hrus"]][["schedule"]] <- statusquo[[".data"]][["scheduled_operations"]][["assigned_hrus"]][["lu_mgt"]]
+
+# statusquo$save()
+# #######################################################################
+
+
+# You can now schedule operations which are based on your variables (pcp, etc.)
+# and the rules that you defined in your management table. If no dates are
+# defined the entire time series of your variables is used.
+#farmR_ilm$schedule_operations(start_year = 2003, end_year = 2014, n_schedule=1) #n_schedule=1, => für jede landuse pro routing unit nur einen schedule in management.sch schreiben und für andere dann übernehmen)
+statusquo$schedule_operations(start_year = 2001, end_year = 2021, replace = 'all')
+
+
+
+# When the scheduling was successful you can write the schedules into your
+# SWAT project txt input files. Again you can do this for any time period.
+# E.g. your calibration period and in another run for your validation period.
+# When writing the schedules the simulation period of the model is changed
+# accordingly, so that your schedules always match the weather time series.
+# So do not change your simulation period manually. Then the simulated
+# years will not match the calculated schedules.
+statusquo$write_operations(start_year = 2001, end_year = 2021)
+
+# Update land use labels (should not be longer than 24 characters)
+library(SWATdoctR)
+update_landuse_labels(pth)
+
+# Reset files (required for rerunning the farmR)
+#statusquo$reset_files()
+

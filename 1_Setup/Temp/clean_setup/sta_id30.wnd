@@ -1,4 +1,4 @@
-sta_id30.wnd: Wind speed data - file written by SWATprepR R package 2026-02-13 13:21:43.829015
+sta_id30.wnd: Wind speed data - file written by SWATprepR R package 2026-02-17 11:29:31.378563
 nbyr	tstep	lat	lon	elev
 27	0	54.286	16.99	101.02
 1995	1	5.678

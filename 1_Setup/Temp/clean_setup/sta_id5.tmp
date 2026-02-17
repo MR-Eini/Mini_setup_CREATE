@@ -1,4 +1,4 @@
-sta_id5.tmp: Temperature data - file written by SWATprepR R package 2026-02-13 13:21:47.438256
+sta_id5.tmp: Temperature data - file written by SWATprepR R package 2026-02-17 11:29:35.320127
 nbyr	tstep	lat	lon	elev
 27	0	54.512	17.057	34.94
 1995	1	4.96	-0.696

@@ -1,4 +1,4 @@
-SWAT+ input file written with SWATreadR at 2026-02-13 13:27:36.143686
+SWAT+ input file written with SWATreadR at 2026-02-17 11:31:25.346348
 name                       min_n         min_p         org_n         org_p         nh3_n           pathogens  description                   
 elem_n                         1             0             0             0             0                null  ElementalNitrogen             
 elem_p                         0             1             0             0             0                null  ElementalPhosphorous          

@@ -1,4 +1,4 @@
-sta_id8.slr: Solar radiation data - file written by SWATprepR R package 2026-02-13 13:21:50.788806
+sta_id8.slr: Solar radiation data - file written by SWATprepR R package 2026-02-17 11:29:38.87232
 nbyr	tstep	lat	lon	elev
 27	0	54.467	17.059	56.86
 1995	1	1.395

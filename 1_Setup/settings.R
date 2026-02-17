@@ -75,7 +75,7 @@ land_path <- paste0(out_path, buildr_data, 'land1.shp')
 
 ## Channel input vector layer path 
 channel_path <- paste0(out_path, buildr_data, 'river1.shp')
-# channel_path <- paste0(out_path, buildr_data, "Pesnica_full_streams_reduced.shp")
+
 
 ## Catchment boundary vector layer path, all layers will be masked by the
 ## basin boundary

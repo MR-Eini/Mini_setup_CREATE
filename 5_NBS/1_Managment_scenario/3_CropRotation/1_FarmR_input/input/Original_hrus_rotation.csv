@@ -1,0 +1,315 @@
+FID,Shape *,id,type,y_1991,y_1992,y_1993,y_1994,y_1995,y_1996,y_1997,y_1998,y_1999,y_2000,y_2001,y_2002,y_2003,y_2004,y_2005,y_2006,y_2007,y_2008,y_2009,y_2010,y_2011,y_2012,y_2013,y_2014,y_2015,y_2016,y_2017,y_2018,y_2019,y_2020,y_2021,y_2022,y_2023,y_2024,y_2025,drainage
+0,Polygon,1,frsd, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+1,Polygon,2,frsd, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+2,Polygon,3,frsd, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+3,Polygon,4,frse, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+4,Polygon,5,frse, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+5,Polygon,6,frse, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+6,Polygon,7,frse, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+7,Polygon,8,frse, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+8,Polygon,9,frse, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+9,Polygon,10,frse, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+10,Polygon,11,frse, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+11,Polygon,12,frse, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+12,Polygon,13,frse, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+13,Polygon,14,frse, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+14,Polygon,15,frse, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+15,Polygon,16,frse, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+16,Polygon,17,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+17,Polygon,18,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+18,Polygon,19,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+19,Polygon,20,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+20,Polygon,21,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+21,Polygon,22,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+22,Polygon,23,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+23,Polygon,24,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+24,Polygon,25,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+25,Polygon,26,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+26,Polygon,27,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+27,Polygon,28,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+28,Polygon,29,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+29,Polygon,30,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+30,Polygon,31,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+31,Polygon,32,orcd, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+32,Polygon,33,orcd, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+33,Polygon,34,urld, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+34,Polygon,35,urld, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+35,Polygon,36,urld, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+36,Polygon,37,urld, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+37,Polygon,38,urld, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+38,Polygon,39,urld, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+39,Polygon,40,urmd, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+40,Polygon,41,urmd, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+41,Polygon,42,urmd, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+42,Polygon,43,wehb, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+43,Polygon,44,wehb, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+44,Polygon,45,wehb, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+45,Polygon,46,wehb, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+46,Polygon,47,wehb, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+47,Polygon,48,wehb, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+48,Polygon,49,wetf, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+49,Polygon,50,wetf, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+50,Polygon,51,wetf, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+51,Polygon,52,wetf, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+52,Polygon,53,wetf, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+53,Polygon,54,wetf, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+54,Polygon,55,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+55,Polygon,56,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+56,Polygon,57,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+57,Polygon,58,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+58,Polygon,59,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+59,Polygon,60,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+60,Polygon,61,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+61,Polygon,62,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+62,Polygon,63,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+63,Polygon,64,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+64,Polygon,65,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+65,Polygon,66,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+66,Polygon,67,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+67,Polygon,68,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+68,Polygon,69,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+69,Polygon,70,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+70,Polygon,71,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+71,Polygon,72,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+72,Polygon,73,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+73,Polygon,74,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+74,Polygon,75,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+75,Polygon,76,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+76,Polygon,77,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+77,Polygon,78,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+78,Polygon,79,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+79,Polygon,80,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+80,Polygon,81,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+81,Polygon,82,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+82,Polygon,83,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+83,Polygon,84,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+84,Polygon,85,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+85,Polygon,86,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+86,Polygon,87,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+87,Polygon,88,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+88,Polygon,89,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+89,Polygon,90,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+90,Polygon,91,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+91,Polygon,92,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+92,Polygon,93,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+93,Polygon,94,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+94,Polygon,95,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+95,Polygon,96,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+96,Polygon,97,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+97,Polygon,98,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+98,Polygon,99,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+99,Polygon,100,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+100,Polygon,101,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+101,Polygon,102,agrl20,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,alfa,0
+102,Polygon,103,agrl26,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,oats,alfa,alfa,alfa,0
+103,Polygon,104,agrl66,alfa,oats,alfa,alfa,oats,alfa,oats,alfa,alfa,oats,alfa,oats,alfa,alfa,oats,alfa,oats,alfa,alfa,oats,alfa,oats,alfa,alfa,oats,alfa,oats,alfa,alfa,oats,alfa,oats,alfa,alfa,oats,0
+104,Polygon,105,agrl90,alfa,oats,alfa,fes2,barl,alfa,oats,alfa,fes2,barl,alfa,oats,alfa,fes2,barl,alfa,oats,alfa,fes2,barl,alfa,oats,alfa,fes2,barl,alfa,oats,alfa,fes2,barl,alfa,oats,alfa,fes2,barl,0
+105,Polygon,106,agrl96,alfa,oats,alfa,fpea,alfa,oats,alfa,alfa,fpea,alfa,oats,alfa,alfa,fpea,alfa,oats,alfa,alfa,fpea,alfa,oats,alfa,alfa,fpea,alfa,oats,alfa,alfa,fpea,alfa,oats,alfa,alfa,fpea,alfa,0
+106,Polygon,107,agrl204,alfa,barl,barl,oats,alfa,alfa,barl,barl,oats,alfa,alfa,barl,barl,oats,alfa,alfa,barl,barl,oats,alfa,alfa,barl,barl,oats,alfa,alfa,barl,barl,oats,alfa,alfa,barl,barl,oats,alfa,0
+107,Polygon,108,agrl207,alfa,barl,buck,pota,pota,alfa,barl,buck,pota,pota,alfa,barl,buck,pota,pota,alfa,barl,buck,pota,pota,alfa,barl,buck,pota,pota,alfa,barl,buck,pota,pota,alfa,barl,buck,pota,pota,0
+108,Polygon,109,agrl218,alfa,barl,pota,wwht,canp,alfa,barl,pota,wwht,canp,alfa,barl,pota,wwht,canp,alfa,barl,pota,wwht,canp,alfa,barl,pota,wwht,canp,alfa,barl,pota,wwht,canp,alfa,barl,pota,wwht,canp,0
+109,Polygon,110,agrl246,alfa,buck,rye,alfa,rye,alfa,buck,rye,alfa,rye,alfa,buck,rye,alfa,rye,alfa,buck,rye,alfa,rye,alfa,buck,rye,alfa,rye,alfa,buck,rye,alfa,rye,alfa,buck,rye,alfa,rye,0
+110,Polygon,111,agrl247,alfa,buck,rye,buck,rye,alfa,buck,rye,buck,rye,alfa,buck,rye,buck,rye,alfa,buck,rye,buck,rye,alfa,buck,rye,buck,rye,alfa,buck,rye,buck,rye,alfa,buck,rye,buck,rye,0
+111,Polygon,112,agrl253,alfa,canp,pota,pota,trit,alfa,canp,pota,pota,trit,alfa,canp,pota,pota,trit,alfa,canp,pota,pota,trit,alfa,canp,pota,pota,trit,alfa,canp,pota,pota,trit,alfa,canp,pota,pota,trit,0
+112,Polygon,113,agrl258,alfa,canp,trit,alfa,trit,alfa,canp,trit,alfa,trit,alfa,canp,trit,alfa,trit,alfa,canp,trit,alfa,trit,alfa,canp,trit,alfa,trit,alfa,canp,trit,alfa,trit,alfa,canp,trit,alfa,trit,0
+113,Polygon,114,agrl270,alfa,csil,csil,alfa,fpea,alfa,csil,csil,alfa,fpea,alfa,csil,csil,alfa,fpea,alfa,csil,csil,alfa,fpea,alfa,csil,csil,alfa,fpea,alfa,csil,csil,alfa,fpea,alfa,csil,csil,alfa,fpea,0
+114,Polygon,115,agrl301,alfa,oats,barl,barl,rye,alfa,oats,barl,barl,rye,alfa,oats,barl,barl,rye,alfa,oats,barl,barl,rye,alfa,oats,barl,barl,rye,alfa,oats,barl,barl,rye,alfa,oats,barl,barl,rye,0
+115,Polygon,116,agrl342,alfa,oats,trit,alfa,rye,alfa,oats,trit,alfa,rye,alfa,oats,trit,alfa,rye,alfa,oats,trit,alfa,rye,alfa,oats,trit,alfa,rye,alfa,oats,trit,alfa,rye,alfa,oats,trit,alfa,rye,0
+116,Polygon,117,agrl343,alfa,oats,trit,buck,rye,alfa,oats,trit,buck,rye,alfa,oats,trit,buck,rye,alfa,oats,trit,buck,rye,alfa,oats,trit,buck,rye,alfa,oats,trit,buck,rye,alfa,oats,trit,buck,rye,0
+117,Polygon,118,agrl344,alfa,oats,trit,buck,rye,alfa,oats,trit,buck,rye,alfa,oats,trit,buck,rye,alfa,oats,trit,buck,rye,alfa,oats,trit,buck,rye,alfa,oats,trit,buck,rye,alfa,oats,trit,buck,rye,0
+118,Polygon,119,agrl382,alfa,rye,barl,canp,fpea,alfa,rye,barl,canp,fpea,alfa,rye,barl,canp,fpea,alfa,rye,barl,canp,fpea,alfa,rye,barl,canp,fpea,alfa,rye,barl,canp,fpea,alfa,rye,barl,canp,fpea,0
+119,Polygon,120,agrl386,alfa,rye,buck,alfa,rye,alfa,rye,buck,alfa,rye,alfa,rye,buck,alfa,rye,alfa,rye,buck,alfa,rye,alfa,rye,buck,alfa,rye,alfa,rye,buck,alfa,rye,alfa,rye,buck,alfa,rye,0
+120,Polygon,121,agrl415,alfa,trit,alfa,pota,pota,alfa,trit,alfa,pota,pota,alfa,trit,alfa,pota,pota,alfa,trit,alfa,pota,pota,alfa,trit,alfa,pota,pota,alfa,trit,alfa,pota,pota,alfa,trit,alfa,pota,pota,0
+121,Polygon,122,agrl430,alfa,trit,pota,wwht,canp,alfa,trit,pota,wwht,canp,alfa,trit,pota,wwht,canp,alfa,trit,pota,wwht,canp,alfa,trit,pota,wwht,canp,alfa,trit,pota,wwht,canp,alfa,trit,pota,wwht,canp,0
+122,Polygon,123,agrl493,barl,alfa,trit,pota,oats,barl,alfa,trit,pota,oats,barl,alfa,trit,pota,oats,barl,alfa,trit,pota,oats,barl,alfa,trit,pota,oats,barl,alfa,trit,pota,oats,barl,alfa,trit,pota,oats,0
+123,Polygon,124,agrl567,barl,barl,canp,trit,pota,barl,barl,canp,trit,pota,barl,barl,canp,trit,pota,barl,barl,canp,trit,pota,barl,barl,canp,trit,pota,barl,barl,canp,trit,pota,barl,barl,canp,trit,pota,0
+124,Polygon,125,agrl580,barl,barl,oats,fpea,barl,barl,barl,oats,fpea,barl,barl,barl,oats,fpea,barl,barl,barl,oats,fpea,barl,barl,barl,oats,fpea,barl,barl,barl,oats,fpea,barl,barl,barl,oats,fpea,barl,0
+125,Polygon,126,agrl713,barl,oats,alfa,rye,alfa,barl,oats,alfa,rye,alfa,barl,oats,alfa,rye,alfa,barl,oats,alfa,rye,alfa,barl,oats,alfa,rye,alfa,barl,oats,alfa,rye,alfa,barl,oats,alfa,rye,alfa,0
+126,Polygon,127,agrl727,barl,oats,barl,oats,alfa,barl,oats,barl,oats,alfa,barl,oats,barl,oats,alfa,barl,oats,barl,oats,alfa,barl,oats,barl,oats,alfa,barl,oats,barl,oats,alfa,barl,oats,barl,oats,alfa,0
+127,Polygon,128,agrl732,barl,oats,barl,oats,wwht,barl,oats,barl,oats,wwht,barl,oats,barl,oats,wwht,barl,oats,barl,oats,wwht,barl,oats,barl,oats,wwht,barl,oats,barl,oats,wwht,barl,oats,barl,oats,wwht,0
+128,Polygon,129,agrl750,barl,oats,oats,barl,oats,barl,oats,oats,barl,oats,barl,oats,oats,barl,oats,barl,oats,oats,barl,oats,barl,oats,oats,barl,oats,barl,oats,oats,barl,oats,barl,oats,oats,barl,oats,0
+129,Polygon,130,agrl762,barl,oats,csil,oats,rye,barl,oats,csil,oats,rye,barl,oats,csil,oats,rye,barl,oats,csil,oats,rye,barl,oats,csil,oats,rye,barl,oats,csil,oats,rye,barl,oats,csil,oats,rye,0
+130,Polygon,131,agrl779,barl,oats,rye,oats,barl,barl,oats,rye,oats,barl,barl,oats,rye,oats,barl,barl,oats,rye,oats,barl,barl,oats,rye,oats,barl,barl,oats,rye,oats,barl,barl,oats,rye,oats,barl,0
+131,Polygon,132,agrl796,barl,oats,trit,wwht,fpea,barl,oats,trit,wwht,fpea,barl,oats,trit,wwht,fpea,barl,oats,trit,wwht,fpea,barl,oats,trit,wwht,fpea,barl,oats,trit,wwht,fpea,barl,oats,trit,wwht,fpea,0
+132,Polygon,133,agrl808,barl,pota,pota,pota,pota,barl,pota,pota,pota,pota,barl,pota,pota,pota,pota,barl,pota,pota,pota,pota,barl,pota,pota,pota,pota,barl,pota,pota,pota,pota,barl,pota,pota,pota,pota,0
+133,Polygon,134,agrl811,barl,pota,wwht,canp,rye,barl,pota,wwht,canp,rye,barl,pota,wwht,canp,rye,barl,pota,wwht,canp,rye,barl,pota,wwht,canp,rye,barl,pota,wwht,canp,rye,barl,pota,wwht,canp,rye,0
+134,Polygon,135,agrl943,berm,berm,berm,berm,oats,berm,berm,berm,berm,oats,berm,berm,berm,berm,oats,berm,berm,berm,berm,oats,berm,berm,berm,berm,oats,berm,berm,berm,berm,oats,berm,berm,berm,berm,oats,0
+135,Polygon,136,agrl948,berm,berm,berm,fes2,fes2,berm,berm,berm,fes2,fes2,berm,berm,berm,fes2,fes2,berm,berm,berm,fes2,fes2,berm,berm,berm,fes2,fes2,berm,berm,berm,fes2,fes2,berm,berm,berm,fes2,fes2,0
+136,Polygon,137,agrl966,berm,fes2,alfa,fes2,fes2,berm,fes2,alfa,fes2,fes2,berm,fes2,alfa,fes2,fes2,berm,fes2,alfa,fes2,fes2,berm,fes2,alfa,fes2,fes2,berm,fes2,alfa,fes2,fes2,berm,fes2,alfa,fes2,fes2,0
+137,Polygon,138,agrl967,berm,fes2,alfa,oats,trit,berm,fes2,alfa,oats,trit,berm,fes2,alfa,oats,trit,berm,fes2,alfa,oats,trit,berm,fes2,alfa,oats,trit,berm,fes2,alfa,oats,trit,berm,fes2,alfa,oats,trit,0
+138,Polygon,139,agrl969,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,0
+139,Polygon,140,agrl970,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,0
+140,Polygon,141,agrl985,buck,alfa,alfa,rye,buck,buck,alfa,alfa,rye,buck,buck,alfa,alfa,rye,buck,buck,alfa,alfa,rye,buck,buck,alfa,alfa,rye,buck,buck,alfa,alfa,rye,buck,buck,alfa,alfa,rye,buck,0
+141,Polygon,142,agrl988,buck,alfa,barl,trit,trit,buck,alfa,barl,trit,trit,buck,alfa,barl,trit,trit,buck,alfa,barl,trit,trit,buck,alfa,barl,trit,trit,buck,alfa,barl,trit,trit,buck,alfa,barl,trit,trit,0
+142,Polygon,143,agrl996,buck,alfa,buck,rye,alfa,buck,alfa,buck,rye,alfa,buck,alfa,buck,rye,alfa,buck,alfa,buck,rye,alfa,buck,alfa,buck,rye,alfa,buck,alfa,buck,rye,alfa,buck,alfa,buck,rye,alfa,0
+143,Polygon,144,agrl1007,buck,alfa,rye,buck,alfa,buck,alfa,rye,buck,alfa,buck,alfa,rye,buck,alfa,buck,alfa,rye,buck,alfa,buck,alfa,rye,buck,alfa,buck,alfa,rye,buck,alfa,buck,alfa,rye,buck,alfa,0
+144,Polygon,145,agrl1008,buck,alfa,rye,buck,rye,buck,alfa,rye,buck,rye,buck,alfa,rye,buck,rye,buck,alfa,rye,buck,rye,buck,alfa,rye,buck,rye,buck,alfa,rye,buck,rye,buck,alfa,rye,buck,rye,0
+145,Polygon,146,agrl1011,buck,alfa,trit,trit,alfa,buck,alfa,trit,trit,alfa,buck,alfa,trit,trit,alfa,buck,alfa,trit,trit,alfa,buck,alfa,trit,trit,alfa,buck,alfa,trit,trit,alfa,buck,alfa,trit,trit,alfa,0
+146,Polygon,147,agrl1079,buck,oats,barl,rye,oats,buck,oats,barl,rye,oats,buck,oats,barl,rye,oats,buck,oats,barl,rye,oats,buck,oats,barl,rye,oats,buck,oats,barl,rye,oats,buck,oats,barl,rye,oats,0
+147,Polygon,148,agrl1145,canp,canp,barl,alfa,canp,canp,canp,barl,alfa,canp,canp,canp,barl,alfa,canp,canp,canp,barl,alfa,canp,canp,canp,barl,alfa,canp,canp,canp,barl,alfa,canp,canp,canp,barl,alfa,canp,0
+148,Polygon,149,agrl1163,canp,fes2,fes2,canp,fes2,canp,fes2,fes2,canp,fes2,canp,fes2,fes2,canp,fes2,canp,fes2,fes2,canp,fes2,canp,fes2,fes2,canp,fes2,canp,fes2,fes2,canp,fes2,canp,fes2,fes2,canp,fes2,0
+149,Polygon,150,agrl1164,canp,fes2,fes2,canp,trit,canp,fes2,fes2,canp,trit,canp,fes2,fes2,canp,trit,canp,fes2,fes2,canp,trit,canp,fes2,fes2,canp,trit,canp,fes2,fes2,canp,trit,canp,fes2,fes2,canp,trit,0
+150,Polygon,151,agrl1169,canp,fes2,fes2,trit,pota,canp,fes2,fes2,trit,pota,canp,fes2,fes2,trit,pota,canp,fes2,fes2,trit,pota,canp,fes2,fes2,trit,pota,canp,fes2,fes2,trit,pota,canp,fes2,fes2,trit,pota,0
+151,Polygon,152,agrl1188,canp,pota,wwht,barl,fpea,canp,pota,wwht,barl,fpea,canp,pota,wwht,barl,fpea,canp,pota,wwht,barl,fpea,canp,pota,wwht,barl,fpea,canp,pota,wwht,barl,fpea,canp,pota,wwht,barl,fpea,0
+152,Polygon,153,agrl1190,canp,pota,wwht,canp,pota,canp,pota,wwht,canp,pota,canp,pota,wwht,canp,pota,canp,pota,wwht,canp,pota,canp,pota,wwht,canp,pota,canp,pota,wwht,canp,pota,canp,pota,wwht,canp,pota,0
+153,Polygon,154,agrl1191,canp,pota,wwht,canp,pota,canp,pota,wwht,canp,pota,canp,pota,wwht,canp,pota,canp,pota,wwht,canp,pota,canp,pota,wwht,canp,pota,canp,pota,wwht,canp,pota,canp,pota,wwht,canp,pota,0
+154,Polygon,155,agrl1272,canp,wwht,barl,alfa,canp,canp,wwht,barl,alfa,canp,canp,wwht,barl,alfa,canp,canp,wwht,barl,alfa,canp,canp,wwht,barl,alfa,canp,canp,wwht,barl,alfa,canp,canp,wwht,barl,alfa,canp,0
+155,Polygon,156,agrl1284,canp,wwht,barl,trit,fpea,canp,wwht,barl,trit,fpea,canp,wwht,barl,trit,fpea,canp,wwht,barl,trit,fpea,canp,wwht,barl,trit,fpea,canp,wwht,barl,trit,fpea,canp,wwht,barl,trit,fpea,0
+156,Polygon,157,agrl1345,canp,wwht,pota,rye,csil,canp,wwht,pota,rye,csil,canp,wwht,pota,rye,csil,canp,wwht,pota,rye,csil,canp,wwht,pota,rye,csil,canp,wwht,pota,rye,csil,canp,wwht,pota,rye,csil,0
+157,Polygon,158,agrl1360,canp,wwht,pota,wwht,trit,canp,wwht,pota,wwht,trit,canp,wwht,pota,wwht,trit,canp,wwht,pota,wwht,trit,canp,wwht,pota,wwht,trit,canp,wwht,pota,wwht,trit,canp,wwht,pota,wwht,trit,0
+158,Polygon,159,agrl1393,canp,wwht,wwht,oats,oats,canp,wwht,wwht,oats,oats,canp,wwht,wwht,oats,oats,canp,wwht,wwht,oats,oats,canp,wwht,wwht,oats,oats,canp,wwht,wwht,oats,oats,canp,wwht,wwht,oats,oats,0
+159,Polygon,160,agrl1409,csil,berm,oats,buck,pota,csil,berm,oats,buck,pota,csil,berm,oats,buck,pota,csil,berm,oats,buck,pota,csil,berm,oats,buck,pota,csil,berm,oats,buck,pota,csil,berm,oats,buck,pota,0
+160,Polygon,161,agrl1494,csil,csil,csil,csil,trit,csil,csil,csil,csil,trit,csil,csil,csil,csil,trit,csil,csil,csil,csil,trit,csil,csil,csil,csil,trit,csil,csil,csil,csil,trit,csil,csil,csil,csil,trit,0
+161,Polygon,162,agrl1594,fes2,canp,wwht,pota,wwht,fes2,canp,wwht,pota,wwht,fes2,canp,wwht,pota,wwht,fes2,canp,wwht,pota,wwht,fes2,canp,wwht,pota,wwht,fes2,canp,wwht,pota,wwht,fes2,canp,wwht,pota,wwht,0
+162,Polygon,163,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+163,Polygon,164,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+164,Polygon,165,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+165,Polygon,166,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+166,Polygon,167,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+167,Polygon,168,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+168,Polygon,169,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+169,Polygon,170,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+170,Polygon,171,agrl1753,fes2,oats,fes2,fes2,oats,fes2,oats,fes2,fes2,oats,fes2,oats,fes2,fes2,oats,fes2,oats,fes2,fes2,oats,fes2,oats,fes2,fes2,oats,fes2,oats,fes2,fes2,oats,fes2,oats,fes2,fes2,oats,0
+171,Polygon,172,agrl1756,fes2,oats,fes2,fes2,trit,fes2,oats,fes2,fes2,trit,fes2,oats,fes2,fes2,trit,fes2,oats,fes2,fes2,trit,fes2,oats,fes2,fes2,trit,fes2,oats,fes2,fes2,trit,fes2,oats,fes2,fes2,trit,0
+172,Polygon,173,agrl1811,fes2,oats,fes2,oats,fes2,oats,fes2,fes2,oats,fes2,oats,fes2,fes2,oats,fes2,oats,fes2,fes2,oats,fes2,oats,fes2,fes2,oats,fes2,oats,fes2,fes2,oats,fes2,oats,fes2,fes2,oats,fes2,0
+173,Polygon,174,agrl1839,fes2,fes2,oats,oats,berm,fes2,fes2,oats,oats,berm,fes2,fes2,oats,oats,berm,fes2,fes2,oats,oats,berm,fes2,fes2,oats,oats,berm,fes2,fes2,oats,oats,berm,fes2,fes2,oats,oats,berm,0
+174,Polygon,175,agrl1906,fes2,trit,canp,trit,pota,fes2,trit,canp,trit,pota,fes2,trit,canp,trit,pota,fes2,trit,canp,trit,pota,fes2,trit,canp,trit,pota,fes2,trit,canp,trit,pota,fes2,trit,canp,trit,pota,0
+175,Polygon,176,agrl1912,fes2,trit,fpea,pota,wwht,fes2,trit,fpea,pota,wwht,fes2,trit,fpea,pota,wwht,fes2,trit,fpea,pota,wwht,fes2,trit,fpea,pota,wwht,fes2,trit,fpea,pota,wwht,fes2,trit,fpea,pota,wwht,0
+176,Polygon,177,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+177,Polygon,178,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+178,Polygon,179,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+179,Polygon,180,agrl2007,fpea,alfa,fes2,oats,fpea,fpea,alfa,fes2,oats,fpea,fpea,alfa,fes2,oats,fpea,fpea,alfa,fes2,oats,fpea,fpea,alfa,fes2,oats,fpea,fpea,alfa,fes2,oats,fpea,fpea,alfa,fes2,oats,fpea,0
+180,Polygon,181,agrl2015,fpea,barl,canp,trit,pota,fpea,barl,canp,trit,pota,fpea,barl,canp,trit,pota,fpea,barl,canp,trit,pota,fpea,barl,canp,trit,pota,fpea,barl,canp,trit,pota,fpea,barl,canp,trit,pota,0
+181,Polygon,182,agrl2016,fpea,barl,canp,trit,pota,fpea,barl,canp,trit,pota,fpea,barl,canp,trit,pota,fpea,barl,canp,trit,pota,fpea,barl,canp,trit,pota,fpea,barl,canp,trit,pota,fpea,barl,canp,trit,pota,0
+182,Polygon,183,agrl2017,fpea,barl,canp,trit,trit,fpea,barl,canp,trit,trit,fpea,barl,canp,trit,trit,fpea,barl,canp,trit,trit,fpea,barl,canp,trit,trit,fpea,barl,canp,trit,trit,fpea,barl,canp,trit,trit,0
+183,Polygon,184,agrl2026,fpea,canp,trit,alfa,canp,fpea,canp,trit,alfa,canp,fpea,canp,trit,alfa,canp,fpea,canp,trit,alfa,canp,fpea,canp,trit,alfa,canp,fpea,canp,trit,alfa,canp,fpea,canp,trit,alfa,canp,0
+184,Polygon,185,agrl2027,fpea,canp,trit,barl,canp,fpea,canp,trit,barl,canp,fpea,canp,trit,barl,canp,fpea,canp,trit,barl,canp,fpea,canp,trit,barl,canp,fpea,canp,trit,barl,canp,fpea,canp,trit,barl,canp,0
+185,Polygon,186,agrl2124,oats,alfa,oats,buck,alfa,oats,alfa,oats,buck,alfa,oats,alfa,oats,buck,alfa,oats,alfa,oats,buck,alfa,oats,alfa,oats,buck,alfa,oats,alfa,oats,buck,alfa,oats,alfa,oats,buck,alfa,0
+186,Polygon,187,agrl2128,oats,alfa,oats,oats,alfa,oats,alfa,oats,oats,alfa,oats,alfa,oats,oats,alfa,oats,alfa,oats,oats,alfa,oats,alfa,oats,oats,alfa,oats,alfa,oats,oats,alfa,oats,alfa,oats,oats,alfa,0
+187,Polygon,188,agrl2159,oats,barl,alfa,barl,barl,oats,barl,alfa,barl,barl,oats,barl,alfa,barl,barl,oats,barl,alfa,barl,barl,oats,barl,alfa,barl,barl,oats,barl,alfa,barl,barl,oats,barl,alfa,barl,barl,0
+188,Polygon,189,agrl2178,oats,barl,buck,barl,oats,oats,barl,buck,barl,oats,oats,barl,buck,barl,oats,oats,barl,buck,barl,oats,oats,barl,buck,barl,oats,oats,barl,buck,barl,oats,oats,barl,buck,barl,oats,0
+189,Polygon,190,agrl2248,oats,berm,buck,rye,berm,oats,berm,buck,rye,berm,oats,berm,buck,rye,berm,oats,berm,buck,rye,berm,oats,berm,buck,rye,berm,oats,berm,buck,rye,berm,oats,berm,buck,rye,berm,0
+190,Polygon,191,agrl2272,oats,canp,alfa,alfa,canp,oats,canp,alfa,alfa,canp,oats,canp,alfa,alfa,canp,oats,canp,alfa,alfa,canp,oats,canp,alfa,alfa,canp,oats,canp,alfa,alfa,canp,oats,canp,alfa,alfa,canp,0
+191,Polygon,192,agrl2284,oats,canp,wwht,alfa,canp,oats,canp,wwht,alfa,canp,oats,canp,wwht,alfa,canp,oats,canp,wwht,alfa,canp,oats,canp,wwht,alfa,canp,oats,canp,wwht,alfa,canp,oats,canp,wwht,alfa,canp,0
+192,Polygon,193,agrl2316,oats,fes2,fes2,oats,csil,oats,fes2,fes2,oats,csil,oats,fes2,fes2,oats,csil,oats,fes2,fes2,oats,csil,oats,fes2,fes2,oats,csil,oats,fes2,fes2,oats,csil,oats,fes2,fes2,oats,oats,0
+193,Polygon,194,agrl2343,oats,oats,alfa,oats,alfa,oats,oats,alfa,oats,alfa,oats,oats,alfa,oats,alfa,oats,oats,alfa,oats,alfa,oats,oats,alfa,oats,alfa,oats,oats,alfa,oats,alfa,oats,oats,alfa,oats,alfa,0
+194,Polygon,195,agrl2440,oats,csil,oats,barl,oats,csil,oats,oats,barl,oats,csil,oats,oats,barl,oats,csil,oats,oats,barl,oats,csil,oats,oats,barl,oats,csil,oats,oats,barl,oats,csil,oats,oats,barl,oats,0
+195,Polygon,196,agrl2472,oats,csil,oats,oats,barl,oats,csil,oats,oats,barl,oats,csil,oats,oats,barl,oats,csil,oats,oats,barl,oats,csil,oats,oats,barl,oats,csil,oats,oats,barl,oats,csil,oats,oats,barl,0
+196,Polygon,197,agrl2588,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,oats,0
+197,Polygon,198,agrl2622,oats,csil,oats,oats,trit,oats,csil,oats,oats,trit,oats,csil,oats,oats,trit,oats,csil,oats,oats,trit,oats,csil,oats,oats,trit,oats,csil,oats,oats,trit,oats,csil,oats,oats,trit,0
+198,Polygon,199,agrl2694,oats,csil,oats,wwht,oats,csil,oats,oats,wwht,oats,csil,oats,oats,wwht,oats,csil,oats,oats,wwht,oats,csil,oats,oats,wwht,oats,csil,oats,oats,wwht,oats,csil,oats,oats,wwht,oats,0
+199,Polygon,200,agrl2695,oats,csil,oats,wwht,oats,csil,oats,oats,wwht,oats,csil,oats,oats,wwht,oats,csil,oats,oats,wwht,oats,csil,oats,oats,wwht,oats,csil,oats,oats,wwht,oats,csil,oats,oats,wwht,oats,0
+200,Polygon,201,agrl2871,oats,rye,barl,pota,trit,oats,rye,barl,pota,trit,oats,rye,barl,pota,trit,oats,rye,barl,pota,trit,oats,rye,barl,pota,trit,oats,rye,barl,pota,trit,oats,rye,barl,pota,trit,0
+201,Polygon,202,agrl2891,oats,rye,oats,alfa,rye,oats,rye,oats,alfa,rye,oats,rye,oats,alfa,rye,oats,rye,oats,alfa,rye,oats,rye,oats,alfa,rye,oats,rye,oats,alfa,rye,oats,rye,oats,alfa,rye,0
+202,Polygon,203,agrl2894,oats,rye,oats,barl,canp,oats,rye,oats,barl,canp,oats,rye,oats,barl,canp,oats,rye,oats,barl,canp,oats,rye,oats,barl,canp,oats,rye,oats,barl,canp,oats,rye,oats,barl,canp,0
+203,Polygon,204,agrl2960,oats,rye,oats,rye,oats,oats,rye,oats,rye,oats,oats,rye,oats,rye,oats,oats,rye,oats,rye,oats,oats,rye,oats,rye,oats,oats,rye,oats,rye,oats,oats,rye,oats,rye,oats,0
+204,Polygon,205,agrl3198,wwht,wwht,wwht,alfa,fes2,wwht,wwht,wwht,alfa,fes2,wwht,wwht,wwht,alfa,fes2,wwht,wwht,wwht,alfa,fes2,wwht,wwht,wwht,alfa,fes2,wwht,wwht,wwht,alfa,fes2,wwht,wwht,wwht,alfa,fes2,0
+205,Polygon,206,agrl3199,wwht,wwht,wwht,alfa,fes2,wwht,wwht,wwht,alfa,fes2,wwht,wwht,wwht,alfa,fes2,wwht,wwht,wwht,alfa,fes2,wwht,wwht,wwht,alfa,fes2,wwht,wwht,wwht,alfa,fes2,wwht,wwht,wwht,alfa,fes2,0
+206,Polygon,207,agrl3438,pota,wwht,fpea,wwht,trit,pota,wwht,fpea,wwht,trit,pota,wwht,fpea,wwht,trit,pota,wwht,fpea,wwht,trit,pota,wwht,fpea,wwht,trit,pota,wwht,fpea,wwht,trit,pota,wwht,fpea,wwht,trit,0
+207,Polygon,208,agrl3462,rye,alfa,buck,rye,buck,rye,alfa,buck,rye,buck,rye,alfa,buck,rye,buck,rye,alfa,buck,rye,buck,rye,alfa,buck,rye,buck,rye,alfa,buck,rye,buck,rye,alfa,buck,rye,buck,0
+208,Polygon,209,agrl3476,rye,alfa,oats,rye,alfa,rye,alfa,oats,rye,alfa,rye,alfa,oats,rye,alfa,rye,alfa,oats,rye,alfa,rye,alfa,oats,rye,alfa,rye,alfa,oats,rye,alfa,rye,alfa,oats,rye,alfa,0
+209,Polygon,210,agrl3529,rye,barl,oats,alfa,rye,rye,barl,oats,alfa,rye,rye,barl,oats,alfa,rye,rye,barl,oats,alfa,rye,rye,barl,oats,alfa,rye,rye,barl,oats,alfa,rye,rye,barl,oats,alfa,rye,0
+210,Polygon,211,agrl3627,rye,oats,barl,oats,barl,rye,oats,barl,oats,barl,rye,oats,barl,oats,barl,rye,oats,barl,oats,barl,rye,oats,barl,oats,barl,rye,oats,barl,oats,barl,rye,oats,barl,oats,barl,0
+211,Polygon,212,agrl3649,rye,oats,csil,oats,berm,rye,oats,csil,oats,berm,rye,oats,csil,oats,berm,rye,oats,csil,oats,berm,rye,oats,csil,oats,berm,rye,oats,csil,oats,berm,rye,oats,csil,oats,berm,0
+212,Polygon,213,agrl3694,rye,oats,oats,wwht,trit,rye,oats,oats,wwht,trit,rye,oats,oats,wwht,trit,rye,oats,oats,wwht,trit,rye,oats,oats,wwht,trit,rye,oats,oats,wwht,trit,rye,oats,oats,wwht,trit,0
+213,Polygon,214,agrl3713,rye,oats,rye,buck,rye,rye,oats,rye,buck,rye,rye,oats,rye,buck,rye,rye,oats,rye,buck,rye,rye,oats,rye,buck,rye,rye,oats,rye,buck,rye,rye,oats,rye,buck,rye,0
+214,Polygon,215,agrl3714,rye,oats,rye,buck,rye,rye,oats,rye,buck,rye,rye,oats,rye,buck,rye,rye,oats,rye,buck,rye,rye,oats,rye,buck,rye,rye,oats,rye,buck,rye,rye,oats,rye,buck,rye,0
+215,Polygon,216,agrl3824,rye,rye,csil,oats,barl,rye,rye,csil,oats,barl,rye,rye,csil,oats,barl,rye,rye,csil,oats,barl,rye,rye,csil,oats,barl,rye,rye,csil,oats,barl,rye,rye,csil,oats,barl,0
+216,Polygon,217,agrl3851,rye,rye,oats,rye,oats,rye,rye,oats,rye,oats,rye,rye,oats,rye,oats,rye,rye,oats,rye,oats,rye,rye,oats,rye,oats,rye,rye,oats,rye,oats,rye,rye,oats,rye,oats,0
+217,Polygon,218,agrl3972,rye,trit,rye,oats,fpea,rye,trit,rye,oats,fpea,rye,trit,rye,oats,fpea,rye,trit,rye,oats,fpea,rye,trit,rye,oats,fpea,rye,trit,rye,oats,fpea,rye,trit,rye,oats,fpea,0
+218,Polygon,219,agrl4024,trit,alfa,rye,oats,barl,trit,alfa,rye,oats,barl,trit,alfa,rye,oats,barl,trit,alfa,rye,oats,barl,trit,alfa,rye,oats,barl,trit,alfa,rye,oats,barl,trit,alfa,rye,oats,barl,0
+219,Polygon,220,agrl4061,trit,barl,wwht,fpea,wwht,trit,barl,wwht,fpea,wwht,trit,barl,wwht,fpea,wwht,trit,barl,wwht,fpea,wwht,trit,barl,wwht,fpea,wwht,trit,barl,wwht,fpea,wwht,trit,barl,wwht,fpea,wwht,0
+220,Polygon,221,agrl4168,trit,fes2,fes2,trit,canp,trit,fes2,fes2,trit,canp,trit,fes2,fes2,trit,canp,trit,fes2,fes2,trit,canp,trit,fes2,fes2,trit,canp,trit,fes2,fes2,trit,canp,trit,fes2,fes2,trit,canp,0
+221,Polygon,222,agrl4171,trit,fpea,canp,barl,fpea,trit,fpea,canp,barl,fpea,trit,fpea,canp,barl,fpea,trit,fpea,canp,barl,fpea,trit,fpea,canp,barl,fpea,trit,fpea,canp,barl,fpea,trit,fpea,canp,barl,fpea,0
+222,Polygon,223,agrl4187,trit,oats,buck,pota,pota,trit,oats,buck,pota,pota,trit,oats,buck,pota,pota,trit,oats,buck,pota,pota,trit,oats,buck,pota,pota,trit,oats,buck,pota,pota,trit,oats,buck,pota,pota,0
+223,Polygon,224,agrl4192,trit,oats,canp,trit,pota,trit,oats,canp,trit,pota,trit,oats,canp,trit,pota,trit,oats,canp,trit,pota,trit,oats,canp,trit,pota,trit,oats,canp,trit,pota,trit,oats,canp,trit,pota,0
+224,Polygon,225,agrl4307,trit,rye,csil,barl,trit,trit,rye,csil,barl,trit,trit,rye,csil,barl,trit,trit,rye,csil,barl,trit,trit,rye,csil,barl,trit,trit,rye,csil,barl,trit,trit,rye,csil,barl,trit,0
+225,Polygon,226,agrl4308,trit,rye,csil,barl,trit,trit,rye,csil,barl,trit,trit,rye,csil,barl,trit,trit,rye,csil,barl,trit,trit,rye,csil,barl,trit,trit,rye,csil,barl,trit,trit,rye,csil,barl,trit,0
+226,Polygon,227,agrl4313,trit,rye,oats,buck,rye,trit,rye,oats,buck,rye,trit,rye,oats,buck,rye,trit,rye,oats,buck,rye,trit,rye,oats,buck,rye,trit,rye,oats,buck,rye,trit,rye,oats,buck,rye,0
+227,Polygon,228,agrl4367,trit,trit,canp,trit,pota,trit,trit,canp,trit,pota,trit,trit,canp,trit,pota,trit,trit,canp,trit,pota,trit,trit,canp,trit,pota,trit,trit,canp,trit,pota,trit,trit,canp,trit,pota,0
+228,Polygon,229,agrl4418,trit,trit,trit,pota,barl,trit,trit,trit,pota,barl,trit,trit,trit,pota,barl,trit,trit,trit,pota,barl,trit,trit,trit,pota,barl,trit,trit,trit,pota,barl,trit,trit,trit,pota,barl,0
+229,Polygon,230,agrl4445,trit,trit,trit,wwht,canp,trit,trit,trit,wwht,canp,trit,trit,trit,wwht,canp,trit,trit,trit,wwht,canp,trit,trit,trit,wwht,canp,trit,trit,trit,wwht,canp,trit,trit,trit,wwht,canp,0
+230,Polygon,231,agrl4494,wwht,barl,canp,oats,pota,wwht,barl,canp,oats,pota,wwht,barl,canp,oats,pota,wwht,barl,canp,oats,pota,wwht,barl,canp,oats,pota,wwht,barl,canp,oats,pota,wwht,barl,canp,oats,pota,0
+231,Polygon,232,agrl4531,wwht,canp,barl,trit,fpea,wwht,canp,barl,trit,fpea,wwht,canp,barl,trit,fpea,wwht,canp,barl,trit,fpea,wwht,canp,barl,trit,fpea,wwht,canp,barl,trit,fpea,wwht,canp,barl,trit,fpea,0
+232,Polygon,233,agrl4532,wwht,canp,barl,trit,fpea,wwht,canp,barl,trit,fpea,wwht,canp,barl,trit,fpea,wwht,canp,barl,trit,fpea,wwht,canp,barl,trit,fpea,wwht,canp,barl,trit,fpea,wwht,canp,barl,trit,fpea,0
+233,Polygon,234,agrl4539,wwht,canp,pota,pota,fpea,wwht,canp,pota,pota,fpea,wwht,canp,pota,pota,fpea,wwht,canp,pota,pota,fpea,wwht,canp,pota,pota,fpea,wwht,canp,pota,pota,fpea,wwht,canp,pota,pota,fpea,0
+234,Polygon,235,agrl4549,wwht,canp,rye,oats,oats,wwht,canp,rye,oats,oats,wwht,canp,rye,oats,oats,wwht,canp,rye,oats,oats,wwht,canp,rye,oats,oats,wwht,canp,rye,oats,oats,wwht,canp,rye,oats,oats,0
+235,Polygon,236,agrl4553,wwht,canp,rye,rye,trit,wwht,canp,rye,rye,trit,wwht,canp,rye,rye,trit,wwht,canp,rye,rye,trit,wwht,canp,rye,rye,trit,wwht,canp,rye,rye,trit,wwht,canp,rye,rye,trit,0
+236,Polygon,237,agrl4566,wwht,canp,trit,trit,pota,wwht,canp,trit,trit,pota,wwht,canp,trit,trit,pota,wwht,canp,trit,trit,pota,wwht,canp,trit,trit,pota,wwht,canp,trit,trit,pota,wwht,canp,trit,trit,pota,0
+237,Polygon,238,agrl4749,wwht,trit,fpea,canp,wwht,wwht,trit,fpea,canp,wwht,wwht,trit,fpea,canp,wwht,wwht,trit,fpea,canp,wwht,wwht,trit,fpea,canp,wwht,wwht,trit,fpea,canp,wwht,wwht,trit,fpea,canp,wwht,0
+238,Polygon,239,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+239,Polygon,240,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+240,Polygon,241,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+241,Polygon,242,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+242,Polygon,243,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+243,Polygon,244,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+244,Polygon,245,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+245,Polygon,246,urhd, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+246,Polygon,247,agrl4811,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,0
+247,Polygon,248,agrl4815,pota,barl,fpea,oats,wwht,pota,barl,fpea,oats,wwht,pota,barl,fpea,oats,wwht,pota,barl,fpea,oats,wwht,pota,barl,fpea,oats,wwht,pota,barl,fpea,oats,wwht,pota,barl,fpea,oats,wwht,0
+248,Polygon,249,agrl4816,pota,barl,fpea,oats,wwht,pota,barl,fpea,oats,wwht,pota,barl,fpea,oats,wwht,pota,barl,fpea,oats,wwht,pota,barl,fpea,oats,wwht,pota,barl,fpea,oats,wwht,pota,barl,fpea,oats,wwht,0
+249,Polygon,250,agrl4826,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,0
+250,Polygon,251,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+251,Polygon,252,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+252,Polygon,253,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+253,Polygon,254,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+254,Polygon,255,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+255,Polygon,256,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+256,Polygon,257,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+257,Polygon,258,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+258,Polygon,259,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+259,Polygon,260,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+260,Polygon,261,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+261,Polygon,262,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+262,Polygon,263,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+263,Polygon,264,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+264,Polygon,265,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+265,Polygon,266,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+266,Polygon,267,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+267,Polygon,268,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+268,Polygon,269,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+269,Polygon,270,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+270,Polygon,271,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+271,Polygon,272,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+272,Polygon,273,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,0
+273,Polygon,274,agrl4849,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,0
+274,Polygon,275,agrl4850,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,canp,pota,wwht,canp,wwht,0
+275,Polygon,276,agrl4862,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,0
+276,Polygon,277,agrl4865,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,0
+277,Polygon,278,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,46
+278,Polygon,279,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,46
+279,Polygon,280,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,46
+280,Polygon,281,urld, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,46
+281,Polygon,282,urld, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,46
+282,Polygon,283,wehb, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,9
+283,Polygon,284,wehb, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,46
+284,Polygon,285,wetf, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,9
+285,Polygon,286,wetf, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,9
+286,Polygon,287,wetf, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,32
+287,Polygon,288,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,46
+288,Polygon,289,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,46
+289,Polygon,290,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,46
+290,Polygon,291,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,46
+291,Polygon,292,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,46
+292,Polygon,293,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,8
+293,Polygon,294,agrl4888_drn,alfa,oats,alfa,fpea,alfa,oats,alfa,alfa,fpea,alfa,oats,alfa,alfa,fpea,alfa,oats,alfa,alfa,fpea,alfa,oats,alfa,alfa,fpea,alfa,oats,alfa,alfa,fpea,alfa,oats,alfa,alfa,fpea,alfa,9
+294,Polygon,295,agrl4938_drn,alfa,rye,barl,canp,fpea,alfa,rye,barl,canp,fpea,alfa,rye,barl,canp,fpea,alfa,rye,barl,canp,fpea,alfa,rye,barl,canp,fpea,alfa,rye,barl,canp,fpea,alfa,rye,barl,canp,fpea,9
+295,Polygon,296,agrl5027_drn,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,46
+296,Polygon,297,agrl5035_drn,buck,alfa,trit,trit,alfa,buck,alfa,trit,trit,alfa,buck,alfa,trit,trit,alfa,buck,alfa,trit,trit,alfa,buck,alfa,trit,trit,alfa,buck,alfa,trit,trit,alfa,buck,alfa,trit,trit,alfa,46
+297,Polygon,298,agrl5109_drn,fes2,oats,fes2,berm,berm,fes2,oats,fes2,berm,berm,fes2,oats,fes2,berm,berm,fes2,oats,fes2,berm,berm,fes2,oats,fes2,berm,berm,fes2,oats,fes2,berm,berm,fes2,oats,fes2,berm,berm,46
+298,Polygon,299,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,46
+299,Polygon,300,agrl5168_drn,fes2,trit,fpea,pota,wwht,fes2,trit,fpea,pota,wwht,fes2,trit,fpea,pota,wwht,fes2,trit,fpea,pota,wwht,fes2,trit,fpea,pota,wwht,fes2,trit,fpea,pota,wwht,fes2,trit,fpea,pota,wwht,46
+300,Polygon,301,agrl5178_drn,fes2,oats,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,oats,fes2,fes2,berm,fes2,46
+301,Polygon,302,fesc, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,46
+302,Polygon,303,agrl5279_drn,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,csil,oats,oats,oats,46
+303,Polygon,304,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,32
+304,Polygon,305,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,9
+305,Polygon,306,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,9
+306,Polygon,307,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,32
+307,Polygon,308,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,9
+308,Polygon,309,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,9
+309,Polygon,310,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,9
+310,Polygon,311,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,9
+311,Polygon,312,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,9
+312,Polygon,313,frst, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,9
+313,Polygon,314,agrl5596_drn,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,wwht,canp,wwht,pota,wwht,46

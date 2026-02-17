@@ -1,4 +1,4 @@
-sta_id8.hmd: Relative humidity data - file written by SWATprepR R package 2026-02-13 13:21:50.821139
+sta_id8.hmd: Relative humidity data - file written by SWATprepR R package 2026-02-17 11:29:38.918307
 nbyr	tstep	lat	lon	elev
 27	0	54.467	17.059	56.86
 1995	1	0.886
