@@ -33,7 +33,7 @@ weather_path <- paste0(data_path, '/for_prepr/met_int_mini_model.rds')
 ## Description of functions and how data example was prepared is on this webpage
 ## https://biopsichas.github.io/SWATprepR/articles/psources.html
 
-# pnt_path <- paste0(data_path, '/for_prepr/pnt_data.xlsx')
+pnt_path <- paste0(data_path, '/for_prepr/pnt_data.xlsx')
 
 ## Other settings
 

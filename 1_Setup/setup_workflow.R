@@ -160,6 +160,17 @@ dir_path <- file.path(dirname(db_path))
 ## with SWATPluseditor and writing SWAT input files with it.)
 exe_copy_run(lib_path, dir_path, "write.exe")
 
+# Preparing land_connections_as_lines.shp layer to visualise connectivities
+## (needed, if file rout_unit.con should be updated manually)
+
+source(paste0(lib_path, '/create_connectivity_line_shape.R'))
+print(paste0("land_connections_as_lines.shp is prepared in ", dir_path, 
+             '/data folder' ))
+
+## Guidelines for investigation and manual updating of 'rout_unit.con is 
+## provided in OPTAIN Cloud > WPs & Tasks > WP4 > Task 4.4 > Tools to share >
+## check_connectiviness > connectivity_chech_showcase.pdf
+
 ##------------------------------------------------------------------------------
 ## 6) Add atmospheric deposition data to model setup
 ##------------------------------------------------------------------------------
@@ -185,18 +196,18 @@ link_aquifer_channels(dir_path)
 ## 8) Adding point sources data
 ##------------------------------------------------------------------------------
 
-## Description of how data should be prepared (template) is on this webpage
-## https://biopsichas.github.io/SWATprepR/articles/psources.html
-# 
-# if(!is.null(pnt_path)){
-#   ## Load data from template
-#   pnt_data <- load_template(pnt_path)
-#   ## Add to the model
-#   prepare_ps(pnt_data, dir_path, constant = TRUE)
-# } else {
-#   ## If no point sources data is provided, the script will not run
-#   print("No point sources data provided. Skipping this step.")
-# }
+# Description of how data should be prepared (template) is on this webpage
+# https://biopsichas.github.io/SWATprepR/articles/psources.html
+
+if(!is.null(pnt_path)){
+  ## Load data from template
+  pnt_data <- load_template(pnt_path)
+  ## Add to the model
+  prepare_ps(pnt_data, dir_path, constant = TRUE)
+} else {
+  ## If no point sources data is provided, the script will not run
+  print("No point sources data provided. Skipping this step.")
+}
 
 ##------------------------------------------------------------------------------
 ## 9) Running SWATfamR'er input preparation script
@@ -225,7 +236,7 @@ mgt <- paste0(out_dir, "/farmR_input.csv")
 ## 10) Additional editing of the farmR_input.csv file
 ##------------------------------------------------------------------------------
 # 
-# ## Reading the file
+## Reading the file
 # mgt <- paste0(out_dir, "/farmR_input.csv")
 # mgt_file <- read.csv(mgt)
 # 
@@ -293,51 +304,21 @@ if(max(y[y>0]) != end_year){
 ##Writing out updated time.sim file
 update_file(time_sim, f_write)
 
-##------------------------------------------------------------------------------
-## 14) Preparing land_connections_as_lines.shp layer to visualise connectivities
-## (needed, if file rout_unit.con should be updated manually)
-##------------------------------------------------------------------------------
-
-source(paste0(lib_path, '/create_connectivity_line_shape.R'))
-print(paste0("land_connections_as_lines.shp is prepared in ", dir_path, 
-             '/data folder' ))
-
-## Guidelines for investigation and manual updating of 'rout_unit.con is 
-## provided in OPTAIN Cloud > WPs & Tasks > WP4 > Task 4.4 > Tools to share >
-## check_connectiviness > connectivity_chech_showcase.pdf
 
 ##------------------------------------------------------------------------------
-## 15) Running SWAT+ model setup
+## 14) Running SWAT+ model setup
 ##------------------------------------------------------------------------------
 
 ##Copy swat.exe into txtinout directory and run it
 exe_copy_run(lib_path, dir_path, swat_exe)
 
 ##------------------------------------------------------------------------------
-## 16) Running SWATfamR'er to prepare management files
+## 15) Running SWATfamR'er to prepare management files
 ##------------------------------------------------------------------------------
 
 ## Please read https://chrisschuerz.github.io/SWATfarmR/ to understand how to 
 ## apply this tool. Below are a minimal set of lines to access management files.
 ## However, these might not be suitable in your case. Review before using
-
-## Adding missing fertilizers and tillage
-if(!file.exists(paste0(dir_path, '/fertilizer.frt.bkp0'))) {
-  copy_file_version(dir_path, 'fertilizer.frt', file_version = 0)
-}
-fertilizer.frt <- SWATtunR::read_tbl(paste0(dir_path, "/fertilizer.frt.bkp0"))
-fertilizer.frt[nrow(fertilizer.frt)+1,] <- list("comp_manure", 0.0021, 0.0016, 0.0017, 0.008, 0.99, "fresh_manure", "Comp_FreshManure")
-fertilizer.frt[nrow(fertilizer.frt)+1,] <- list("7:20:30", 0.02, 0.08728, 0, 0, 0, "null", "NPK")
-fertilizer_frt_fmt <- c('%-18s', rep('%12s', 5), '%18s', '%-30s')
-SWATreadR:::write_tbl(fertilizer.frt, paste0(dir_path, '/fertilizer.frt'), fmt = fertilizer_frt_fmt)
-
-if(!file.exists(paste0(dir_path, '/tillage.til.bak0'))) {
-  copy_file_version(dir_path, 'tillage.til', file_version = 0)
-}
-tillage.til <- SWATtunR::read_tbl(paste0(dir_path, "/tillage.til.bkp0"))
-tillage.til[nrow(tillage.til )+1,] <- list("plow25", 0.95, 250, 75, 0, 0, "plowingoperation25cm")
-tillage_til_fmt <- c('%-18s', rep('%12s', 5), '%-40s')
-SWATreadR:::write_tbl(tillage.til, paste0(dir_path, '/tillage.til'), fmt = tillage_til_fmt)
 
 ## Generating .farm project
 if(startsWith(as.character(packageVersion("SWATfarmR")), "4.")){
@@ -361,14 +342,15 @@ frm$schedule_operations(start_year = 1995, end_year = 2021,
                         replace = 'all')
 
 # save.image(file = "my_environment.RData")
-#Must match with calibration and vlidation period + warm up period.
+#Must match with calibration and validation period + warm up period.
 frm$write_operations(start_year = 1995, end_year = 2021)
 
+source(paste0(lib_path, '/read_and_modify_landuse_lum.R'))
 
 ## Better to have different mgt files for calibration
 # starting from different years; but managment file should renamed
 # frm$write_operations(start_year = 2000, end_year = 2021)
-
+# source(paste0(lib_path, '/read_and_modify_landuse_lum.R'))
 
 # undebug(frm$schedule_operations)
 # options(error = recover)  # options(error = NULL)
