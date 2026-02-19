@@ -36,7 +36,10 @@ foo2("HighFreq")
 # Read input data ----------------------------------------------------------------
 
 ## Read land-use crop map shapefile and drop geometry
-lu <- st_drop_geometry(read_sf(lu_shp))
+# lu <- st_drop_geometry(read_sf(lu_shp))
+
+## Read land-use crop csv 
+lu <- read_csv(lu_csv)
 
 ## Read crop management .csv table
 ## Make sure it includes all crops of your lu map

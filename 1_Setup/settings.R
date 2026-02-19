@@ -134,7 +134,9 @@ farmr_i_data <- paste0(data_path, "/for_farmr_input/")
 
 # land-use crop map shapefile
 ##### IMPORTANT: if the agrl has drainage: agrl142 should be agrl142_drn in type
-lu_shp <- paste0(out_path, farmr_i_data, 'crops1.shp') 
+# lu_shp <- paste0(out_path, farmr_i_data, 'crops1.shp') 
+
+lu_csv <- paste0(out_path, farmr_i_data, 'crops1.csv') 
 
 # crop management .csv table
 mgt_csv <- paste0(out_path, farmr_i_data, 'mgt_crops.csv') 

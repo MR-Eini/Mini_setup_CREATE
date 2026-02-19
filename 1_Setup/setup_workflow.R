@@ -345,12 +345,10 @@ frm$schedule_operations(start_year = 1995, end_year = 2021,
 #Must match with calibration and validation period + warm up period.
 frm$write_operations(start_year = 1995, end_year = 2021)
 
-source(paste0(lib_path, '/read_and_modify_landuse_lum.R'))
 
 ## Better to have different mgt files for calibration
 # starting from different years; but managment file should renamed
 # frm$write_operations(start_year = 2000, end_year = 2021)
-# source(paste0(lib_path, '/read_and_modify_landuse_lum.R'))
 
 # undebug(frm$schedule_operations)
 # options(error = recover)  # options(error = NULL)
