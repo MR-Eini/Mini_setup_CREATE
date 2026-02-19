@@ -20,13 +20,10 @@ library(tibble)
 
 # Parameter definition ----------------------------------------------------
 # Path to the SWAT+ project folder.
-model_path <- 'A:/Users/Eini/CS6/3_Crop/Calibration_crop/clean_setup'
+model_path <- './clean_setup'
 
 # Set the number of cores for parallel model execution
-n_cores <- 16 # Inf uses all cores. Set lower value if preferred.
-
-# Set the number parameter combinations for the LHS sampling of crop parameters
-n_combinations <- 16
+n_cores <- 5 # Inf uses all cores. Set lower value if preferred.
 
 # Path to the observed crop yields.
 # This file must be updated with case study specific records!
@@ -109,7 +106,7 @@ plot_phu_yld_bms(ylds_phu_dmat, yield_obs)
 
 # Set days to maturity values for all selected crops based on the figure above.
 dmat_sel <- tibble(
-  plant_name =                       c("corn", "csil", "fesc", "wbar", "wwht", "swht"),
+  plant_name =                       c("fesc", "lupn", "oats", "pota", "canp", "wwht"),
   'days_mat.pdb | change = absval' = c(150,       140,    145,    100,    100,     90)
 )
 

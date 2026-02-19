@@ -24,7 +24,7 @@ library(tibble)
 
 # Parameter definition ----------------------------------------------------
 # Path to the SWAT+ project folder.
-model_path <- 'A:/Users/Eini/CS6/3_Crop/Calibration_crop/clean_setup'
+model_path <- './clean_setup'
 
 # Set the number of cores for parallel model execution
 n_cores <- 10 # Inf uses all cores. Set lower value if preferred.

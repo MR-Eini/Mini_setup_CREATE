@@ -64,11 +64,11 @@ agrl,NA,NA,NA,NA,skip,NA,NA,NA
 agrl,3,20,3,30,fertilizer,elem_n ,broadcast,60
 agrl,7,15,7,31,harvest_only,rye,grain,NA
 agrl,7,15,7,31,kill_only,rye,NA,NA
-fes2,NA,NA,NA,NA,skip,NA,NA,NA
-fes2,3,10,3,20,plant,fesc,NA,NA
-fes2,6,15,6,30,harvest_only,fesc,hay_cut_low,NA
-fes2,9,1,9,15,harvest_only,fesc,hay_cut_low,NA
-fes2,9,1,9,15,kill_only,fesc,NA,NA
+fesc_mgt,NA,NA,NA,NA,skip,NA,NA,NA
+fesc_mgt,3,10,3,20,plant,fesc_mgt,NA,NA
+fesc_mgt,6,15,6,30,harvest_only,fesc_mgt,hay_cut_low,NA
+fesc_mgt,9,1,9,15,harvest_only,fesc_mgt,hay_cut_low,NA
+fesc_mgt,9,1,9,15,kill_only,fesc_mgt,NA,NA
 berm,NA,NA,NA,NA,skip,NA,NA,NA
 berm,3,10,3,20,plant,lmix,NA,NA
 berm,9,1,9,15,tillage,fallplow,NA,NA
@@ -100,25 +100,3 @@ barl,5,10,5,20,fertilizer,elem_n ,broadcast,60
 barl,5,25,5,30,fertilizer,elem_n ,broadcast,20
 barl,7,15,7,31,harvest_only,barl,grain,NA
 barl,7,15,7,31,kill_only,barl,NA,NA
-csil_cc,10,1,10,30,plant,clvr,NA,NA
-csil_cc,NA,NA,NA,NA,skip,NA,NA,NA
-csil_cc,3,20,4,1,harvest_only,clvr,grass_mulch,NA
-csil_cc,3,20,4,1,kill_only,clvr,NA,NA
-csil_cc,4,1,4,15,fertilizer,swine_fr,broadcast,30000
-csil_cc,4,1,4,15,tillage,cchplow,NA,NA
-csil_cc,5,1,5,10,plant,csil,NA,NA
-csil_cc,6,10,6,20,fertilizer,elem_n,broadcast,100
-csil_cc,6,10,6,20,fertilizer,elem_p,broadcast,60
-csil_cc,8,20,9,20,harvest_only,csil,silage,NA
-csil_cc,8,20,9,20,kill_only,csil,NA,NA
-oats_cc,9,1,10,30,plant,clvr,NA,NA
-oats_cc,NA,NA,NA,NA,skip,NA,NA,NA
-oats_cc,3,1,3,20,harvest_only,clvr,grass_mulch,NA
-oats_cc,3,1,3,20,kill_only,clvr,NA,NA
-oats_cc,3,15,4,10,tillage,landlevl,NA,NA
-oats_cc,3,15,4,10,fertilizer,elem_n ,broadcast,60
-oats_cc,3,15,4,10,fertilizer,elem_p,broadcast,8
-oats_cc,3,15,4,10,plant,oats,NA,NA
-oats_cc,5,1,5,15,fertilizer,elem_n ,broadcast,60
-oats_cc,8,1,8,15,harvest_only,oats,grain,NA
-oats_cc,8,1,8,15,kill_only,oats,NA,NA

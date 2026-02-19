@@ -64,11 +64,11 @@ agrl,NA,NA,NA,NA,skip,NA,NA,NA
 agrl,3,20,3,30,fertilizer,elem_n ,broadcast,60
 agrl,7,15,7,31,harvest_only,rye,grain,NA
 agrl,7,15,7,31,kill_only,rye,NA,NA
-fes2,NA,NA,NA,NA,skip,NA,NA,NA
-fes2,3,10,3,20,plant,fesc,NA,NA
-fes2,6,15,6,30,harvest_only,fesc,hay_cut_low,NA
-fes2,9,1,9,15,harvest_only,fesc,hay_cut_low,NA
-fes2,9,1,9,15,kill_only,fesc,NA,NA
+fesc_mgt,NA,NA,NA,NA,skip,NA,NA,NA
+fesc_mgt,3,10,3,20,plant,fesc_mgt,NA,NA
+fesc_mgt,6,15,6,30,harvest_only,fesc_mgt,hay_cut_low,NA
+fesc_mgt,9,1,9,15,harvest_only,fesc_mgt,hay_cut_low,NA
+fesc_mgt,9,1,9,15,kill_only,fesc_mgt,NA,NA
 berm,NA,NA,NA,NA,skip,NA,NA,NA
 berm,3,10,3,20,plant,lmix,NA,NA
 berm,9,1,9,15,tillage,fallplow,NA,NA

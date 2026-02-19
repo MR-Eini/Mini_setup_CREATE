@@ -21,7 +21,7 @@ library(tibble)
 alternative <- 'B'
 
 # Path to the SWAT+ project folder.
-model_path <- 'A:/Users/Eini/CS6/3_Crop/Calibration_crop/clean_setup'
+model_path <- './clean_setup'
 
 # Set the number of cores for parallel model execution
 n_cores <- 25 # Inf uses all cores. Set lower value if preferred.
@@ -106,7 +106,7 @@ run_swatplus(project_path = model_path,
              start_date       = NULL, # Change if necessary.
              end_date         = NULL, # Change if necessary.
              add_date         = FALSE,
-             years_skip       = NULL, # Change if necessary.http://127.0.0.1:39945/graphics/plot_zoom_png?width=1904&height=1108
+             years_skip       = NULL, # Change if necessary.
              n_thread         = n_cores,
              save_path        = './simulation',
              save_file        = add_timestamp('sim_wbal'),

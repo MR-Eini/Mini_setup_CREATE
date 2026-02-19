@@ -55,6 +55,13 @@ popViewport()
 # Water Balance Plot
 grid.newpage()
 pushViewport(viewport(width = 0.9, height = 10))
+print(plot_waterbalance(Run_1, simplified = TRUE), newpage = FALSE)
+popViewport()
+
+
+# Water Balance Plot
+grid.newpage()
+pushViewport(viewport(width = 0.9, height = 10))
 print(plot_waterbalance(Run_1), newpage = FALSE)
 popViewport()
 
@@ -88,19 +95,19 @@ pushViewport(viewport(width = 0.8, height = 0.3))
 print(plot_variable_at_harvkill(Run_1, variable = 'stress'), newpage = FALSE)
 popViewport()
 
-# PS Plot
-grid.newpage()
-pushViewport(viewport(width = 0.8, height = 0.3))
-print(plot_ps(Run_1), newpage = FALSE)
-popViewport()
+## PointSource Plot
+# grid.newpage()
+# pushViewport(viewport(width = 0.8, height = 0.3))
+# print(plot_ps(Run_1), newpage = FALSE)
+# popViewport()
 
 # HRU PW Day Plot
 grid.newpage()
 pushViewport(viewport(width = 0.9, height = 0.5))
 print(plot_hru_pw_day(Run_1,
-                      hru_id = c(103, 117, 84, 160, 274),
+                      hru_id = c(103, 117, 160, 205, 274),
                       var = c('lai', 'bioms'),
-                      years = 2010:2021,
+                      years = 1998:2021,
                       add_crop = TRUE), newpage = FALSE)
 popViewport()
 
