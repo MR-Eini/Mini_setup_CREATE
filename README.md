@@ -1,11 +1,9 @@
 # Mini SWAT+ Setup (OPTAIN-style workflow)
 
-![Workflow overview](assets/2.png)
 
 This repository provides a **minimal, step-by-step workflow** for regenerating a SWAT+ project from **pre-processed inputs**, performing essential diagnostics, and (optionally) proceeding to **soft (crop yield)** and **hard (river discharge)** calibration stages.
 
-![Workflow overview](assets/1.png)
-
+![Workflow overview](assets/workflow1.png)
 ## Contents
 
 - [Workflow at a glance](#workflow-at-a-glance)
