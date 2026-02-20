@@ -104,6 +104,10 @@ Then proceed to diagnostics and calibration steps using the numbered folders.
 
 ## Step-by-step workflow
 
+
+![R packages](assets/swativerse_update.png)
+
+
 ### 1) Setup regeneration (`1_Setup`)
 
 The `1_Setup/` folder contains an end-to-end workflow to regenerate a complete SWAT+ setup **from pre-processed inputs** to a **runnable** project (and to export a cleaned input-only setup for subsequent calibration/scenarios).
@@ -283,6 +287,20 @@ Plunge Svajunas, Strauch Michael, Szabó Brigitta, and Piniewski Mikołaj.
 2022. “<span class="nocase">SWAT+ modeling protocol for the assessment
 of water and nutrient retention measures in small agricultural
 catchments</span>.” Zenodo. <https://doi.org/10.5281/zenodo.7463395>.
+
+</div>
+
+<div id="ref-piniewski2026" class="csl-entry">
+
+Piniewski, Mikołaj, Natalja Čerkasova, Svajunas Plunge, Michael Strauch, 
+Christoph Schürz, Péter Braun, Enrico Antonio Chiaradia, Joana Eichenberger, 
+Mohammad Reza Eini, Csilla Farkas, Marie Anne Eurie Forio, Peter Goethals, 
+Piroska Kassai, Štěpán Marval, Diego G Panique-Casso, Lorenzo Sanguanini, 
+Moritz Shore, Brigitta Szabó, Petr Slavík, Felix Witing.
+2025. “<span class="nocase">Enhanced crop calibration for SWAT+: 
+evaluating water, sediment and nutrient impacts across ten European catchments
+</span>.” *Environmental Modelling &Software* 2025: 106794. 
+<https://doi.org/10.1016/j.envsoft.2025.106794>.
 
 </div>
 
