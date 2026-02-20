@@ -78,6 +78,9 @@ remotes::install_github("chrisschuerz/SWATrunR")
 remotes::install_github("biopsichas/SWATdoctR")
 ```
 
+
+![R packages](assets/swativerse_update.png)
+
 > Note: Some workflows may expect specific SWATfarmR versions. See the `1_Setup/README.md` and the header comments in `1_Setup/setup_workflow.R`.
 
 ---
@@ -103,9 +106,6 @@ Then proceed to diagnostics and calibration steps using the numbered folders.
 ---
 
 ## Step-by-step workflow
-
-
-![R packages](assets/swativerse_update.png)
 
 
 ### 1) Setup regeneration (`1_Setup`)
@@ -271,12 +271,11 @@ https://sisu.ut.ee/create-project/
 
 If you use this workflow in a report/paper, you can cite the repository:
 
-```text
+
 Mohammad Reza Eini, Department of Hydrology, Meteorology, and Water Management, 
 Institute of Environmental Engineering, Warsaw University of Life Sciences, Warsaw, Poland
  Mini_setup_CREATE. GitHub repository. https://github.com/MR-Eini/Mini_setup_CREATE
- 
-```
+
 <div id="refs" class="references csl-bib-body hanging-indent"
 entry-spacing="0">
 
