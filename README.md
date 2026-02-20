@@ -1,6 +1,6 @@
 # Mini SWAT+ Setup (OPTAIN-style workflow)
 
-![Workflow overview](2.png)
+![Workflow overview](assets/2.png)
 
 This repository is organized as a **minimal, step-by-step workflow** for setting up a SWAT+ project and running a calibration workflow in distinct stages.
 
@@ -11,7 +11,7 @@ This repository is organized as a **minimal, step-by-step workflow** for setting
 - **`3_CropYield/softcal/`** — crop-yield **soft calibration** workflow.
 - **`4_RiverDischarge/hardcal/`** — river-discharge **hard calibration** workflow. 
 
-![Workflow overview](1.png) 
+![Workflow overview](assets/1.png) 
 
 ## How to use
 
@@ -43,6 +43,28 @@ If a step fails due to missing data or paths, check the corresponding folder for
 
 - Folder names are numbered to reflect the recommended execution order.
 - Keep your run outputs (logs, calibration outputs, figures) under the corresponding step folder, so the workflow remains reproducible.
+
+## Acknowledgements / Funding
+
+This work was carried out within the **CREATE** project (**C**ross-**RE**alm modelling and assessment of **A**quatic ecosystem services – **T**owards a science-based design of nature-based solutions to tackle **E**utrophication):  
+https://sisu.ut.ee/create-project/
+
+**Funding programme description:** The project CREATE has received funding from the Estonian Research Council, Research Council of Finland, Latvian Council of Science, Research Council of Lithuania, National Centre of Research and Development in Poland, and the European Union’s Horizon Europe Programme under the **2023 Joint Transnational Call** of the European Partnership **Water4All** (Grant Agreement No. **101060874**).
+
+## Funding logos
+
+<p align="center">
+  <img src="assets/Water4all_0.png" alt="Water4All logo" width="900">
+</p>
+
+<p align="center">
+  <img src="assets/EN_co_fundedvertical_RGB_POS.png" alt="EU co-funded logo" width="260">
+</p>
+
+<p align="center">
+  <img src="assets/logo_CREATE_horizontal.png" alt="CREATE logo" width="400">
+</p>
+
 
 ## Citation
 
