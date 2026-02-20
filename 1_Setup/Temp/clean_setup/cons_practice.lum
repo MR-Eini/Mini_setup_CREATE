@@ -1,4 +1,4 @@
-cons_practice.lum: written by SWAT+ editor v2.1.0 on 2024-02-23 13:18 for SWAT+ rev.60.5.4
+cons_practice.lum: written by SWAT+ editor v2.1.0 on 2026-02-20 20:44 for SWAT+ rev.2.1.4
 name                    usle_p   slp_len_max  description
 up_down_slope          1.00000     121.00000  Up_and_down_slope
 cross_slope            0.75000     121.00000  Cross_slope_tillage
@@ -38,9 +38,3 @@ ter_17-20_sodout       0.80000      45.00000  terraces_17-20%_slopes_sod-outlet
 ter_17-20_undout       0.40000      45.00000  terraces_17-20%_slopes_underflow--outlet
 ter_21-25_sodout       0.90000      30.00000  terraces_21-25%_slopes_sod-outlet
 ter_21-25_undout       0.45000      30.00000  terraces_21-25%_slopes_underflow--outlet
-greening               0.01200      121.0000
-rota_1                 0.95000      121.0000
-rota_2                 0.85000      121.0000
-rota_3                 0.75000      121.0000
-rota_4                 0.65000      121.0000
-rota_5                 0.55000      121.0000

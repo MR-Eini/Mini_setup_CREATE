@@ -91,7 +91,7 @@ plot_dotty_yields(yld_sim, yield_obs)
 
 # Fix the parameter changes you want to apply to the crops
 crop_par_sel <- tibble::tibble(
-  plant_name = 						           c("corn", "csil",   "fesc",   "wbar", "wwht", "swht"),
+  plant_name = 						           c("fesc", "lupn", "oats",    "pota",  "canp",  "wwht"),
   'bm_e.pdb | change = relchg'     = c(0,       0.11,      0,       0.11,    0.03,   0),
   'harv_idx.pdb | change = relchg' = c(0.125,   -0.12,   0.125,    -0.125,  0.26,   0.375),
   'lai_pot.pdb | change = relchg'  = c(0.12,    0.45,     0,       0.125,   0.05,   0.127),

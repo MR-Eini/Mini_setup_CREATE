@@ -1,5 +1,5 @@
-res_rel.dtl: written by SWAT+ editor v2.1.0 on 2024-02-23 13:18 for SWAT+ rev.60.5.4
-7
+res_rel.dtl: written by SWAT+ editor v2.1.0 on 2026-02-20 20:44 for SWAT+ rev.2.1.4
+3
 
 name                     conds      alts      acts  
 flood_season                 5         5         5  
@@ -34,36 +34,3 @@ act_typ                    obj   obj_num              name            option    
 release                    hru         0        below_emer              days      10.00000       0.00000              null  y   n   
 release                    hru         0        above_emer              days       2.00000       0.00000              null  n   y   
 
-name                     conds      alts      acts  
-endine_days                2         2         2  
-var                        obj   obj_num           lim_var            lim_op     lim_const      alt1      alt2  
-vol                        res         0              pvol                 *       1.00000         >         -  
-vol                        res         0              evol                 *       1.00000         <         >  
-act_typ                    obj   obj_num              name            option         const        const2                fp  outcome           
-release                    res         0         over_prin              days      3.00000       1.00000              pvol  y   n   
-release                    res         0    over_emergency              days       1.00000       1.00000              evol  n   y   
-
-name                     conds      alts      acts  
-release_48h                  1         2         2  
-var                        obj   obj_num           lim_var            lim_op     lim_const      alt1      alt2  
-vol                        res         0              evol                 *       1.00000         <         >=  
-act_typ                    obj   obj_num              name            option         const        const2                fp  outcome           
-release                    res         0           def_48h                   days       2.00000       1.00000              evol  y   n   
-release                    res         0    over_emergency              days       1.00000       1.00000              evol  n   y   
-
-name                     conds      alts      acts  
-riverrest                  1         2         2  
-var                        obj   obj_num           lim_var            lim_op     lim_const      alt1      alt2  
-vol_wet                        res         0              evol                 *       1.00000         <         >=  
-act_typ                    obj   obj_num              name            option         const        const2                fp  outcome           
-release                    res         0             nat_bed             inflo_frac       0.41000       0.00000              null  y   n   
-release                    res         0                flooding          inflo_frac       1.00000       0.00000              null  n   y  
-
-name                     conds      alts      acts  
-endine_daysP               2         2         2  
-var                        obj   obj_num           lim_var            lim_op     lim_const      alt1      alt2  
-vol                        res         0              pvol                 *       1.00000         >         -  
-vol                        res         0              evol                 *       1.00000         <         >  
-act_typ                    obj   obj_num              name            option         const        const2                fp  outcome           
-release                    res         0         over_prin              days      2.00000       1.00000              pvol  y   n   
-release                    res         0    over_emergency              days       1.00000       1.00000              evol  n   y   

@@ -1,4 +1,4 @@
-rout_unit.rtu: written by SWAT+ editor v2.1.0 on 2026-02-20 19:45 for SWAT+ rev.2.1.4
+rout_unit.rtu: written by SWAT+ editor v2.1.0 on 2026-02-20 20:44 for SWAT+ rev.2.1.4
       id              name            define               dlr              topo             field  
        1            rtu001            rtu001              null        toportu001            fld001  
        2            rtu002            rtu002              null        toportu002            fld002  

@@ -17,7 +17,7 @@ lib_path <- "Libraries"
 ##Starting year for model setup
 st_year <-  2004
 ##End year for the model setup
-end_year <- 2024
+end_year <- 2023
 
 ## Paths to input data
 

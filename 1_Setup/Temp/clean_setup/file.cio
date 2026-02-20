@@ -1,4 +1,4 @@
-file.cio: written by SWAT+ editor v2.1.0 on 2026-02-20 19:45 for SWAT+ rev.2.1.4 and edited with SWATfarmR 2.0.5 on 2026-02-20 19:51:50.787926
+file.cio: written by SWAT+ editor v2.1.0 on 2026-02-20 20:44 for SWAT+ rev.2.1.4 and edited with SWATfarmR 2.0.5 on 2026-02-20 20:48:30.554357
 simulation        time.sim          print.prt         null              object.cnt        null              
 basin             codes.bsn         parameters.bsn    
 climate           weather-sta.cli   weather-wgn.cli   null              pcp.cli           tmp.cli           slr.cli           hmd.cli           wnd.cli           atmodep.cli       
