@@ -279,4 +279,3 @@ Related community (OPTAIN): https://zenodo.org/communities/optain-h2020-project/
 
 This repository currently indicates: **MIT, GPL-3.0**.
 
-> Recommendation: add an explicit `LICENSE` file (and clarify whether the repository is dual-licensed or whether different parts carry different licenses).
