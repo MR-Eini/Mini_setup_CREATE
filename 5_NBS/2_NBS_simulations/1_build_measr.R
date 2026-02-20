@@ -22,7 +22,7 @@ nswrm_def_path <- './nswrm_definition/'
 # farmR projects (as done below).
 
 # The name of the status quo farmR project must be defined.
-stat_quo_farmR <- 'status'
+stat_quo_farmR <- 'statusquo'
 
 # You can also specifically define the scenario farmR projects. If not all
 # farmR projects in the project folder will be considered.
@@ -80,7 +80,7 @@ mgt_path  <- paste0(nswrm_def_path, '/', mgt_def_files[last_mgt])
 
 # Start a new measR project -----------------------------------------------
 # Define the name of the project
-project_name <- 'CS5_pnd'
+project_name <- 'demo_nbs'
 # Start a new project
 # The project loads all relevant SWAT+ input files and generates a .measr file
 # in the project folder where all steps are saved for later reloading.
@@ -97,11 +97,11 @@ pond_path <- paste0(nswrm_def_path, '/', 'settings_pond.csv')
 #wetl_path <- paste0(nswrm_def_path, '/', 'settings_wetland.csv')
 
 # Load the measure definitions
-#CS5_pnd$reload_swat_inputs()
-CS5_pnd$load_nswrm_definition(luse_path, 'land_use', overwrite = T)
-CS5_pnd$load_nswrm_definition(pond_path, 'pond', overwrite = T)
-#CS5_pnd$load_nswrm_definition(wetl_path, 'wetland', overwrite = T)
-CS5_pnd$load_nswrm_definition(mgt_path,  'management')
+#demo_nbs$reload_swat_inputs()
+demo_nbs$load_nswrm_definition(luse_path, 'land_use', overwrite = T)
+demo_nbs$load_nswrm_definition(pond_path, 'pond', overwrite = T)
+#demo_nbs$load_nswrm_definition(wetl_path, 'wetland', overwrite = T)
+demo_nbs$load_nswrm_definition(mgt_path,  'management')
 
 # Load the measure locations ----------------------------------------------
 # The locations of NSWRMs can only be loaded if all measures which are defined
@@ -113,10 +113,10 @@ CS5_pnd$load_nswrm_definition(mgt_path,  'management')
 loca_path <- paste0(nswrm_def_path, '/', 'measure_location.csv')
 
 # Load the location definition
-CS5_pnd$load_nswrm_location(loca_path)
+demo_nbs$load_nswrm_location(loca_path)
 
-CS5_pnd$.data$model_setup$original_inputs$file.cio$simulation[4] <- "object.prt"
-CS5_pnd$save()
+demo_nbs$.data$model_setup$original_inputs$file.cio$simulation[4] <- "object.prt"
+demo_nbs$save()
 
 
 # CONGRATS!!! Now you are ready to run measure scenarios 
@@ -128,7 +128,9 @@ CS5_pnd$save()
 # Resetting the project ---------------------------------------------------
 # This way you can reset the project to the status quo. With write_files = TRUE
 # not only the files in R are reset but also the input files in the project folder
-#CS5_pnd$reset(write_files = TRUE)
+#demo_nbs$reset(write_files = TRUE)
 
-#CS5_pnd$.data$model_setup$original_inputs$file.cio$simulation[4] <- "object.prt"
-#CS5_pnd$save()
+
+
+
+

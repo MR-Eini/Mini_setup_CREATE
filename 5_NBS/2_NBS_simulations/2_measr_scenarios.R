@@ -16,9 +16,9 @@ foo2('SWATmeasR')
 foo3('hydroGOF')     
 
 ### 2 - Define paths and load cal files and existing measR project -------------
-measr_name <- 'CS5_pnd' #define name of your SWATmeasR project!
+measr_name <- 'demo_nbs' #define name of your SWATmeasR project!
 scen_out <- 'scenario_outputs' #define name of outputs folder
-cha_id <- 16 #define outlet channel number
+cha_id <- 5 #define outlet channel number
 
 wd <- getwd()
 project_path <- paste0(wd,'/txt') #adjust if necessary
@@ -56,14 +56,14 @@ measr.list
 
 ### 3 - Implement measures and run SWAT ----------------------------------------
 
-# get cropland hru ids (required for indicators referring to cropland only)
-# hru_dat <- read_tbl('hru-data.hru',project_path, n_skip = 2)
-# unique(substring(hru_dat$lu_mgt,1,5)) # detect all lu class prefixes referring to cropland
-# hru_agr <- hru_dat %>% 
-#   filter(substring(lu_mgt,1,2) %in% c('fi','fl','fd')) %>% # adjust prefix specification
-#   select(hru_id = id)
-# # and store them in a file called hru_agr.txt for later indicator calculation
-# write.table(hru_agr, paste0(project_path,'/hru_agr.txt'), quote=F, row.names = F)
+## get cropland hru ids (required for indicators referring to cropland only)
+hru_dat <- read_tbl('hru-data.hru',project_path, n_skip = 2)
+unique(substring(hru_dat$lu_mgt,1,5)) # detect all lu class prefixes referring to cropland
+hru_agr <- hru_dat %>%
+  filter(substring(lu_mgt,1,2) %in% c('ag', 'fl', 'fd')) %>% # adjust prefix specification
+  select(hru_id = id)
+# and store them in a file called hru_agr.txt for later indicator calculation
+write.table(hru_agr, paste0(project_path,'/hru_agr.txt'), quote=F, row.names = F)
 
 run_scenarios2()
   
@@ -74,7 +74,7 @@ run_scenarios2()
 ##### ----------------
 
 path <- paste(wd, scen_out, measr.list[c(1:length(measr.list))], sep='/')
-channel <- 'cha016' #adjust channel
+channel <- 'cha5' #adjust channel
 
 ### In the following functions to calculate indicators are applied
 ### Please adjust function parameters (e.g. channel name, see also header information of calc_Indis.R)
@@ -143,19 +143,19 @@ hru_mon_all <- ind_hru_mon_wb(path, period = sw_periods, a='agr', ensemble=T) #s
 #   'wwht', 'akgs', 'wbar', 'wira', 'csil', 'wiry', 'sgbt','barl'
 # the measure list (measr.list) can be adapted to the measures you want to compare
 
-crop_sel <- c("corn", "wbar", "csil", "fesc", "wwht", "soyb", "canp", "grap") #adjust
+crop_sel <- c("pota", "barl", "csil", "fesc", "wwht", "oats", "canp", "lupn") #adjust
 
 # If you want to use grain units to normalize the basin wide sum of crop yields by crop-specific
 # nutritional values, please specify grain units for relevant crops
 # The grain units must be applicable to dry mass!!!
-grain_units <- data.frame('wbar' = 1.163, 
+grain_units <- data.frame('bar' = 1.163, 
                           'csil' = 1.071, 
                           'wwht' = 1.209, 
                           'fesc' = 0.718,
-                          'corn' = 1.071,
-                          'soyb' = 1, 
+                          'pota' = 1,
+                          'oats' = 1, 
                           'canp' = 1.3, 
-                          'grap' = 1)
+                          'lupn' = 1)
 
 ### collect basin-wide area of cropland
 crop_aa_ha <- ind_bsn_aa_crp(path, crop_sel, out_type = "ha", grain_units, ensemble=T) #set ensemble=F if you did not use an ensemble of cal files
