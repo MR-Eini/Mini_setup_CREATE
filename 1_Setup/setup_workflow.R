@@ -176,7 +176,8 @@ print(paste0("land_connections_as_lines.shp is prepared in ", dir_path,
 ##------------------------------------------------------------------------------
 
 ## Downloading atmospheric deposition data
-df <- get_atmo_dep(substring(bound_path, nchar(out_path)+1, nchar(bound_path)))
+df <- get_atmo_dep(substring(bound_path, nchar(out_path)+1, nchar(bound_path)), 
+                   start_year = 2004, end_year = 2022) # Data finishes in 2022
 
 ## Adding atmospheric deposition data to the model setup
 add_atmo_dep(df, dir_path, t_ext = "annual")
@@ -338,12 +339,12 @@ frm$add_variable(api, "api", asgn)
 
 ## Reading schedules, scheduling operations and writing management files
 frm$read_management(mgt, discard_schedule = TRUE)
-frm$schedule_operations(start_year = 1995, end_year = 2021,
+frm$schedule_operations(start_year = st_year, end_year = end_year,
                         replace = 'all')
 
 # save.image(file = "my_environment.RData")
 #Must match with calibration and validation period + warm up period.
-frm$write_operations(start_year = 1995, end_year = 2021)
+frm$write_operations(start_year = st_year, end_year = end_year)
 
 
 ## Better to have different mgt files for calibration
@@ -432,7 +433,7 @@ print(paste0("Your setup is located in the ", getwd(), "/", clean_path))
 ##------------------------------------------------------------------------------
 ## 21) Adding calibration.cal file to SWAT model (preparing calibrated setup)
 ##------------------------------------------------------------------------------
-stop("Remove this if you have calibration.cal file")
+# stop("Remove this if you have calibration.cal file")
 
 cal_file_nb <- 1
 cal_file <- paste0(lib_path, "/calibration_cal/calibration", as.character(cal_file_nb), ".cal")

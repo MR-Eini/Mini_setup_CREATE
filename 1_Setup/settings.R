@@ -15,9 +15,9 @@ data_path <- "Data"
 lib_path <- "Libraries"
 
 ##Starting year for model setup
-st_year <-  1995
+st_year <-  2004
 ##End year for the model setup
-end_year <- 2021
+end_year <- 2024
 
 ## Paths to input data
 
@@ -26,7 +26,7 @@ end_year <- 2021
 ## https://biopsichas.github.io/SWATprepR/articles/weather.html
 # weather_path <- paste0(data_path, '/for_prepr/weather_data_mini_model.xlsx')
 
-weather_path <- paste0(data_path, '/for_prepr/met_int_mini_model.rds')
+weather_path <- paste0(data_path, '/for_prepr/met_int_2000_2024.rds')
 
 
 ## Path to point data

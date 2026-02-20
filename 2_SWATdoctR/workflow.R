@@ -6,8 +6,8 @@ library(gridExtra)
 Run_1 <- run_swat_verification(
   "./clean_setup",
   outputs = c("wb", "mgt", "plt"),
-  start_date = 19950101,
-  end_date = 20211231,
+  start_date = 20040101,
+  end_date = 20241231,
   years_skip = 3,
   nostress = 0,
   keep_folder = FALSE
@@ -17,8 +17,8 @@ Run_1 <- run_swat_verification(
 Run_2 <- run_swat_verification(
   "./clean_setup",
   outputs = c("wb", "mgt", "plt"),
-  start_date = 19950101,
-  end_date = 20211231,
+  start_date = 20040101,
+  end_date = 20241231,
   years_skip = 3,
   nostress = 1,
   keep_folder = FALSE
@@ -28,8 +28,8 @@ Run_2 <- run_swat_verification(
 Run_3 <- run_swat_verification(
   "./clean_setup",
   outputs = c("wb", "mgt", "plt"),
-  start_date = 19950101,
-  end_date = 20211231,
+  start_date = 20040101,
+  end_date = 20241231,
   years_skip = 3,
   nostress = 2,
   keep_folder = FALSE
@@ -107,7 +107,7 @@ pushViewport(viewport(width = 0.9, height = 0.5))
 print(plot_hru_pw_day(Run_1,
                       hru_id = c(103, 117, 160, 205, 274),
                       var = c('lai', 'bioms'),
-                      years = 1998:2021,
+                      years = 2010:2024,
                       add_crop = TRUE), newpage = FALSE)
 popViewport()
 

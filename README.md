@@ -74,7 +74,7 @@ remotes::install_github("biopsichas/SWATtunR")
 remotes::install_github("biopsichas/SWATprepR")
 remotes::install_github("tkdweber/euptf2")
 remotes::install_github("chrisschuerz/SWATfarmR")
-remotes::install_github("chrisschuerz/SWATrunR")
+remotes::install_github("chrisschuerz/SWATrunR@remove_legacy")
 remotes::install_github("biopsichas/SWATdoctR")
 ```
 
