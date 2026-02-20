@@ -271,7 +271,38 @@ If you use this workflow in a report/paper, you can cite the repository:
 Mohammad Reza Eini, Department of Hydrology, Meteorology, and Water Management, 
 Institute of Environmental Engineering, Warsaw University of Life Sciences, Warsaw, Poland
  Mini_setup_CREATE. GitHub repository. https://github.com/MR-Eini/Mini_setup_CREATE
+ 
 ```
+<div id="refs" class="references csl-bib-body hanging-indent"
+entry-spacing="0">
+
+<div id="ref-optain2022" class="csl-entry">
+
+Christoph, Schürz, Čerkasova Natalja, Farkas Csilla, Nemes Attila,
+Plunge Svajunas, Strauch Michael, Szabó Brigitta, and Piniewski Mikołaj.
+2022. “<span class="nocase">SWAT+ modeling protocol for the assessment
+of water and nutrient retention measures in small agricultural
+catchments</span>.” Zenodo. <https://doi.org/10.5281/zenodo.7463395>.
+
+</div>
+
+<div id="ref-plunge2024a" class="csl-entry">
+
+Plunge, Svajunas, Christoph Schürz, Natalja Čerkasova, Michael Strauch,
+and Mikołaj Piniewski. 2024. “<span class="nocase">SWAT+ model setup
+verification tool: SWATdoctR</span>.” *Environmental Modelling &
+Software* 171: 105878. <https://doi.org/10.1016/j.envsoft.2023.105878>.
+
+</div>
+
+<div id="ref-plunge2024b" class="csl-entry">
+
+Plunge, Svajunas, Brigitta Szabó, Michael Strauch, Natalja Čerkasova,
+Christoph Schürz, and Mikołaj Piniewski. 2024.
+“<span class="nocase">SWAT + input data preparation in a scripted
+workflow: SWATprepR</span>.” *Environmental Sciences Europe* 36 (1): 53.
+<https://doi.org/10.1186/s12302-024-00873-1>.
+
 
 Related community (OPTAIN): https://zenodo.org/communities/optain-h2020-project/
 
