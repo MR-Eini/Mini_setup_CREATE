@@ -268,7 +268,8 @@ https://sisu.ut.ee/create-project/
 If you use this workflow in a report/paper, you can cite the repository:
 
 ```text
-Mohammad Reza Eini, Department of Hydrology, Meteorology, and Water Management, Institute of Environmental Engineering, Warsaw University of Life Sciences, Warsaw, Poland
+Mohammad Reza Eini, Department of Hydrology, Meteorology, and Water Management, 
+Institute of Environmental Engineering, Warsaw University of Life Sciences, Warsaw, Poland
  Mini_setup_CREATE. GitHub repository. https://github.com/MR-Eini/Mini_setup_CREATE
 ```
 
