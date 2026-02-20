@@ -51,18 +51,19 @@ https://sisu.ut.ee/create-project/
 
 **Funding programme description:** The project CREATE has received funding from the Estonian Research Council, Research Council of Finland, Latvian Council of Science, Research Council of Lithuania, National Centre of Research and Development in Poland, and the European Union’s Horizon Europe Programme under the **2023 Joint Transnational Call** of the European Partnership **Water4All** (Grant Agreement No. **101060874**).
 
+<p align="center">
+  <img src="assets/logo_CREATE_horizontal.png" alt="CREATE logo" width="400">
+</p>
+
+
 ## Funding logos
 
 <p align="center">
-  <img src="assets/Water4all_0.png" alt="Water4All logo" width="900">
+  <img src="assets/Water4all_0.png" alt="Water4All logo" width="400">
 </p>
 
 <p align="center">
   <img src="assets/EN_co_fundedvertical_RGB_POS.png" alt="EU co-funded logo" width="260">
-</p>
-
-<p align="center">
-  <img src="assets/logo_CREATE_horizontal.png" alt="CREATE logo" width="400">
 </p>
 
 
