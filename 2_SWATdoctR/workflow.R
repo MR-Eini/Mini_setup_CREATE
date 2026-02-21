@@ -2,7 +2,18 @@ library(SWATdoctR)
 library(grid)
 library(gridExtra)
 
+# The setting that controls the plant stress can be manipulated with the input 
+# argument nostress, i.e., nostress = 0 activates all stress factors for plant 
+# growth in the simulation, nostress = 1 deactivates all stress factors, and 
+# nostress = 2 deactivates only nutrient stresses. 
+# Deactivating plant stresses can be useful for the first three verification 
+# steps. If the first check of the climate variables and management were passed,
+# the verification of plant growth without plant stresses can be immediately
+# performed with the same simulation outputs without having to repeat the simulation runs.
+# https://doi.org/10.1016/j.envsoft.2023.105878
 
+
+# nostress = 0 activates all stress factors for plant growth
 Run_1 <- run_swat_verification(
   "./clean_setup",
   outputs = c("wb", "mgt", "plt"),
@@ -14,6 +25,7 @@ Run_1 <- run_swat_verification(
 )
 
 
+# nostress = 1 deactivates all stress factors
 Run_2 <- run_swat_verification(
   "./clean_setup",
   outputs = c("wb", "mgt", "plt"),
@@ -24,7 +36,7 @@ Run_2 <- run_swat_verification(
   keep_folder = FALSE
 )
 
-
+# nostress = 2 deactivates only nutrient stresses
 Run_3 <- run_swat_verification(
   "./clean_setup",
   outputs = c("wb", "mgt", "plt"),
