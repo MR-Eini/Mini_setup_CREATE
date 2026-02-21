@@ -3,6 +3,9 @@
 # -------------------------------------------------------------------------
 
 # Load required R packages ------------------------------------------------
+library(readr)
+library(dplyr)
+library(lubridate)
 library(SWATrunR)
 library(SWATtunR)
 library(hydroGOF)
@@ -16,57 +19,101 @@ sims <- list.files('./simulation/', pattern = '[0-9]{12}')
 sim_path <- paste0('./simulation/', sims[length(sims)])
 
 # E.g. path to discharge observations
-flow_path1 <- './observation/q_cha44_cms.csv'
-flow_path1 <- './observation/q_cha72_cms.csv'
-flow_path1 <- './observation/q_cha76_cms.csv'
+flow_path <- './observation/q_cha5_cms.csv'
 
 # E.g. path to in-stream nitrate observations
-#ntot_path <- './observation/ntot.csv'
+ntot_path <- './observation/TN_cha5.csv'
+ptot_path <- './observation/TP_cha5.csv'
+# no3n_path <- './observation/no3n_cha5.csv'
+sused_path <- './observation/suspended_sediment_cha5.csv'
 
 # Define time period to analyze (E.g. calibration or validation period)
 # Periods for different variables can be different, but calibration and
 # validation should not be mixed.
 # Discharge
-period_q <- c('2004-01-01', '2013-12-31')
+period_q <- c('2007-01-01', '2023-12-31')
 # Water quality
-period_wq <- c('2004-01-01', '2013-12-31')
+period_wq <- c('2007-01-01', '2023-12-31')
 
+# -------------------------------------------------------------------------
 # Load and prepare simulation results -------------------------------------
+# -------------------------------------------------------------------------
 sim <- load_swat_run(sim_path)
 
-# Extract parameter set
+# Extract parameter set (for dotty/identifiability plots)
 par_vals <- sim$parameter$values
 
 # Extract relevant output variables
-# E.g. discharge
 flow_sim <- filter_period(sim$simulation$flo_day, period_q)
-# E.g. N load components
-no3_sim  <- filter_period(sim$simulation$no3_day, period_wq)
-nh3_sim  <- filter_period(sim$simulation$nh3_day, period_wq)
-no2_sim  <- filter_period(sim$simulation$no2_day, period_wq)
+
+# N components (typical SWAT+ reach daily loads in kg/day)
+no3_sim  <- filter_period(sim$simulation$no3_day,  period_wq)
+nh3_sim  <- filter_period(sim$simulation$nh3_day,  period_wq)
+no2_sim  <- filter_period(sim$simulation$no2_day,  period_wq)
 orgn_sim <- filter_period(sim$simulation$orgn_day, period_wq)
 
-# E.g. if FDC segments should be evaluated, calculate the
-# FDC for the simulated discharges
+# P components (typical SWAT+ reach daily loads in kg/day)
+solp_sim <- filter_period(sim$simulation$solp_day, period_wq)
+sedp_sim <- filter_period(sim$simulation$sedp_day, period_wq)
+
+
+# Suspended sediment (typical SWAT+ reach daily load in tons/day)
+sed_sim <- filter_period(sim$simulation$sed_day, period_wq)
+
+# Flow duration curves (optional, discharge only)
 flow_fdc_sim <- calc_fdc(flow_sim)
 
-
-# Calculate total N from the four N fractions
+# Total N (load)
 ntot_sim <- sum_variables(no3_sim, nh3_sim, no2_sim, orgn_sim)
 
-# Convert loads to concentrations
-ntot_conc_sim <- load_to_conc(load = ntot_sim, flow = flow_sim,
-                              load_unit = 'kg day-1', flow_unit = 'm3 s-1',
-                              out_unit  = 'mg L-1')
+# Total P (load): solp + sedp (+ orgp if present)
+ptot_sim <- sum_variables(solp_sim, sedp_sim)
 
 
+# Convert simulated loads to concentrations for plotting/comparison
+ntot_conc_sim <- load_to_conc(
+  load = ntot_sim, flow = flow_sim,
+  load_unit = "kg day-1", flow_unit = "m3 s-1", out_unit = "mg L-1"
+)
+
+ptot_conc_sim <- load_to_conc(
+  load = ptot_sim, flow = flow_sim,
+  load_unit = "kg day-1", flow_unit = "m3 s-1", out_unit = "mg L-1"
+)
+
+sed_conc_sim <- load_to_conc(
+  load = sed_sim, flow = flow_sim,
+  load_unit = "tons day-1", flow_unit = "m3 s-1", out_unit = "mg L-1"
+)
+
+
+# -------------------------------------------------------------------------
 # Load and prepare observations -------------------------------------------
-# E.g. discharge observations
-flow_obs <- read_csv(flow_path) %>%
-  filter_period(., period_q)
-# E.g. Ntot concentration observations
-ntot_conc_obs <- read_csv(ntot_path) %>%
-  filter_period(., period_q)
+# -------------------------------------------------------------------------
+
+# Flow observations
+flow_obs <- read_csv(flow_path, show_col_types = FALSE) %>%
+  rename_with(tolower) %>%
+  mutate(date = mdy(date)) %>%
+  filter_period(period_q)
+
+# Ntot concentration observations
+ntot_conc_obs <- read_csv(ntot_path, show_col_types = FALSE) %>%
+  rename_with(tolower) %>%
+  mutate(date = mdy(date)) %>%
+  filter_period(period_q)   # or period_wq if you use a separate WQ period
+
+# Ptot concentration observations
+ptot_conc_obs <- read_csv(ptot_path, show_col_types = FALSE) %>%
+  rename_with(tolower) %>%
+  mutate(date = mdy(date)) %>%
+  filter_period(period_q)
+
+# Suspended sediment concentration observations
+sused_conc_obs <- read_csv(sused_path, show_col_types = FALSE) %>%
+  rename_with(tolower) %>%
+  mutate(date = mdy(date)) %>%
+  filter_period(period_q)
 
 # E.g. if FDC segments should be evaluated, calculate the
 # FDC for the simulated discharges
@@ -74,97 +121,196 @@ flow_fdc_obs <- calc_fdc(flow_obs)
 
 # E.g. if calibration should be done with loads and not concentrations
 # convert observed concentrations to loads
-ntot_obs <- conc_to_load(conc = ntot_conc_obs, flow = flow_obs,
-                         conc_unit = 'mg L-1', flow_unit = 'm3 s-1',
-                         out_unit  = 'kg day-1')
+# Convert observed concentrations to loads for GOF against simulated loads
 
+# ntot_obs <- conc_to_load(
+#   conc = ntot_conc_obs, flow = flow_obs,
+#   conc_unit = "mg L-1", flow_unit = "m3 s-1", out_unit = "kg day-1"
+# )
+# 
+# ptot_obs <- conc_to_load(
+#   conc = ptot_conc_obs, flow = flow_obs,
+#   conc_unit = "mg L-1", flow_unit = "m3 s-1", out_unit = "kg day-1"
+# )
+# 
+# sed_obs <- conc_to_load(
+#   conc = sed_conc_obs, flow = flow_obs,
+#   conc_unit = "mg L-1", flow_unit = "m3 s-1", out_unit = "tons day-1"
+# )
+
+# -------------------------------------------------------------------------
 # Calculate goodness-of-fit values ----------------------------------------
-# E.g. to calculate typical indices such as NSE, KGE, pbias, etc. for discharge
-gof_flow <- calc_gof(sim = flow_sim, obs = flow_obs,
-                     funs = list(nse_q = NSE, kge_q = KGE, pb_q = pbias,
-                                 mae_q = mae))
+# -------------------------------------------------------------------------
 
-# Calculate RSR for different discharge FDC sections (as proposed in
-# Pfannerstill et al., 2014 (https://doi.org/10.1016/j.jhydrol.2013.12.044))
-gof_fdc <- calc_fdc_rsr(fdc_sim = flow_fdc_sim, fdc_obs = flow_fdc_obs,
-                        quantile_splits = c(5, 20, 70, 95))
+# Discharge GOF
+gof_flow <- calc_gof(
+  sim = flow_sim, obs = flow_obs,
+  funs = list(nse_q = NSE, kge_q = KGE, pb_q = pbias, mae_q = mae)
+)
 
-# Calculate goodness-of-fit for Nitrogen
-gof_ntot <- calc_gof(sim = ntot_sim, obs = ntot_obs,
-                     funs = list(nse_n = NSE, kge_n = KGE, pb_n = pbias,
-                                 mae_n = mae))
+# FDC RSR segments for discharge (Pfannerstill et al., 2014)
+gof_fdc <- calc_fdc_rsr(
+  fdc_sim = flow_fdc_sim, fdc_obs = flow_fdc_obs,
+  quantile_splits = c(5, 20, 70, 95)
+)
 
-# E.g. if all calculated GOF tables should be joined to one table
-gof_all <- list(gof_flow) %>%
-  reduce(., left_join, by = 'run')
+# Total N GOF (loads)
+gof_ntot <- calc_gof(
+  sim = ntot_sim, obs = ntot_conc_obs,
+  funs = list(nse_n = NSE, kge_n = KGE, pb_n = pbias, mae_n = mae)
+)
 
-# , gof_fdc, gof_ntot
-#
-#
-# Visual analysis of goodness-of-fit --------------------------------------
-# A very useful tool to assess multiple criteria at the same time is to
-# plot a parameter identifiability plot.
-# I recommend to look at goodness-of-fit indices of different variables
-# at the same time to identify trade offs in parameter ranges. Too many
-# indices in one plot may be hard to assess. Therefore, a selection of
-# indices for plotting is recommended.
-gof_sel <- select(gof_flow, run, nse_q, pb_q, kge_q)
+# Total P GOF (loads)  <-- added
+gof_ptot <- calc_gof(
+  sim = ptot_sim, obs = ptot_conc_obs,
+  funs = list(nse_p = NSE, kge_p = KGE, pb_p = pbias, mae_p = mae)
+)
 
-# nse_n, pb_n
+# Suspended sediment GOF (loads)  <-- added
+gof_sed <- calc_gof(
+  sim = sed_sim, obs = sused_conc_obs,
+  funs = list(nse_sed = NSE, kge_sed = KGE, pb_sed = pbias, mae_sed = mae)
+)
 
-# It is always good to get a general overview of the summary statistics of the
-# calculated GOF indices.
+# Join all GOF tables (load-based) ----------------------------------------
+gof_all <- list(gof_flow, gof_fdc, gof_ntot, gof_ptot, gof_sed) %>%
+  reduce(left_join, by = "run")
+
+# Select a subset of GOF indices for visual diagnostics -------------------
+gof_sel <- gof_all %>%
+  select(
+    run,
+    nse_q, kge_q, pb_q,
+    nse_n, kge_n, pb_n,
+    nse_p, kge_p, pb_p,
+    nse_sed, kge_sed, pb_sed
+  )
+
 summary(gof_sel)
 
-plot_parameter_identifiability(parameters = par_vals,
-                               objectives = gof_sel,
-                               run_fraction = .2)
+plot_parameter_identifiability(
+  parameters  = par_vals,
+  objectives  = gof_sel,
+  run_fraction = 0.2
+)
 
-# Another typical approach to analyze goodness-of-fit to parameter changes is
-# to plot dotty plots. Here is just one example, to get a full picture of
-# how to update parameter ranges the assessment of multiple dotty plots may
-# be neccesary.
-plot_dotty(par = par_vals, gof_flow$kge_q, n_col = 10)
+# Dotty plot example (choose any GOF metric)
+# dotty plot for discharge KGE
+SWATtunR::plot_dotty(
+  par     = par_vals,
+  var     = dplyr::pull(gof_all, kge_q),
+  y_label = "KGE (Q)",
+  n_col   = 10
+)
 
-# If the model performance must be improved and e.g. the parameter
-# identifiability plot clearly suggests to update parameter ranges for relevant
-# parameters it is recommended to go back to step 1, update the parameter
-# boundaries, perform simulations for the new parameter combinations and again
-# analyze them with this script.
+# multi-objective dotty: one row per objective
+SWATtunR::plot_dotty(
+  par = par_vals,
+  var = list(
+    dplyr::pull(gof_all, kge_q),     # discharge
+    dplyr::pull(gof_all, kge_n),     # total N (load or conc, depending how you built gof_all)
+    dplyr::pull(gof_all, kge_p),     # total P
+    dplyr::pull(gof_all, kge_sed)    # suspended sediment
+  ),
+  y_label = c(
+    "Discharge KGE (m3/s)",
+    "Total N KGE",
+    "Total P KGE",
+    "Sediment KGE"
+  ),
+  trend = TRUE,
+  n_col = 3
+)
 
+
+# -------------------------------------------------------------------------
+# View simulated vs observed time series ----------------------------------
+# -------------------------------------------------------------------------
+
+# Discharge
+view_timeseries(
+  sim         = flow_sim,
+  obs         = flow_obs,
+  run_ids     = run_ids,
+  plot_bands  = TRUE,
+  period      = NULL,
+  fn_summarize= "mean",
+  x_label     = "Date",
+  y_label     = "Discharge (m<sup>3</sup> s<sup>-1</sup>)"
+)
+
+# --- Water quality (CONCENTRATIONS: mg/L) ---
+# Total N concentration
+view_timeseries(
+  sim         = ntot_conc_sim,
+  obs         = ntot_conc_obs,
+  run_ids     = run_ids,
+  plot_bands  = TRUE,
+  period      = NULL,
+  fn_summarize= "mean",
+  x_label     = "Date",
+  y_label     = "Total N (mg L<sup>-1</sup>)"
+)
+
+# Total P concentration
+view_timeseries(
+  sim         = ptot_conc_sim,
+  obs         = ptot_conc_obs,
+  run_ids     = run_ids,
+  plot_bands  = TRUE,
+  period      = NULL,
+  fn_summarize= "mean",
+  x_label     = "Date",
+  y_label     = "Total P (mg L<sup>-1</sup>)"
+)
+
+# Suspended sediment concentration
+view_timeseries(
+  sim         = sed_conc_sim,
+  obs         = sused_conc_obs,   # or: sused_conc_obs (use your object name)
+  run_ids     = run_ids,
+  plot_bands  = TRUE,
+  period      = NULL,
+  fn_summarize= "mean",
+  x_label     = "Date",
+  y_label     = "Suspended sediment (mg L<sup>-1</sup>)"
+)
+
+# -------------------------------------------------------------------------
 # Selection of parameter sets ---------------------------------------------
-# If the model performance is acceptable there are different approaches to select
-# acceptable parameter sets, e.g. by defining thresholds for goodness-of-fit
-# indices, or by ranking model runs. The following gives 3 examples to
-# identify an ensemble of acceptable parameter combinations.
+# -------------------------------------------------------------------------
 
-# Ranking simulations runs based on ranks or normalized values of
-# goodness-of-fit indices. Careful here that ranking is always done from smallest
-# to largest value. Therefore the indices must be modified before.
+# Example 1) Rank runs using normalized ranks (higher is better after adjustment)
 gof_adj <- gof_sel %>%
-  mutate(nse_q = - nse_q,
-         pb_q = - abs(pb_q),
-         #nse_n = - nse_n,
-         #pb_n = - abs(pb_n)
-         )
+  mutate(
+    # make "better" => smaller for rank_gof (it ranks from smallest to largest)
+    nse_q   = -nse_q,
+    kge_q   = -kge_q,
+    pb_q    = -abs(pb_q),
+    
+    nse_n   = -nse_n,
+    kge_n   = -kge_n,
+    pb_n    = -abs(pb_n),
+    
+    nse_p   = -nse_p,
+    kge_p   = -kge_p,
+    pb_p    = -abs(pb_p),
+    
+    nse_sed = -nse_sed,
+    kge_sed = -kge_sed,
+    pb_sed  = -abs(pb_sed)
+  )
 
-# Ranking could be done with two different types of ranking either type = 'rank'
-# which uses absolute ranks, or with type = 'norm' which uses normalized
-# goodness-of-fit values and therefore accounts for differences in the
-# performances.
-gof_rank <- rank_gof(gof_adj, type = 'norm')
-# Here just the first 10 runs of the ranked GOF indices are selected.
-run_sel <- gof_rank$run[1:10]
-run_ids <- run_to_id(run_sel)
+gof_rank <- rank_gof(gof_adj, type = "norm")
+run_sel  <- gof_rank$run[1:10]
+run_ids  <- run_to_id(run_sel)
 
-# The second approach is to select parameter combinations based on threshold
-# values for GOF indices. Here e.g. for NSE and pbias for discharge and N loads.
-run_sel <- which(gof_sel$nse_q > 0.5 & gof_sel$nse_n > 0.7 &
-                 abs(gof_sel$pb_q) < 5 & abs(gof_sel$pb_n) < 20)
-run_ids <- run_to_id(run_sel)
 
-# View simulated time series ----------------------------------------------
-# The simulated time series should be plotted to analyze the strengths and
-# weaknesses of the model simulations. SWATtunR offers some interactive
-# plot view functions.
-view_timeseries(flow_sim, flow_obs, run_ids = run_ids)
+## Add parameter change definitions to the parameter change data frame
+colnames(par_vals) <- sim$parameter$definition$full_name
+
+## Write multiple or a single 'calibration.cal' file
+write_cal_file(par = par_vals,
+               model_path = model_path,
+               write_path = './',
+               i_run = c(1, 2, 5)) ## For single i_run = 1

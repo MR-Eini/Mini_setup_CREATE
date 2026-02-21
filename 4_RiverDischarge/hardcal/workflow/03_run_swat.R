@@ -14,14 +14,14 @@ source('./workflow/02_define_output.R')
 model_path <- './clean_setup'
 
 # Start date of simulation period
-start_date <- '2001-01-01'
+start_date <- '2004-01-01'
 # End date of simulation period
-end_date <- '2013-12-31'
+end_date <- '2023-12-31'
 # Start date for printing simulation outputs
-start_date_print <- '2004-01-01'
+start_date_print <- '2007-01-01'
 
 # Number of cores used for parallel simulation runs
-n_cores <- 20
+n_cores <- 10
 
 # Name of the folder where simulation results will be saved incrementally.
 # To continue writing to existing saved runs, replace by the name of the

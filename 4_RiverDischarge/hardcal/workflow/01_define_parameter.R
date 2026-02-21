@@ -16,7 +16,7 @@ library(tibble)
 
 # Parameter definition ----------------------------------------------------
 # Number parameter combinations
-n_combinations <- 600
+n_combinations <- 900
 
 # Path to the SWAT+ project folder.
 model_path <- './clean_setup'
