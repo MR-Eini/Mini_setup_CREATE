@@ -17,6 +17,8 @@
 # install.packages("sf")
 # install.packages("dplyr")
 # install.packages("gstat")
+# install.packages("whitebox")
+# whitebox::install_whitebox()
 # remotes::install_github("biopsichas/SWATtunR")
 # remotes::install_github("biopsichas/SWATprepR")
 # remotes::install_github("tkdweber/euptf2")
@@ -25,7 +27,7 @@
 # remotes::install_github("biopsichas/SWATdoctR")
 # remotes::install_github('chrisschuerz/SWATmeasR')
 # remotes::install_github('chrisschuerz/SWATreadR')
-# whitebox::install_whitebox()
+
 
 # # ------------------------------------------------------------------------------
 ## Please read before starting!!! The preparation of input data is not part of 
