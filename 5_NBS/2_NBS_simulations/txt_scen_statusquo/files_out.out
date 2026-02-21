@@ -1,0 +1,27 @@
+ files_out.out - OUTPUT FILES WRITTEN
+ CHK                       checker.out
+ HRU                       hru_wb_mon.txt
+ HRU                       hru_wb_aa.txt
+ HRU                       hru_ncycle_aa.txt
+ HRU                       hru_nb_aa.txt
+ HRU                       hru_carbon_aa.txt
+ HRU                       hru_soilcarb_aa.txt
+ HRU                       hru_rescarb_aa.txt
+ HRU                       hru_plcarb_aa.txt
+ HRU                       hru_scf_aa.txt
+ HRU                       hru_plc_stat.txt
+ HRU                       hru_resc_stat.txt
+ HRU                       hru_soilc_stat.txt
+ BASIN                       basin_carbon_all.txt
+ HRU                       hru_nut_carb_gl_aa.txt
+ HRU                       hru_ls_aa.txt
+ HRU                       hru_pw_aa.txt
+ SWAT-DEG_CHANNEL          channel_sd_day.txt
+ SWAT-DEG_CHANNEL          channel_sd_aa.txt
+ SWAT-DEG_CHANNEL_MORPH    channel_sdmorph_aa.txt
+ DTBL                      lu_change_out.txt
+ BASIN_CROP_YLD            basin_crop_yld_yr.txt
+ BASIN_CROP_YLD            basin_crop_yld_aa.txt
+ RES                       reservoir_aa.txt
+ RES_WET                   wetland_aa.txt
+ HRU_ORGC                  hru_orgc.txt

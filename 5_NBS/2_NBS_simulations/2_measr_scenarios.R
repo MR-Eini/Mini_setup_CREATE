@@ -60,7 +60,7 @@ measr.list
 hru_dat <- read_tbl('hru-data.hru',project_path, n_skip = 2)
 unique(substring(hru_dat$lu_mgt,1,5)) # detect all lu class prefixes referring to cropland
 hru_agr <- hru_dat %>%
-  filter(substring(lu_mgt,1,2) %in% c('ag', 'fl', 'fd')) %>% # adjust prefix specification
+  filter(substring(lu_mgt,1,2) %in% c('ag', 'fe', 'fd')) %>% # adjust prefix specification
   select(hru_id = id)
 # and store them in a file called hru_agr.txt for later indicator calculation
 write.table(hru_agr, paste0(project_path,'/hru_agr.txt'), quote=F, row.names = F)
