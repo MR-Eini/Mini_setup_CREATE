@@ -62,7 +62,7 @@ buildr_path <- './vector'
 measr_path <- './txt'
 
 ## Define name of your measR project
-measr_name <- 'CS5_pnd'
+measr_name <- 'demo_nbs'
 
 ## Define path where maps should be saved
 output_path <- './scenario_outputs'
@@ -93,14 +93,14 @@ unique(loca$nswrm) # watch your measure names
 
 covcrop <- get_layer('covcrop')
 rotation <- get_layer('rotation')
-buffer <- get_layer('buffer')
+afforestation <- get_layer('afforestation')
 pond <- get_layer('pond')
 
 ## create point layer (centroid) for structural measures
 
 #rotation_p <- st_point_on_surface(rotation)
 pond_p <- st_point_on_surface(pond)
-buffer_p <- get_layer('buffer')
+# buffer_p <- get_layer('afforestation')
 
 # Plotting maps -----------------------------------------------------------
 ## Plot options for tmap
@@ -120,7 +120,8 @@ tmap_options(title.size = 1, # Size of a), b), c), d) (relative value)
              legend.position = c('RIGHT', 'bottom'), # Legend position, here right and bottom (All caps e.g. push it to the VERY right margin)
              frame = F, # Plot panels are plotted without frames
              asp = 1, # Aspect ratio of plot panels, now plotted squared. Change if place for legend is too narrow. value > 1 = plot wider
-             max.categories = Inf) # Ignore this
+             #max.categories = Inf
+             ) # Ignore this
 
 ## Define the intervals of the scale bar, depending on the catchment size.
 scale_bar_intervals <- c(0, 2.5, 5) #km
