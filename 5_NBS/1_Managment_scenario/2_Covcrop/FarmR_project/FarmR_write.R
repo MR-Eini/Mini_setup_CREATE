@@ -64,8 +64,8 @@ pth <- './clean_setup' # Define the path to your SWAT project
 # Define variables-------------------------------------------------------------------
 
 ## Simulation period
-start_y <- 1995 #starting year (consider at least 3 years for warm-up!)
-end_y <- 2021 #ending year
+start_y <- 2004 #starting year (consider at least 3 years for warm-up!)
+end_y <- 2023 #ending year
 
 ## Prefix of cropland hrus (all names of hrus with a crop rotation must begin
 ## with this prefix in column 'lu' of your land use map)
@@ -176,7 +176,7 @@ hru_attributes <- covcrop$.data$meta$hru_attributes
 # defined the entire time series of your variables is used.
 #farmR_ilm$schedule_operations(start_year = 2003, end_year = 2014, n_schedule=1)
 #n_schedule=1, => für jede landuse pro routing unit nur einen schedule in management.sch schreiben und für andere dann übernehmen)
-covcrop$schedule_operations(start_year = 1995, end_year = 2021, replace = 'all')
+covcrop$schedule_operations(start_year = start_y, end_year = end_y, replace = 'all')
 
 
 
@@ -187,7 +187,7 @@ covcrop$schedule_operations(start_year = 1995, end_year = 2021, replace = 'all')
 # accordingly, so that your schedules always match the weather time series.
 # So do not change your simulation period manually. Then the simulated
 # years will not match the calculated schedules.
-covcrop$write_operations(start_year = 1995, end_year = 2021)
+covcrop$write_operations(start_year = start_y, end_year = end_y)
 
 # Update land use labels (should not be longer than 24 characters)
 library(SWATdoctR)

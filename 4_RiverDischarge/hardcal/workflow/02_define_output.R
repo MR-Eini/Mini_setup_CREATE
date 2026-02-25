@@ -9,9 +9,9 @@ library(SWATrunR)
 
 # Parameter definition ----------------------------------------------------
 # Channel IDs for which simulation outputs are returned.
-cha_ids <- c(44, 72, 76)
+cha_ids <- 5  # for more than one station c(44, 72, 76)
 # HRU IDs for which simulation outputs are returned. E.g. all HRUs
-hru_ids <- 1:8176
+hru_ids <- 1:314
 
 # Output definition -------------------------------------------------------
 outputs <- list(

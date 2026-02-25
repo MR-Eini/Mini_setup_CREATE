@@ -90,7 +90,7 @@ outputs_path <- './scenario_outputs'
 
 # paths to scenario results  ---------------------------------------------------
 sq_path <- paste0(outputs_path,'/statusquo/cal1')
-buff_path <- paste0(outputs_path,'/buffer/cal1')
+afforestation_path <- paste0(outputs_path,'/afforestation/cal1')
 rota_path <- paste0(outputs_path,'/rotation/cal1')
 cc_path <- paste0(outputs_path,'/covcrop/cal1')
 pond_path <- paste0(outputs_path,'/pond/cal1')
@@ -192,20 +192,21 @@ plot_interactive_map(cha_sq, 'sed_out_conc', type = 'seq', trans = TRUE) # too h
 # ### plot differences with measures
 # ### here only example grassed waterways
 
-# sq_path <- paste0(outputs_path,'/statusquo/cal1')
-# buff_path <- paste0(outputs_path,'/contr_drn/cal1')
-# rota_path <- paste0(outputs_path,'/afforestation/cal1')
-# cc_path <- paste0(outputs_path,'/covcrop/cal1')
-# pond_path <- paste0(outputs_path,'/pond/cal1')
-# all_path <- paste0(outputs_path,'/all/cal1')
-
+# paths to scenario results  ---------------------------------------------------
+sq_path <- paste0(outputs_path,'/statusquo/cal1')
+afforestation_path <- paste0(outputs_path,'/afforestation/cal1')
+rota_path <- paste0(outputs_path,'/rotation/cal1')
+cc_path <- paste0(outputs_path,'/covcrop/cal1')
+pond_path <- paste0(outputs_path,'/pond/cal1')
+all_path <- paste0(outputs_path,'/all/cal1')
 
 
 # get SWAT+ results for Scenario ---------------------------------------------
-wb_aa_gw <- read_tbl('hru_wb_aa.txt', buff_path, 3)
-ls_aa_gw <- read_tbl('hru_ls_aa.txt', buff_path, 3)
-pw_aa_gw <- read_tbl('hru_pw_aa.txt', buff_path, 3)
-cha_aa_sd_gw <- read_tbl('channel_sd_aa.txt', buff_path, 3)
+# Modify the scenario eg. afforestation, all
+wb_aa_gw <- read_tbl('hru_wb_aa.txt', all_path, 3)
+ls_aa_gw <- read_tbl('hru_ls_aa.txt', all_path, 3)
+pw_aa_gw <- read_tbl('hru_pw_aa.txt', all_path, 3)
+cha_aa_sd_gw <- read_tbl('channel_sd_aa.txt', all_path, 3)
 
 # join results with GIS data ---------------------------------------------------
 hru_wb_gw <- left_join(hru, wb_aa_gw, 'name')

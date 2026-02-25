@@ -107,7 +107,7 @@ plot_phu_yld_bms(ylds_phu_dmat, yield_obs)
 # Set days to maturity values for all selected crops based on the figure above.
 dmat_sel <- tibble(
   plant_name =                       c("fesc", "lupn", "oats", "pota", "canp", "wwht"),
-  'days_mat.pdb | change = absval' = c(150,       140,    145,    100,    100,     90)
+  'days_mat.pdb | change = absval' = c(170,       160,    110,    100,    105,     100)
 )
 
 # Check if user defined days to maturity values for all crops.

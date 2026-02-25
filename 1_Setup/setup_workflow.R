@@ -366,9 +366,7 @@ asgn <- select(frm$.data$meta$hru_var_connect, hru, pcp)
 frm$add_variable(api, "api", asgn)
 
 ## Reading schedules, scheduling operations and writing management files
-frm$read_management(mgt, discard_schedule = TRUE)
-frm$schedule_operations(start_year = start_y, end_year = end_y,
-                        replace = 'all')
+frm$schedule_operations(start_year = start_y, end_year = end_y, replace = 'all')
 
 # save.image(file = "my_environment.RData")
 #Must match with calibration and validation period + warm up period.

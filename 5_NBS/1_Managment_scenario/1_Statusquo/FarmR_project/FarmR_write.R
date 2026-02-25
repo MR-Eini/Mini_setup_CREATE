@@ -62,8 +62,8 @@ lu_generic_csv <- './input/mgt_generic.csv' # generic land use management .csv t
 # Define variables-------------------------------------------------------------------
 
 ## Simulation period
-start_y <- 1995 #starting year (consider at least 3 years for warm-up!)
-end_y <- 2021 #ending year
+start_y <- 2004 #starting year (consider at least 3 years for warm-up!)
+end_y <- 2023 #ending year
 
 ## Prefix of cropland hrus (all names of hrus with a crop rotation must begin
 ## with this prefix in column 'lu' of your land use map)
@@ -176,7 +176,7 @@ hru_attributes <- statusquo$.data$meta$hru_attributes
 # and the rules that you defined in your management table. If no dates are
 # defined the entire time series of your variables is used.
 #farmR_ilm$schedule_operations(start_year = 2003, end_year = 2014, n_schedule=1) #n_schedule=1, => für jede landuse pro routing unit nur einen schedule in management.sch schreiben und für andere dann übernehmen)
-statusquo$schedule_operations(start_year = 1995, end_year = 2021, replace = 'all')
+statusquo$schedule_operations(start_year = start_y, end_year = end_y, replace = 'all')
 
 
 # When the scheduling was successful you can write the schedules into your
@@ -186,7 +186,7 @@ statusquo$schedule_operations(start_year = 1995, end_year = 2021, replace = 'all
 # accordingly, so that your schedules always match the weather time series.
 # So do not change your simulation period manually. Then the simulated
 # years will not match the calculated schedules.
-statusquo$write_operations(start_year = 1995, end_year = 2021)
+statusquo$write_operations(start_year = start_y, end_year = end_y)
 
 # Update land use labels (should not be longer than 24 characters)
 library(SWATdoctR)

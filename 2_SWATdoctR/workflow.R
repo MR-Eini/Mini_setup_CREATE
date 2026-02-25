@@ -2,34 +2,46 @@ library(SWATdoctR)
 library(grid)
 library(gridExtra)
 
+# The setting that controls the plant stress can be manipulated with the input 
+# argument nostress, i.e., nostress = 0 activates all stress factors for plant 
+# growth in the simulation, nostress = 1 deactivates all stress factors, and 
+# nostress = 2 deactivates only nutrient stresses. 
+# Deactivating plant stresses can be useful for the first three verification 
+# steps. If the first check of the climate variables and management were passed,
+# the verification of plant growth without plant stresses can be immediately
+# performed with the same simulation outputs without having to repeat the simulation runs.
+# https://doi.org/10.1016/j.envsoft.2023.105878
 
+
+# nostress = 0 activates all stress factors for plant growth
 Run_1 <- run_swat_verification(
   "./clean_setup",
   outputs = c("wb", "mgt", "plt"),
-  start_date = 19950101,
-  end_date = 20211231,
+  start_date = 20040101,
+  end_date = 20241231,
   years_skip = 3,
   nostress = 0,
   keep_folder = FALSE
 )
 
 
+# nostress = 1 deactivates all stress factors
 Run_2 <- run_swat_verification(
   "./clean_setup",
   outputs = c("wb", "mgt", "plt"),
-  start_date = 19950101,
-  end_date = 20211231,
+  start_date = 20040101,
+  end_date = 20241231,
   years_skip = 3,
   nostress = 1,
   keep_folder = FALSE
 )
 
-
+# nostress = 2 deactivates only nutrient stresses
 Run_3 <- run_swat_verification(
   "./clean_setup",
   outputs = c("wb", "mgt", "plt"),
-  start_date = 19950101,
-  end_date = 20211231,
+  start_date = 20040101,
+  end_date = 20241231,
   years_skip = 3,
   nostress = 2,
   keep_folder = FALSE
@@ -107,7 +119,7 @@ pushViewport(viewport(width = 0.9, height = 0.5))
 print(plot_hru_pw_day(Run_1,
                       hru_id = c(103, 117, 160, 205, 274),
                       var = c('lai', 'bioms'),
-                      years = 1998:2021,
+                      years = 2010:2024,
                       add_crop = TRUE), newpage = FALSE)
 popViewport()
 
