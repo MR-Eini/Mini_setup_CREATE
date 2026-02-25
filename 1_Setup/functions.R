@@ -34,3 +34,19 @@ exe_copy_run <- function(path_from, path_to, file_name){
   ##Reset back working directory
   setwd(wd_base)
 }
+
+# Helper: install and load from CRAN
+install_and_load_cran <- function(pkg) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    install.packages(pkg)
+  }
+  library(pkg, character.only = TRUE)
+}
+
+# Helper: install and load from GitHub 
+install_and_load_github <- function(pkg, repo) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    remotes::install_github(repo)
+  }
+  library(pkg, character.only = TRUE)
+}

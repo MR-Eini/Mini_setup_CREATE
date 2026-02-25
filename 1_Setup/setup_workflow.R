@@ -1,33 +1,14 @@
-## Workflow for Uncalibrated Setup Preparation ---------------------------------
+## Workflow for Setup Preparation ----------------------------------------------
 ## 
-## Version 0.0.9
-## Date: 2025-07-26
+## Version 1.0.0
+## Date: 2026-02-26
 ## Developers: Svajunas Plunge    svajunas_plunge@sggw.edu.pl
 ##             Christoph Schürz   christoph.schuerz@ufz.de
 ##             Micheal Strauch    michael.strauch@ufz.de
+##             Mohammadreza Einikarimkandi mohammad_eini@sggw.edu.pl
 ##
 ## 
-
-# Install:
-
-# install.packages("remotes")
-# install.packages("RNetCDF")
-# install.packages("tidyverse")
-# install.packages("mapview")
-# install.packages("sf")
-# install.packages("dplyr")
-# install.packages("gstat")
-# remotes::install_github("biopsichas/SWATtunR")
-# remotes::install_github("biopsichas/SWATprepR")
-# remotes::install_github("tkdweber/euptf2")
-# remotes::install_github("chrisschuerz/SWATfarmR")
-# remotes::install_github("chrisschuerz/SWATrunR@remove_legacy")
-# remotes::install_github("biopsichas/SWATdoctR")
-# remotes::install_github('chrisschuerz/SWATmeasR')
-# remotes::install_github('chrisschuerz/SWATreadR')
-# whitebox::install_whitebox()
-
-# # ------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ## Please read before starting!!! The preparation of input data is not part of 
 ## this workflow and needs to be done externally. However, if you have already 
 ## prepared and tested the data using the scripts provided by the developer 
@@ -39,38 +20,69 @@
 ## workflows provided by the development team for soft and hard calibration/
 ## validation of the model, running scenarios, etc.
 
-##------------------------------------------------------------------------------
-## 
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 1) Initializing the workflow -----
+## loading (or installing and loading) packages, functions and setting.
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-library(SWATprepR)
-library(SWATfarmR)
-library(SWATtunR)
-library(SWATdoctR)
-library(mapview)
-library(sf)
-library(dplyr)
+## Loading settings and functions
 source('settings.R')
 source('functions.R')
 
-## If the directory exists, delete the results directory. (Please be careful!!!)
-if (file.exists(res_path)) unlink(res_path, recursive = TRUE)
-## Creating results directory
+## Loading (or installing and loading) CRAN packages
+for(pkg in c("remotes", "RNetCDF", "tidyverse", "mapview", "sf", "gstat", 
+             "rstudioapi")){
+  install_and_load_cran(pkg)
+} 
+
+## Loading (or installing and loading) GitHub packages
+for(pkg2 in c("biopsichas/SWATtunR", "biopsichas/SWATprepR", 
+              "chrisschuerz/SWATfarmR", "biopsichas/SWATdoctR", 
+              "chrisschuerz/SWATmeasR", "chrisschuerz/SWATreadR")){
+  install_and_load_github(basename(pkg2), pkg2)
+}
+
+## Initializing whitebox tools which are used for several raster analyses
+if (!whitebox::wbt_init()) {
+  whitebox::install_whitebox()
+}
+
+# ## If the directory exists, delete the results directory. (Please be careful!!!)
+# if (file.exists(res_path)) unlink(res_path, recursive = TRUE)
+# ## Creating results directory
+# dir.create(res_path, recursive = TRUE)
+
+if (file.exists(res_path)) {
+  confirm <- rstudioapi::showQuestion(
+    title   = "Confirm deletion",
+    message = paste("Directory exists:\n", res_path, "\n\nDelete it?"),
+    ok      = "Yes",
+    cancel  = "No"
+  )
+  
+  if (isTRUE(confirm)) {
+    unlink(res_path, recursive = TRUE)
+  } else {
+    stop("Deletion cancelled by user.")
+  }
+}
+
 dir.create(res_path, recursive = TRUE)
 
-##------------------------------------------------------------------------------
-## 2) Running SWATbuildR'er
-##------------------------------------------------------------------------------
-
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 2) Running SWATbuildR'er -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 
+## The SWATbuildR'er is a tool that generates a SWAT model setup based is provided
+## in https://github.com/chrisschuerz/SWATbuildR. Workflow takes the functions
+## from the Libraries/buildr_script folder.
+##
 ## Please make sure SWATbuildR'er settings are provided in settings file
 source(paste0(lib_path, '/buildr_script/swatbuildr.R'), chdir=TRUE)
 
-##------------------------------------------------------------------------------
-## 3) Adding weather and atmospheric deposition data to model setup
-##------------------------------------------------------------------------------
-
-## Description of functions and how data example was prepared is on this webpage
-## https://biopsichas.github.io/SWATprepR/articles/weather.html
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 3) Backing up prepared database -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 ## Identifying path to the database
 db_path <- list.files(path = res_path, pattern = paste0(project_name, ".sqlite"), 
@@ -92,38 +104,43 @@ if(length(db_path)>1){
   file.remove(dest_db_path)
 }
 
+## If you would like to select one database manualy you can use the following 
+## lines to select it manually.
+# db_path <- rstudioapi::selectFile(
+#   caption = "Select the database file",
+#   filter = "SQLite files (*.sqlite);;All files (*.*)",
+#   existing = TRUE, 
+#   path = res_path
+# )
+
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 4) Adding weather data to model setup -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+## Description of functions and how data example was prepared is on this webpage
+## https://biopsichas.github.io/SWATprepR/articles/weather.html
+
 # template_path
 # Character, the path to the *.xlsx file containing the data template.
 # epsg_code (optional) Integer, EPSG code for station coordinates. 
 # Default epsg_code = 4326, which stands for WGS 84 coordinate system.
 
-# *.xlsx file
+# *.xlsx file should be prepared according to the template provided SWATprepR package. 
 # met <- load_template(weather_path, 2180)
 
-# Or rds file (already interpolated)
-met <- readRDS(weather_path, 2180)
+# If you have already prepared weather data, you can load it directly
+met <- readRDS(weather_path)
 
+## If you have gaps and missing data in your weather data, you can use the 
+## interpolation function (very slow at this state) provided by SWATprepR package. 
+## https://biopsichas.github.io/SWATprepR/articles/weather.html#interpolating
 
-##------------------
-## Interpolate Weather Data if you have gaps and missing data
-## Otherwise go to line 129
-##------------------
-
-# This function interpolates weather data for a SWAT model and saves results into
-# nested list format. The function uses Inverse Distance Weighting (IDW) 
-# interpolation method to fill gaps in weather data. This function uses 
-# sp, gstat and raster packages for spatial operations. Please make sure
-# that these packages are installed before using this function.
+# The interpolation function interpolates weather data for a SWAT model and 
+# saves results into nested list format. The function uses Inverse Distance 
+# Weighting (IDW)  interpolation method to fill gaps in weather data. This 
+# function uses  sp, gstat and raster packages for spatial operations. Please 
+# make sure that these packages are installed before using this function.
 # https://biopsichas.github.io/SWATprepR/reference/interpolate.html
-
-# met <- load_template(weather_path, 2180)
-# met_int <- SWATprepR::interpolate(met, "Data/for_buildr/basin1.shp", 
-#                                   "Data/for_buildr/DEM1.tif", 10000)
-## Calculating weather generator statistics
-# wgn <- prepare_wgn(met_int)
-
-## Adding weather and atmospheric deposition data into setup
-# add_weather(db_path, met_int, wgn)
 
 
 ## Calculating weather generator statistics
@@ -132,9 +149,9 @@ wgn <- prepare_wgn(met)
 ## Adding weather and atmospheric deposition data into setup
 add_weather(db_path, met, wgn)
 
-##------------------------------------------------------------------------------
-## 4) Adding small modification to model setup .sqlite 
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 5) Adding small modification to model setup .sqlite database -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 ## This is needed for write.exe to work (writing a dot in project_config table)
 db <- dbConnect(RSQLite::SQLite(), db_path)
@@ -148,9 +165,9 @@ dbDisconnect(db)
 ## SWATPlusEditor, DB Browser for SQLite, or any other open-source tools. 
 ## Additionally, R packages like RSQLite could be applied for these purposes."
 
-##------------------------------------------------------------------------------
-## 5) Writing model setup text files into folder with write.exe
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 6) Writing model setup text files into folder with write.exe -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 ## Directory of setup .sqlite database 
 dir_path <- file.path(dirname(db_path))
@@ -160,30 +177,44 @@ dir_path <- file.path(dirname(db_path))
 ## with SWATPluseditor and writing SWAT input files with it.)
 exe_copy_run(lib_path, dir_path, "write.exe")
 
-# Preparing land_connections_as_lines.shp layer to visualise connectivities
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 7) Checking land connectivity -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+# Preparing land_connections_as_lines.shp layer to visualize connectivity
 ## (needed, if file rout_unit.con should be updated manually)
 
 source(paste0(lib_path, '/create_connectivity_line_shape.R'))
 print(paste0("land_connections_as_lines.shp is prepared in ", dir_path, 
-             '/data folder' ))
+             '/data/vector folder' ))
 
 ## Guidelines for investigation and manual updating of 'rout_unit.con is 
-## provided in OPTAIN Cloud > WPs & Tasks > WP4 > Task 4.4 > Tools to share >
-## check_connectiviness > connectivity_chech_showcase.pdf
+## provided in Docs/connectivity_chech_showcase.pdf
 
-##------------------------------------------------------------------------------
-## 6) Add atmospheric deposition data to model setup
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 8) Add atmospheric deposition data to model setup ----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+## Information about how to prepare atmospheric deposition data is on this webpage:
+## https://biopsichas.github.io/SWATprepR/articles/deposition.html
 
 ## Downloading atmospheric deposition data
-df <- get_atmo_dep(substring(bound_path, nchar(out_path)+1, nchar(bound_path)))
+df <- get_atmo_dep(paste0(dir_path, "/data/vector/basin.shp"), 
+                   start_year = st_year,
+                   end_year = end_year)
+
+# ##You can plot downloaded results with this code
+# ggplot(pivot_longer(df, !DATE, names_to = "par", values_to = "values"), aes(x = DATE, y = values))+ 
+#   geom_line()+ 
+#   facet_wrap(~par, scales = "free_y")+ 
+#   theme_bw()
 
 ## Adding atmospheric deposition data to the model setup
 add_atmo_dep(df, dir_path, t_ext = "annual")
 
-##------------------------------------------------------------------------------
-## 7) Linking aquifers and channels with geomorphic flow
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 9) Linking aquifers and channels with geomorphic flow -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 # A SWATbuildR model setup only has one single aquifer (in its current 
 # version). This aquifer is linked with all channels through a channel-
@@ -192,9 +223,9 @@ add_atmo_dep(df, dir_path, t_ext = "annual")
 
 link_aquifer_channels(dir_path)
 
-##------------------------------------------------------------------------------
-## 8) Adding point sources data
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 10) Adding point sources data ----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 # Description of how data should be prepared (template) is on this webpage
 # https://biopsichas.github.io/SWATprepR/articles/psources.html
@@ -209,15 +240,15 @@ if(!is.null(pnt_path)){
   print("No point sources data provided. Skipping this step.")
 }
 
-##------------------------------------------------------------------------------
-## 9) Running SWATfamR'er input preparation script
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 11) Running SWATfamR'er input preparation script -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-## Overwriting plants.plt with adjusted manually
+## Overwriting plants.plt with adjusted manually (if needed).
 file.copy(paste0(lib_path, "/files_to_overwrite_at_the_end/plants.plt"), dir_path, 
           overwrite = TRUE)
 
-## Setting directory and running Micha's SWAtfarmR'er input script
+## Setting directory and running Micha's SWAtfarmR'er input preparation script
 in_dir <- paste0(lib_path, "/farmR_input")
 source(paste0(in_dir, "/write_SWATfarmR_input.R"), chdir=TRUE)
 
@@ -232,11 +263,14 @@ file.copy(paste0(in_dir, "/", files), paste0(res_path, "/farmR_input"))
 file.remove(paste0(in_dir, "/", files))
 mgt <- paste0(out_dir, "/farmR_input.csv")
 
-##------------------------------------------------------------------------------
-## 10) Additional editing of the farmR_input.csv file
-##------------------------------------------------------------------------------
-# 
-## Reading the file
+## Additional editing of the farmR_input.csv file, which might be necessary for 
+## providing management schedules in drained areas. This is needed, if you have 
+## drained areas in your model and you want to provide management schedules for 
+## them. If you don't have drained areas or you don't want to provide management 
+## schedules for them or you already included 'drn_' suffix in crops.shp file, 
+## you can skip this it.
+
+# ## Reading the file
 # mgt <- paste0(out_dir, "/farmR_input.csv")
 # mgt_file <- read.csv(mgt)
 # 
@@ -245,9 +279,9 @@ mgt <- paste0(out_dir, "/farmR_input.csv")
 #                         mutate(land_use = gsub("_lum", "_drn_lum", land_use)))
 # write_csv(mgt_file, file = mgt, quote = "needed", na = '')
 
-##------------------------------------------------------------------------------
-## 11) Updating landuse.lum file
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 12) Updating landuse.lum file -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 ## Backing up landuse.lum file
 if(!file.exists(paste0(dir_path, "/", "landuse.lum.bak"))) {
@@ -258,9 +292,9 @@ if(!file.exists(paste0(dir_path, "/", "landuse.lum.bak"))) {
 ## Updating it
 source(paste0(lib_path, '/read_and_modify_landuse_lum.R'))
 
-##------------------------------------------------------------------------------
-## 12) Updating nutrients.sol file
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 13) Updating nutrients.sol and conneting to soil_plant.ini file -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 ## Soil P data mapping and adding to model files scripts are provided by WP3. 
 ## Please utilize WPs&Task>WP3>Scrips and tools> App8_Map_soilP_content.R and 
@@ -273,7 +307,6 @@ nutrients.sol <- read.delim(f_write)
 nutrients.sol[2,1] <- gsub("5.00000", lab_p, nutrients.sol[2,1])
 update_file(nutrients.sol, f_write)
 
-
 ##Including connecting nutrients.sol into hru-data.hru
 if(!file.exists(paste0(dir_path, '/hru-data.hru.bkp0'))) {
   copy_file_version(dir_path, 'hru-data.hru', file_version = 0)
@@ -284,9 +317,9 @@ hru_data$soil_plant_init <- "soilplant1"
 hru_data_fmt <- c('%8s', '%-14s', rep('%18s', 8))
 SWATreadR:::write_tbl(hru_data, paste0(dir_path, '/hru-data.hru'), fmt = hru_data_fmt)
 
-##------------------------------------------------------------------------------
-## 13) Updating time.sim
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 14) Updating time.sim -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 ## Reading time.sim
 f_write <- paste0(dir_path, "/", "time.sim")
@@ -304,17 +337,16 @@ if(max(y[y>0]) != end_year){
 ##Writing out updated time.sim file
 update_file(time_sim, f_write)
 
-
-##------------------------------------------------------------------------------
-## 14) Running SWAT+ model setup
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 15) Running SWAT+ model setup -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 ##Copy swat.exe into txtinout directory and run it
 exe_copy_run(lib_path, dir_path, swat_exe)
 
-##------------------------------------------------------------------------------
-## 15) Running SWATfamR'er to prepare management files
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 16) Running SWATfamR'er to prepare management files -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 ## Please read https://chrisschuerz.github.io/SWATfarmR/ to understand how to 
 ## apply this tool. Below are a minimal set of lines to access management files.
@@ -325,11 +357,8 @@ if(startsWith(as.character(packageVersion("SWATfarmR")), "4.")){
   frm <- SWATfarmR::farmr_project$new(project_name = 'frm', project_path = dir_path, 
                                       project_type = 'environment') 
   .GlobalEnv$frm <- frm
-} else if(startsWith(as.character(packageVersion("SWATfarmR")), "3.2.0")){
-  frm <- SWATfarmR::farmr_project$new(project_name = 'frm', project_path = dir_path)
 } else {
-  stop("SWATfarmR version should be > 4.0.0 or special version 3.2.0 
-         from OPTAIN Cloud>WPs&Tasks>WP4>Task4.4>Tools to share>workflow_scripts>SWATfarmR_3.2.0.zip")
+  stop("SWATfarmR version should be > 4.0.0. Please update it.")
 }
 ## Adding dependence to precipitation 
 api <- variable_decay(frm$.data$variables$pcp, -5,0.8)
@@ -338,27 +367,24 @@ frm$add_variable(api, "api", asgn)
 
 ## Reading schedules, scheduling operations and writing management files
 frm$read_management(mgt, discard_schedule = TRUE)
-frm$schedule_operations(start_year = 1995, end_year = 2021,
+frm$schedule_operations(start_year = start_y, end_year = end_y,
                         replace = 'all')
 
 # save.image(file = "my_environment.RData")
 #Must match with calibration and validation period + warm up period.
-frm$write_operations(start_year = 1995, end_year = 2021)
+frm$write_operations(start_year = start_y, end_year = end_y)
 
 
-## Better to have different mgt files for calibration
+## If you need, different mgt files for calibration
 # starting from different years; but managment file should renamed
 # frm$write_operations(start_year = 2000, end_year = 2021)
 
-# undebug(frm$schedule_operations)
-# options(error = recover)  # options(error = NULL)
-
-##------------------------------------------------------------------------------
-## 17) Dealing with unconnected reservoirs 
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 17) Dealing with unconnected reservoirs -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 # Overwriting with a set of manually adjusted files (if needed). Except plants.plt
-# which was overwritten in the step 9
+# which was overwritten in the step 11
 # Directory could be empty, if you don't have any files to be used.
 file.copy(grepl("plants.plt", list.files(
   path = paste0(lib_path, "/files_to_overwrite_at_the_end"), full.names = TRUE)),
@@ -387,9 +413,9 @@ writeLines(reservoir_con, paste0(dir_path, "/", "reservoir.con"))
 writeLines(reservoir_res, paste0(dir_path, "/", "reservoir.res"))
 writeLines(hydrology_res, paste0(dir_path, "/", "hydrology.res"))
 
-##------------------------------------------------------------------------------
-## 18) Updating any other files
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 18) Updating any other files (if needed) -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 # ##For instance hydrology.hyd
 # if(!file.exists(paste0(dir_path, '/hydrology.hyd.bkp0'))) {
@@ -399,18 +425,19 @@ writeLines(hydrology_res, paste0(dir_path, "/", "hydrology.res"))
 # hydrology_hyd <- SWATtunR::read_tbl(paste0(dir_path, "/hydrology.hyd.bkp0"))
 # hydrology_hyd$harg_pet <- 1.1
 # hydrology_hyd <- mutate_if(hydrology_hyd, is.double, ~sprintf("%0.5f",.))
-# SWATreadR:::write_tbl(hydrology_hyd, paste0(dir_path, '/hydrology.hyd'), fmt = c('%-14s', rep('%12s', 14)))
+# SWATreadR:::write_tbl(hydrology_hyd, paste0(dir_path, '/hydrology.hyd'), 
+# fmt = c('%-14s', rep('%12s', 14)))
 
-##------------------------------------------------------------------------------
-## 19) Running final SWAT model pre-calibrated setup
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 19) Running final SWAT model pre-calibrated setup ----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 ## Copy swat.exe into txtinout directory and run it
 exe_copy_run(lib_path, dir_path, swat_exe)
 
-##------------------------------------------------------------------------------
-## 20) Extracting SWAT input files and overwriting with a set of files 
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 20) Extracting SWAT input files and overwriting with a set of files -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 ## Preparing directory
 clean_path <- paste0(res_path, "/", "clean_setup")
@@ -429,9 +456,9 @@ cat("Congradulations!!! You have pre-calibrated model!!! \n
 Please continue to soft-calibration workflow (softcal_workflow.R)")
 print(paste0("Your setup is located in the ", getwd(), "/", clean_path))
 
-##------------------------------------------------------------------------------
-## 21) Adding calibration.cal file to SWAT model (preparing calibrated setup)
-##------------------------------------------------------------------------------
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+## 21) Adding calibration.cal to SWAT model (preparing calibrated setup) -----
+## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 stop("Remove this if you have calibration.cal file")
 
 cal_file_nb <- 1
