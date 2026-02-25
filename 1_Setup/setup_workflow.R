@@ -5,7 +5,7 @@
 ## Developers: Svajunas Plunge    svajunas_plunge@sggw.edu.pl
 ##             Christoph Schürz   christoph.schuerz@ufz.de
 ##             Micheal Strauch    michael.strauch@ufz.de
-##             Mohammadreza Einikarimkandi mohammad_eini@sggw.edu.pl
+##             Mohammad Reza Eini mohammad_eini@sggw.edu.pl
 ##
 ## 
 ## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
