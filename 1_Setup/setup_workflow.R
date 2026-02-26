@@ -78,6 +78,13 @@ dir.create(res_path, recursive = TRUE)
 ## from the Libraries/buildr_script folder.
 ##
 ## Please make sure SWATbuildR'er settings are provided in settings file
+## and the data is prepared according to the instructions provided in the
+## SWATbuildR'er documentation Docs/modeling-protocol.pdf Chapter 2.
+##
+## If you get topological errors in this step, please check Section 2.3 of the 
+## modeling protocol and make sure that your data is prepared according to the 
+## instructions provided there.
+
 source(paste0(lib_path, '/buildr_script/swatbuildr.R'), chdir=TRUE)
 
 ## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
