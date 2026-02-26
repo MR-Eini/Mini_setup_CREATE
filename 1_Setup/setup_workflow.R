@@ -290,6 +290,12 @@ mgt <- paste0(out_dir, "/farmR_input.csv")
 ## 12) Updating landuse.lum file -----
 ## >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+## Please refer to Doc/modelling_protocol.pdf Section 3.1.7 for guidelines on 
+## how to update landuse.lum file. You should correct read_and_modify_landuse_lum.R
+## script according to your needs and then run it. The script is provided in
+## Libraries folder. The script is designed to update landuse.lum file. If you
+## have already updated landuse.lum file manually, you can skip this step. 
+##
 ## Backing up landuse.lum file
 if(!file.exists(paste0(dir_path, "/", "landuse.lum.bak"))) {
   file.copy(from = paste0(dir_path, "/", "landuse.lum"),
