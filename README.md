@@ -1,7 +1,7 @@
-# Mini SWAT+ Setup (OPTAIN-style workflow)
+# SWAT+ Setup and Scenario Preparation Toolkit (OPTAIN-style workflow)
 
 
-This repository provides a **minimal, step-by-step workflow** for regenerating a SWAT+ project from **pre-processed inputs**, performing essential diagnostics, and (optionally) proceeding to **soft (crop yield)** and **hard (river discharge)** calibration stages.
+This repository provides a **step-by-step workflow** for regenerating a SWAT+ project from **pre-processed inputs**, performing essential diagnostics, and (optionally) proceeding to **soft (crop yield)** and **hard (river discharge)** calibration stages.
 
 ![Workflow overview](assets/workflow1.png)
 ## Contents
@@ -274,7 +274,7 @@ If you use this workflow in a report/paper, you can cite the repository:
 
 Mohammad Reza Eini, Department of Hydrology, Meteorology, and Water Management, 
 Institute of Environmental Engineering, Warsaw University of Life Sciences, Warsaw, Poland
- Mini_setup_CREATE. GitHub repository. https://github.com/MR-Eini/Mini_setup_CREATE
+ SWAT+ Setup and Scenario Preparation Toolkit (OPTAIN-style workflow). GitHub repository. https://github.com/MR-Eini/Mini_setup_CREATE
 
 <div id="refs" class="references csl-bib-body hanging-indent"
 entry-spacing="0">
