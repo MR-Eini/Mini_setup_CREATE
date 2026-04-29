@@ -17,6 +17,7 @@ library(tibble)
 # Parameter definition ----------------------------------------------------
 # Number parameter combinations
 n_combinations <- 900
+run_id <- seq_len(n_combinations)
 
 # Path to the SWAT+ project folder.
 model_path <- './clean_setup'
