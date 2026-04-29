@@ -131,7 +131,7 @@ run_swatplus(project_path = model_path,
              time_out         = 3600, # seconds, change if run-time differs
              keep_folder      = TRUE
 )
-
+ 
 # Load the most recent check simulation results
 check_sims <- list.files('./simulation/', pattern = '[0-9]{12}_sim_check01')
 check_path <- paste0('./simulation/', check_sims[length(check_sims)])
