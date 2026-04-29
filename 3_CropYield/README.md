@@ -179,12 +179,3 @@ Interpretation should follow these checks:
 - Water-yield ratio should approach the target value, but selected `esco` / `epco` values must also preserve crop-yield plausibility.
 - Parameter changes should remain biologically and hydrologically defensible. Avoid selecting values only because they fit one diagnostic plot.
 
-## 7. Source completeness note
-
-The source manual lists the following sections in its contents, but their body text is not present in the uploaded document:
-
-- Known issues and corrections
-- Workshop recommendations
-- Source files inspected
-
-Therefore, this README does not add invented content for those sections.
