@@ -1,310 +1,269 @@
-<p align="center">
-  <img src="assets/SWAT_p_OPTAIN.png" alt="SWAT+ OPTAIN setup" width="1100">
-</p>
+# Manual for the 1_Setup Workflow
 
-# SWAT+ Uncalibrated Setup Preparation Workflow
+Mini_setup_CREATE repository - SWAT+ setup preparation
 
-Workflow to regenerate a complete **SWAT+** model setup from *pre-processed inputs* to a **pre-calibrated / pre-prepared** (and optionally calibrated) setup in (ideally) a single run.
+*Prepared for workshop teaching and repository documentation*
 
-This repository is centered around the script:
-
-- `setup_workflow.R` — main end-to-end workflow driver  
-- `settings.R` — project configuration (paths, years, SWATbuildR and SWATfarmR settings)
-
-> The preparation of input data is **not** part of this workflow. You must provide the required pre-processed layers/tables externally.
-
----
+> [!NOTE]
+> **Scope of this document**  
+> This document covers the repository folder `1_Setup`. It explains the purpose of the workflow, the configuration file, the main script, helper functions, input data requirements, outputs, known fragile points, and recommended workshop-safe improvements. It does not document the later calibration, validation, or scenario folders of the full repository.
 
 ## Contents
 
-- [What this workflow does](#what-this-workflow-does)
-- [Requirements](#requirements)
-- [Repository structure](#repository-structure)
-- [Configuration](#configuration)
-- [How to run](#how-to-run)
-- [Outputs](#outputs)
-- [Optional steps](#optional-steps)
-- [Troubleshooting](#troubleshooting)
-- [Reproducibility notes](#reproducibility-notes)
-- [Credits](#credits)
+- [1. Executive summary](#1-executive-summary)
+- [2. Files and folder structure](#2-files-and-folder-structure)
+- [3. Required software and R packages](#3-required-software-and-r-packages)
+- [4. Configuration in settings.R](#4-configuration-in-settingsr)
+- [5. Helper functions in functions.R](#5-helper-functions-in-functionsr)
+- [6. Main workflow in setup_workflow.R](#6-main-workflow-in-setup_workflowr)
+- [7. Helper scripts inside Libraries](#7-helper-scripts-inside-libraries)
+- [8. Output products](#8-output-products)
 
----
+## 1. Executive summary
 
-## What this workflow does
+The `1_Setup` folder is an end-to-end SWAT+ setup generation workflow. Its purpose is to regenerate a complete SWAT+ model setup from pre-processed GIS, soil, weather, and management inputs. The workflow builds a base SWAT+ project, adds climate and deposition data, writes SWAT+ text input files, modifies selected SWAT+ input tables, prepares management operations with SWATfarmR, runs SWAT+, and exports a clean TxtInOut-style setup folder.
 
-The `setup_workflow.R` script automates the following steps (mirrors the numbered blocks in the script):
+> [!IMPORTANT]
+> Input data preparation is outside this workflow. The workflow assumes that DEM, soil, land-use, river, basin, weather, crop, and management files have already been prepared and checked.
 
-1. **Initialize**
-   - Loads R packages (`SWATprepR`, `SWATfarmR`, `SWATtunR`, `SWATdoctR`)
-   - Sources `settings.R` and `functions.R`
-   - Recreates a clean results directory (`res_path`)
+| Item | Description |
+|---|---|
+| Main driver | `setup_workflow.R` |
+| Main configuration file | `settings.R` |
+| Utility functions | `functions.R` |
+| Base setup builder | `Libraries/buildr_script/swatbuildr.R` |
+| Management input preparation | `Libraries/farmR_input/write_SWATfarmR_input.R` |
+| Final output | `Temp/clean_setup/` by default, depending on `res_path` |
+| Model executable | Configured by `swat_exe` in `settings.R`, currently `SWATp_jan_sept.exe` |
+| SWAT+ writer executable | `Libraries/write.exe` |
 
-2. **Run SWATbuildR**
-   - Executes `Libraries/buildr_script/swatbuildr.R` to build a base SWAT+ project from GIS inputs
+## 2. Files and folder structure
 
-3. **Add weather + weather generator stats**
-   - Loads interpolated weather (`weather_path`, RDS)
-   - Computes WGN statistics (`prepare_wgn`)
-   - Writes weather (and atmospheric deposition, as supported by SWATprepR) to the model SQLite database (`add_weather`)
+The relevant repository part is expected to have the following logical structure. Some files in `Temp` are generated outputs and should not normally be treated as source files for workshop teaching.
 
-4. **Patch SQLite for `write.exe`**
-   - Sets `project_config.input_files_dir` to `"."` to ensure `write.exe` can write text inputs
-
-5. **Write SWAT+ text inputs (`TxtInOut`)**
-   - Copies and runs `write.exe` via `exe_copy_run()`
-
-6. **Add atmospheric deposition**
-   - Downloads deposition data (`get_atmo_dep(...)`)
-   - Writes it into the text-based setup (`add_atmo_dep(..., t_ext="annual")`)
-
-7. **Link aquifer ↔ channels (geomorphic flow)**
-   - Creates/updates `aqu_cha.lin` through `link_aquifer_channels()`
-
-8. **(Optional) Point sources**
-   - Template-based point sources support is scaffolded but disabled by default in the script
-
-9. **Prepare SWATfarmR input**
-   - Runs `Libraries/farmR_input/write_SWATfarmR_input.R`
-   - Collects generated `.csv` files into `Temp_/farmR_input/`
-
-10. **(Optional) Modify `farmR_input.csv`**
-   - Placeholder section to duplicate schedules for drained areas (commented out)
-
-11. **Update `landuse.lum`**
-   - Backs up original (`landuse.lum.bak`)
-   - Runs `Libraries/read_and_modify_landuse_lum.R`
-
-12. **Update `nutrients.sol` + connect to HRUs**
-   - Updates labile phosphorus (`lab_p`) in `nutrients.sol`
-   - Sets `hru-data.hru` to use `soilplant1` initialization
-
-13. **Update `time.sim`**
-   - Enforces simulation start/end years (`st_year`, `end_year`)
-
-14. **Create connectivity lines shapefile**
-   - Generates `land_connections_as_lines.shp` for visual/manual checks of routing connectivity
-
-15. **Run SWAT+ once**
-   - Copies and runs SWAT executable (`swat_exe`) via `exe_copy_run()`
-
-16. **Generate management operations with SWATfarmR**
-   - Creates a `.farm` project
-   - Adds an API (antecedent precipitation index) variable using `variable_decay()`
-   - Reads management (`farmR_input.csv`), schedules ops, writes management files for the simulation period
-
-17. **Fix unconnected reservoirs**
-   - Backs up reservoir files and enforces consistent connectivity defaults
-
-18. **(Optional) Other file edits**
-   - Template section for patching additional SWAT+ input files
-
-19. **Run SWAT+ again**
-   - Executes a final run after all modifications
-
-20. **Export a clean setup**
-   - Copies only SWAT+ **input** files into `Temp_/clean_setup/` (filters out outputs, zips, sqlite, etc.)
-
-21. **(Optional) Add `calibration.cal`**
-   - Script contains a hard `stop()` to prevent accidental use; remove it if you want to copy a calibration file
-
----
-
-## Requirements
-
-### Software
-- **R** (recommended: R 4.x)
-- **SWAT+ executable** (the model binary you want to run; configured as `swat_exe` in `settings.R`)
-- **write.exe** (SWAT+ input writer, used to generate `TxtInOut` from the SQLite database)
-
-### R packages
-Installed from GitHub (as indicated in `setup_workflow.R` comments):
-
-- `SWATtunR`
-- `SWATprepR`
-- `SWATfarmR`
-- `SWATrunR`
-- `SWATdoctR`
-- `swatmeasr` (from UFZ Git)
-
-Example installation snippet:
-
-```r
-install.packages("remotes")
-
-remotes::install_github("biopsichas/SWATtunR")
-remotes::install_github("biopsichas/SWATprepR")
-remotes::install_github("tkdweber/euptf2")
-remotes::install_github("chrisschuerz/SWATfarmR")
-remotes::install_github("chrisschuerz/SWATrunR")
-remotes::install_github("biopsichas/SWATdoctR")
-remotes::install_git("https://git.ufz.de/schuerz/swatmeasr")
+```text
+1_Setup/
+|-- README.md
+|-- setup_workflow.R
+|-- settings.R
+|-- functions.R
+|-- wf.Rproj
+|-- Data/
+|   |-- for_buildr/
+|   |   |-- DEM1.tif
+|   |   |-- soil1.tif
+|   |   |-- Soil_SWAT_cod.csv
+|   |   |-- usersoil_lrew.csv
+|   |   |-- land1.shp (+ sidecar files)
+|   |   |-- river1.shp (+ sidecar files)
+|   |   |-- basin1.shp (+ sidecar files)
+|   |-- for_prepr/
+|   |   |-- met_int_2000_2024.rds
+|   |   |-- pnt_data.xlsx
+|   |-- for_farmr_input/
+|       |-- crops1.csv
+|       |-- mgt_crops.csv
+|       |-- mgt_generic.csv
+|-- Libraries/
+|   |-- write.exe
+|   |-- SWATp_jan_sept.exe
+|   |-- buildr_script/swatbuildr.R
+|   |-- create_connectivity_line_shape.R
+|   |-- read_and_modify_landuse_lum.R
+|   |-- farmR_input/write_SWATfarmR_input.R
+|   |-- farmR_input/functions_write_SWATfarmR_input.R
+|   |-- files_to_overwrite_at_the_end/plants.plt
+|   |-- calibration_cal/calibration1.cal
+|-- Temp/                  # generated by the workflow; not a source folder
+    |-- buildr_project/
+    |-- farmR_input/
+    |-- clean_setup/
 ```
 
-> Note: `setup_workflow.R` expects **specific SWATfarmR versions** (>= 4.* or special 3.2.0 build referenced in the script). See [Troubleshooting](#troubleshooting).
+## 3. Required software and R packages
 
----
+The workflow is designed for a Windows/RStudio teaching environment because it runs Windows executables such as write.exe and the configured SWAT+ model executable.
 
-## Repository structure
+| **Requirement**                       | **Role in workflow**                                      | **Teaching note**                                          |
+|---------------------------------------|-----------------------------------------------------------|------------------------------------------------------------|
+| R 4.x                                 | Runs all R scripts.                                       | Use one fixed R version for all participants.              |
+| RStudio                               | Recommended interactive execution environment.            | The current deletion prompt uses rstudioapi::showQuestion. |
+| SWAT+ executable                      | Runs the model in Steps 15 and 19.                        | Must be present in Libraries and match swat_exe.           |
+| write.exe                             | Writes SWAT+ text input files from the SQLite database.   | Must be compatible with the SWAT+ Editor database schema.  |
+| WhiteboxTools                         | Used by SWATbuildR for terrain and connectivity analyses. | Install before workshop; avoid live installation.          |
+| SWAT+ Editor or DB Browser for SQLite | Optional inspection and troubleshooting.                  | Do not keep SQLite open while write.exe runs.              |
 
-A typical folder layout expected by the scripts:
+### 3.1 R packages used directly or indirectly
 
-```
-.
-├── setup_workflow.R
-├── settings.R
-├── functions.R                      # required (sourced by setup_workflow.R)
-├── Data/
-│   ├── for_buildr/
-│   │   ├── DEM1.tif
-│   │   ├── soil1.tif
-│   │   ├── Soil_SWAT_cod.csv
-│   │   ├── usersoil_lrew.csv
-│   │   ├── land1.shp (+ sidecars)
-│   │   ├── river1.shp (+ sidecars)
-│   │   └── basin1.shp (+ sidecars)
-│   ├── for_prepr/
-│   │   └── met_int.rds              # weather (interpolated), RDS
-│   └── for_farmr_input/
-│       ├── crops1.shp (+ sidecars)
-│       ├── mgt_crops.csv
-│       └── mgt_generic.csv
-└── Libraries/
-    ├── buildr_script/
-    │   └── swatbuildr.R
-    ├── farmR_input/
-    │   └── write_SWATfarmR_input.R
-    ├── files_to_overwrite_at_the_end/
-    │   ├── plants.plt               # overwritten in step 9
-    │   └── (optional other files)
-    ├── read_and_modify_landuse_lum.R
-    ├── create_connectivity_line_shape.R
-    ├── calibration_cal/
-    │   └── calibration1.cal         # optional
-    ├── write.exe
-    └── SWATp_jan_sept.exe           # example; name must match swat_exe
-```
+| **Package**                     | **Where used**                         | **Purpose**                                                                              |
+|---------------------------------|----------------------------------------|------------------------------------------------------------------------------------------|
+| remotes                         | setup_workflow.R, helper installers    | Installs GitHub packages.                                                                |
+| RNetCDF                         | loaded in setup_workflow.R             | NetCDF support; not visibly called in the main script but may support package workflows. |
+| tidyverse                       | main script and helper scripts         | Data wrangling, read/write, string handling.                                             |
+| mapview                         | loaded in setup_workflow.R             | Map visualization; not essential for a fully non-interactive run.                        |
+| sf                              | connectivity script, SWATbuildR inputs | Vector GIS reading and writing.                                                          |
+| gstat                           | loaded in setup_workflow.R             | Spatial interpolation support, especially weather interpolation context.                 |
+| rstudioapi                      | main script                            | Interactive deletion prompt and optional manual file selection.                          |
+| whitebox                        | main script and SWATbuildR             | Initializes or installs WhiteboxTools.                                                   |
+| DBI, RSQLite                    | main script and connectivity helper    | Reads and writes SQLite database tables.                                                 |
+| vroom                           | read_and_modify_landuse_lum.R          | Reads fixed text table lines.                                                            |
+| lubridate, reshape2, data.table | farmR input helper                     | Date and table operations for management schedule preparation.                           |
+| HighFreq                        | farmR input helper                     | Used by helper functions; installed from GitHub if missing.                              |
+| SWATtunR                        | main script                            | Reads SWAT+ tables and supports text table modification.                                 |
+| SWATprepR                       | main script                            | Adds weather, atmospheric deposition, and point source data.                             |
+| SWATfarmR                       | main script                            | Creates and writes management operations.                                                |
+| SWATdoctR                       | loaded in setup_workflow.R             | Available for documentation/checking; not visibly called in main script.                 |
+| SWATmeasR                       | loaded in setup_workflow.R             | Measurement-related package; not visibly called in main script.                          |
+| SWATreadR                       | main script                            | Writes SWAT+ formatted tables through internal write_tbl use.                            |
 
-Adjust names/paths in `settings.R` if your structure differs.
+## 4. Configuration in settings.R
 
----
+settings.R centralizes the editable project paths, simulation years, SWATbuildR settings, and SWATfarmR input settings. The values below reflect the inspected repository version.
 
-## Configuration
+| **Variable** | **Current value**                    | **Meaning / required action**                                                                                 |
+|--------------|--------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| swat_exe     | SWATp_jan_sept.exe                   | Name of the SWAT+ executable in Libraries. Change this if your executable has a different name.               |
+| res_path     | Temp                                 | Output folder. The script deletes/recreates this folder after user confirmation.                              |
+| data_path    | Data                                 | Root folder for pre-processed inputs.                                                                         |
+| lib_path     | Libraries                            | Root folder for helper scripts and executables.                                                               |
+| st_year      | 2004                                 | Simulation start year written into time.sim.                                                                  |
+| end_year     | 2023                                 | Simulation end year written into time.sim.                                                                    |
+| weather_path | Data/for_prepr/met_int_2000_2024.rds | RDS weather object used by SWATprepR.                                                                         |
+| pnt_path     | Data/for_prepr/pnt_data.xlsx         | Point source template. Because this is not NULL, Step 10 will try to load point sources. Set to NULL to skip. |
+| out_path     | ../../                               | Relative path used because SWATbuildR runs from Libraries/buildr_script with chdir=TRUE.                      |
+| lab_p        | 40.4000                              | Single labile phosphorus value written into nutrients.sol for all catchment units.                            |
 
-All user-editable settings are in `settings.R`. Key parameters:
+### 4.1 SWATbuildR settings
 
-### Global
-- `res_path` — results folder (default: `Temp_`)
-- `data_path` — input data folder (default: `Data`)
-- `lib_path` — scripts/executables folder (default: `Libraries`)
-- `st_year`, `end_year` — simulation period written into `time.sim`
-- `weather_path` — path to `met_int.rds` (interpolated weather RDS)
-- `lab_p` — labile phosphorus value written into `nutrients.sol` for the catchment
+| **Variable**            | **Meaning**                                                                             |
+|-------------------------|-----------------------------------------------------------------------------------------|
+| buildr_data             | Data/for_buildr/ input folder.                                                          |
+| project_path            | Output location for the SWATbuildR project: ../../Temp/buildr_project.                  |
+| project_name            | Mini_CREATE; also used to find Mini_CREATE.sqlite.                                      |
+| txt_path                | Expected text input folder path under the project.                                      |
+| dem_path                | DEM raster path.                                                                        |
+| soil_layer_path         | Soil raster path.                                                                       |
+| soil_lookup_path        | Soil code lookup table.                                                                 |
+| soil_data_path          | SWAT user soil parameter table.                                                         |
+| land_path               | Land-unit polygon layer.                                                                |
+| channel_path            | River/channel line layer.                                                               |
+| basin_path / bound_path | Catchment boundary polygon layer.                                                       |
+| point_path              | Optional point source location shapefile for SWATbuildR. Currently NULL.                |
+| project_layer           | TRUE: layers are projected if CRS differs from basin. FALSE would stop on CRS mismatch. |
+| id_cha_out              | Final channel outlet ID. Current value is 5.                                            |
+| id_res_out              | Final reservoir outlet ID. Current value is NULL.                                       |
+| frc_thres               | Connectivity simplification threshold. Current value is 0.4.                            |
+| wetland_landuse         | SWAT+ plant codes treated as wetland land uses.                                         |
+| max_point_dist          | Maximum point source distance to channel/reservoir, in meters.                          |
 
-### SWATbuildR inputs
-- `project_name`, `project_path`, `txt_path`
-- `dem_path`, `soil_layer_path`, `soil_lookup_path`, `soil_data_path`
-- `land_path`, `channel_path`, `basin_path`
-- outlet definition: `id_cha_out` (or `id_res_out`)
-- routing simplification: `frc_thres`
-- `wetland_landuse`, `max_point_dist`
+### 4.2 SWATfarmR input settings
 
-### SWATfarmR input preparation
-- `lu_shp`, `mgt_csv`, `lu_generic_csv`
-- `hru_crops` — HRU land-use prefix that indicates cropland HRUs
-- multi-year grass settings: `m_yr_sch_existing`, `crop_myr`, `max_yr`, `crop_s`, `additional_h_yr_sch_existing`
+| **Variable**                                           | **Meaning**                                                                    |
+|--------------------------------------------------------|--------------------------------------------------------------------------------|
+| farmr_i_data                                           | Data/for_farmr_input/ input folder.                                            |
+| lu_csv                                                 | Crop/land-use input table. Current file: crops1.csv.                           |
+| mgt_csv                                                | Crop management schedules. Current file: mgt_crops.csv.                        |
+| lu_generic_csv                                         | Generic non-crop land-use management schedules. Current file: mgt_generic.csv. |
+| start_y, end_y                                         | Management operation writing period. Currently linked to st_year and end_year. |
+| hru_crops                                              | Prefix used to identify cropland HRUs. Current value: agrl.                    |
+| m_yr_sch_existing                                      | Whether multi-year farmland grass schedules exist. Current value: n.           |
+| crop_myr, max_yr, crop_s, additional_h_yr_sch_existing | Only relevant when multi-year grass logic is enabled.                          |
 
----
+## 5. Helper functions in functions.R
 
-## How to run
+| **Function**                                | **Actual behavior**                                                                                                                                                                  | **Important note**                                                                                                                |
+|---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| update_file(txt_file, f_path)               | Overwrites a SWAT+ text file with a new header plus the first two rows from txt_file.                                                                                                | Despite accepting f_path, it uses global f_write in the header and printed message. This works only when f_write exists globally. |
+| exe_copy_run(path_from, path_to, file_name) | Copies an executable from Libraries to a target directory, temporarily changes working directory to the target, runs system(file_name), and restores the previous working directory. | It does not check the executable exit status. Add status checking for teaching.                                                   |
+| install_and_load_cran(pkg)                  | Installs a CRAN package if missing, then loads it.                                                                                                                                   | Not ideal during workshops; use renv or pre-installation.                                                                         |
+| install_and_load_github(pkg, repo)          | Installs a GitHub package if missing, then loads it.                                                                                                                                 | No commit pinning and no upgrade control; high reproducibility risk.                                                              |
 
-From the repository root:
+## 6. Main workflow in setup_workflow.R
 
-### Option A: Interactive (RStudio)
-1. Open the project folder.
-2. Edit `settings.R` to match your data paths and years.
-3. Run:
+The main script is organized into 21 numbered sections. The table below explains each step in precise operational terms.
 
-```r
-source("setup_workflow.R")
-```
+| **Step** | **Name**                                 | **Main input**                                              | **What happens**                                                                                                                                                           | **Output**                                                        | **Critical note**                                                                           |
+|----------|------------------------------------------|-------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| 1        | Initialize workflow                      | settings.R, functions.R, required R packages, WhiteboxTools | Loads settings/functions, installs and loads packages if missing, initializes WhiteboxTools, asks whether to delete existing res_path, then creates a fresh result folder. | Clean output folder; packages loaded.                             | For workshops, do not install packages here; check them instead.                            |
+| 2        | Run SWATbuildR                           | Data/for_buildr inputs; SWATbuildR settings                 | Sources Libraries/buildr_script/swatbuildr.R with chdir=TRUE. This builds the base SWAT+ project and SQLite database.                                                      | SWATbuildR project under Temp/buildr_project; Mini_CREATE.sqlite. | Most topology/CRS/input errors occur here.                                                  |
+| 3        | Back up prepared database                | Generated Mini_CREATE.sqlite                                | Searches recursively in res_path for exactly one database named project_name.sqlite, copies it to res_path, zips it as db_backup.zip, then removes the copied database.    | Temp/db_backup.zip.                                               | Stops if zero or more than one matching database is found.                                  |
+| 4        | Add weather data                         | weather_path RDS object                                     | Reads the RDS weather object, calculates weather generator statistics using prepare_wgn(), and adds weather into the SQLite database using add_weather().                  | Weather and WGN information added to the model database.          | Weather object must match SWATprepR expected structure.                                     |
+| 5        | Patch SQLite for write.exe               | SQLite project_config table                                 | Connects to SQLite, reads project_config, sets input_files_dir to ".", and overwrites the table.                                                                           | Database is prepared for write.exe.                               | Requires DBI and RSQLite.                                                                   |
+| 6        | Write SWAT+ text files                   | write.exe and SQLite database folder                        | Sets dir_path to the database directory, copies write.exe into it, and runs it.                                                                                            | SWAT+ TxtInOut text files.                                        | Close SWAT+ Editor, DB Browser, and Explorer preview to avoid file locks.                   |
+| 7        | Check land connectivity                  | Generated vector layers and SQLite routing tables           | Sources create_connectivity_line_shape.R to create land_connections_as_lines.shp for visual checking of routing connections.                                               | Connectivity shapefile in data/vector.                            | Useful for manual inspection of rout_unit.con.                                              |
+| 8        | Add atmospheric deposition               | Basin shapefile, st_year, end_year                          | Downloads deposition data using get_atmo_dep() and writes annual atmospheric deposition inputs with add_atmo_dep().                                                        | Updated deposition files in text setup.                           | Requires internet unless deposition data are cached or locally prepared.                    |
+| 9        | Link aquifers and channels               | Text setup folder                                           | Calls link_aquifer_channels(dir_path) to create or update aqu_cha.lin for geomorphic flow from the single aquifer to channels.                                             | aqu_cha.lin linkage.                                              | Needed because SWATbuildR creates one catchment aquifer.                                    |
+| 10       | Add point source data                    | pnt_path Excel template, if not NULL                        | If pnt_path is not NULL, loads point source template and applies prepare_ps(); otherwise prints that point sources are skipped.                                            | Point source files if data are provided.                          | settings.R currently sets pnt_path to an Excel file, so this is not skipped unless changed. |
+| 11       | Prepare SWATfarmR input                  | plants.plt overwrite file; crops and management inputs      | Copies plants.plt to dir_path, sources write_SWATfarmR_input.R, copies generated CSVs to Temp/farmR_input, removes temporary CSVs from Libraries/farmR_input.              | Temp/farmR_input/farmR_input.csv and related check files.         | The helper script also installs packages if missing; pre-install for workshops.             |
+| 12       | Update landuse.lum                       | landuse.lum and landuse.lum.bak                             | Backs up landuse.lum if needed, then runs read_and_modify_landuse_lum.R to assign cn2, cons_prac, ov_mann, and urban pointers based on land-use name prefixes.             | Modified landuse.lum.                                             | Must be reviewed for each catchment because prefix rules are project-specific.              |
+| 13       | Update nutrients.sol and hru-data.hru    | nutrients.sol, lab_p, hru-data.hru                          | Replaces the default labile phosphorus value with lab_p and sets soil_plant_init in hru-data.hru to soilplant1.                                                            | Modified nutrients.sol and hru-data.hru.                          | Current implementation applies one lab_p value catchment-wide.                              |
+| 14       | Update time.sim                          | time.sim, st_year, end_year                                 | Reads time.sim, finds existing positive years, replaces minimum with st_year and maximum with end_year, then writes the file.                                              | time.sim reflects selected simulation period.                     | Works only if the original time.sim format is compatible with the parsing logic.            |
+| 15       | Run SWAT+ setup                          | SWAT executable                                             | Copies the configured SWAT+ executable into dir_path and runs it.                                                                                                          | Initial model outputs and success/failure files.                  | Exit status is not checked; add checks for class teaching.                                  |
+| 16       | Generate management files with SWATfarmR | farmR_input.csv, SWATfarmR 4.x                              | Creates farmr_project, adds an antecedent precipitation index variable, reads management table, schedules operations, and writes operations for start_y to end_y.          | Management operation files written to setup.                      | Script stops if SWATfarmR is not version 4.x.                                               |
+| 17       | Fix unconnected reservoirs               | reservoir.con, reservoir.res, hydrology.res                 | Backs up reservoir files and modifies reservoir connectivity and hydrology defaults for unconnected reservoirs or existing aquifer-rhg links.                              | Updated reservoir connection and hydrology files.                 | Contains a file.copy(grepl(...)) bug; see known issues.                                     |
+| 18       | Optional additional file edits           | None by default                                             | Template section for editing other SWAT+ files such as hydrology.hyd. Currently commented out.                                                                             | No output unless user enables it.                                 | Use only after deciding project-specific edits.                                             |
+| 19       | Run final SWAT+ setup                    | SWAT executable and modified inputs                         | Runs SWAT+ again after management, nutrient, landuse, reservoir, and other edits.                                                                                          | Final model run outputs.                                          | This is the validation run before extracting clean setup.                                   |
+| 20       | Export clean setup                       | dir_path text setup folder                                  | Creates Temp/clean_setup and copies input files while filtering out selected outputs, SQLite files, executables, backups, archives, and diagnostics.                       | Temp/clean_setup final input-only setup.                          | The filter pattern should be reviewed; it may not exclude every output extension.           |
+| 21       | Optional calibration.cal                 | calibration_cal/calibration1.cal                            | Script intentionally stops first. If stop() is removed, copies calibration.cal into clean_setup and updates file.cio.                                                      | Calibrated setup with calibration.cal.                            | Leave disabled unless a valid calibration file is available.                                |
 
-### Option B: Command line
-```bash
-Rscript setup_workflow.R
-```
+## 7. Helper scripts inside Libraries
 
-Important runtime notes:
-- `setup_workflow.R` **deletes** the existing `res_path` directory if it exists.
-- The script searches for a single SQLite DB named `<project_name>.sqlite` inside `res_path`. If multiple exist, it stops.
+### 7.1 Libraries/buildr_script/swatbuildr.R
 
----
+This script performs the base SWAT+ setup construction. It reads and checks GIS inputs, builds land and water object connectivity, prepares terrain and soil tables, generates HRU, routing unit, LSU, channel, reservoir, wetland, and aquifer database tables, and creates the SWAT+ Editor SQLite database.
 
-## Outputs
+| **Block in swatbuildr.R**                   | **Main action**                                                                                         |
+|---------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Read basin, land, channel, DEM, soil inputs | Checks CRS, attributes, topology, raster coverage, and prepares standardized vector/raster data.        |
+| Split land layer                            | Separates HRUs and reservoir/water objects.                                                             |
+| Land connectivity                           | Uses terrain and D8-derived connectivity to calculate land-to-land and land-to-water routing fractions. |
+| Loop checks                                 | Reduces minor connections and checks infinite loop routing.                                             |
+| Water connectivity                          | Builds channel/reservoir connectivity and checks water-object loops.                                    |
+| Terrain properties                          | Computes elevation, slope, catchment area, and channel/reservoir geometry.                              |
+| SWAT+ input tables                          | Builds landuse, HRU, wetland, channel, reservoir, routing unit, LSU, and aquifer tables.                |
+| SQLite database                             | Creates the SWAT+ Editor project database in project_path.                                              |
 
-The workflow writes results under `res_path` (default `Temp_`), including:
+### 7.2 Libraries/create_connectivity_line_shape.R
 
-- `Temp_/buildr_project/...` — SWATbuildR project artifacts
-- `Temp_/db_backup.zip` — backup of the generated SQLite DB (copied into `res_path` then zipped)
-- `Temp_/farmR_input/` — exported SWATfarmR input CSV files
-- `Temp_/clean_setup/` — final cleaned SWAT+ input setup, containing only SWAT+ input files (no outputs/sqlite/zips)
+This helper creates a line shapefile that visualizes routing unit connections. It reads HRU polygons, computes centroids or point-on-surface points, reads rout_unit_con_out from the SQLite database, then converts routing links to line geometries. It writes land_connections_as_lines.shp into the SWATbuildR data/vector folder.
 
-The script prints the final clean setup location at the end.
+### 7.3 Libraries/read_and_modify_landuse_lum.R
 
----
+This script reads landuse.lum.bak, modifies pointer columns based on land-use name prefixes, and writes a new landuse.lum file. It edits cn2, cons_prac, ov_mann, and urban columns. Because these pointer assignments are project-specific, they must be checked before using the workflow in another basin.
 
-## Optional steps
+| **Prefix rule examples**                                   | **Assigned pointer**                      |
+|------------------------------------------------------------|-------------------------------------------|
+| agrl in cn2                                                | rc_strow_g                                |
+| fr in cn2                                                  | wood_f                                    |
+| fe, alfa, wetl, past, rngb, buff in cn2                    | pasth                                     |
+| agrl in cons_prac                                          | up_down_slope                             |
+| forest/grass/wetland/orchard/grazing prefixes in cons_prac | greening                                  |
+| urld, urhd, urmd in urban                                  | respective urban management pointer codes |
 
-### Point sources
-Point source support exists but is commented out in `setup_workflow.R`. To enable it:
-1. Provide a point source template file (e.g., `Data/for_prepr/pnt_data.xlsx`)
-2. Set `pnt_path` in `settings.R`
-3. Uncomment the point source block in step 8
+### 7.4 Libraries/farmR_input/write_SWATfarmR_input.R
 
-### Add `calibration.cal`
-Step 21 is guarded by:
+This script prepares farmR_input.csv and supporting check files. It reads the crop/land-use table, crop management table, and generic land-use management table, then checks schedule validity and constructs rotation schedules. The final product is written for SWATfarmR, which later creates SWAT+ management operations.
 
-```r
-stop("Remove this if you have calibration.cal file")
-```
+1. Load functions_write_SWATfarmR_input.R and required packages.
+2. Read crops1.csv, mgt_crops.csv, and mgt_generic.csv.
+3. Check that each crop schedule has a valid skip line.
+4. Check date conflicts within individual crop schedules.
+5. Build combined rotation schedules from crop sequences in the land-use table.
+6. Check and solve minor date conflicts in combined schedules.
+7. Write farmR_input.csv.
 
-Remove that line to allow copying a calibration file into `clean_setup/` and updating `file.cio`.
+> [!IMPORTANT]
+> **Input data requirement**  
+> Crop sequence columns must cover the simulation years using names such as `y_2004`, `y_2005`, etc. Cropland rows are identified using the `hru_crops` prefix, currently `agrl`.
 
----
+## 8. Output products
 
-## Troubleshooting
-
-### “You have more than one database named `<project>.sqlite`…”
-The script expects exactly **one** SQLite database that matches `project_name`. Delete/rename duplicates in `res_path` or set `db_path` manually.
-
-### “No database found!”
-SWATbuildR did not generate the database, or `res_path`/`project_name` is inconsistent. Confirm:
-- `settings.R` values
-- SWATbuildR ran successfully (`Libraries/buildr_script/swatbuildr.R`)
-- output is written under your expected `res_path`
-
-### `write.exe` fails
-The workflow applies a known fix (step 4) by setting `input_files_dir="."`. If it still fails:
-- try writing inputs via **SWAT+ Editor** as a workaround
-- check that `write.exe` is present in `Libraries/` and is compatible with your SWAT+ build
-
-### SWATfarmR version error
-The script supports:
-- SWATfarmR **4.x**
-- SWATfarmR **3.2.0** (special package referenced in the script)
-
-If you get the stop message about version, install the required version accordingly.
-
-### Reservoir connectivity issues
-Step 17 forces defaults for reservoirs with missing/invalid connections. If you still see reservoir routing problems:
-- inspect `reservoir.con`, `reservoir.res`, `hydrology.res`
-- use `land_connections_as_lines.shp` to inspect the connectivity network and update `rout_unit.con` as needed
-
----
-
-## Reproducibility notes
-
-- A zip backup of the SQLite DB is created at `Temp_/db_backup.zip`.
-- Several files are backed up with `.bak` / `.bkp0` suffixes before being modified (e.g., `landuse.lum`, reservoir files, fertilizer/tillage tables).
-
----
-
+| **Output**                                         | **Created by**       | **Purpose**                                                                                          |
+|----------------------------------------------------|----------------------|------------------------------------------------------------------------------------------------------|
+| Temp/buildr_project/                               | SWATbuildR           | Base generated SWAT+ project and database.                                                           |
+| Temp/db_backup.zip                                 | Step 3               | Archive of the generated SQLite database after SWATbuildR and before later text-based edits.         |
+| Text input folder under buildr_project/Mini_CREATE | write.exe in Step 6  | Working SWAT+ input folder where later modifications occur.                                          |
+| data/vector/land_connections_as_lines.shp          | Step 7 helper script | Visual inspection of land routing connectivity.                                                      |
+| Temp/farmR_input/                                  | Step 11              | Saved farmR_input.csv and related CSV outputs from management preparation.                           |
+| Modified SWAT+ files                               | Steps 12-17          | Files such as landuse.lum, nutrients.sol, hru-data.hru, time.sim, management files, reservoir files. |
+| Temp/clean_setup/                                  | Step 20              | Final clean input-only setup intended for calibration.                                               |
