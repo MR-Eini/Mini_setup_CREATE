@@ -1,4 +1,0 @@
-exco.con: file was written by SWATprepR R package 2026-02-20 19:47:43.929736
-        id       name     gis_id       area        lat        lon       elev       exco        wst        cst       ovfl       rule    out_tot    obj_typ     obj_id    hyd_typ       frac
-         1   Station1          0    0.00001     54.429     17.324   74.12876          1       null          0          0          0          1        sdc          1        tot          1
-         2   Station2          0    0.00001     54.408     17.333   77.84523          2       null          0          0          0          1        sdc          4        tot          1
