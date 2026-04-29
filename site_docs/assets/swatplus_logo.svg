@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 230" role="img" aria-label="SWAT+ Soil and Water Assessment Tool display badge">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#123f66"/>
+      <stop offset="1" stop-color="#0b2d4d"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="230" rx="26" fill="url(#bg)"/>
+  <path d="M42 158 C102 104 154 193 222 131 C274 84 326 143 381 108 C425 80 455 81 508 101" fill="none" stroke="#72b7df" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+  <text x="52" y="112" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="88" fill="#ffffff" letter-spacing="2">SWAT+</text>
+  <text x="58" y="164" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#c7e8f7" letter-spacing="1.2">SOIL &amp; WATER ASSESSMENT TOOL</text>
+  <text x="515" y="112" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="28" fill="#c7e8f7">model</text>
+</svg>

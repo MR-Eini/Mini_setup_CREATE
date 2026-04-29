@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block footer %}
+  {{ super() }}
+
+  <div class="site-logo-footer" role="contentinfo" aria-label="Project, funding, and modelling ecosystem logos">
+    <div class="site-logo-footer__inner">
+
+      <p class="site-logo-footer__title">
+        Project, funding, and modelling ecosystem
+      </p>
+
+      <div class="site-logo-footer__logos">
+
+        <a
+          href="https://www.water4all-partnership.eu/"
+          title="Water4All Partnership"
+          aria-label="Water4All Partnership"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="{{ 'assets/Water4all_0.png' | url }}"
+            alt="Water4All logo"
+          >
+        </a>
+
+        <span
+          class="eu-logo"
+          title="Co-funded by the European Union"
+          aria-label="Co-funded by the European Union"
+        >
+          <img
+            src="{{ 'assets/EN_co_fundedvertical_RGB_POS.png' | url }}"
+            alt="Co-funded by the European Union logo"
+          >
+        </span>
+
+        <a
+          href="https://sisu.ut.ee/create-project/"
+          title="CREATE project"
+          aria-label="CREATE project"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="{{ 'assets/logo_CREATE_horizontal.png' | url }}"
+            alt="CREATE project logo"
+          >
+        </a>
+
+        <a
+          href="https://swat.tamu.edu/software/plus/"
+          title="SWAT+ Soil and Water Assessment Tool"
+          aria-label="SWAT+ Soil and Water Assessment Tool"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="{{ 'assets/swatplus-avatar.png' | url }}"
+            alt="SWAT+ Soil and Water Assessment Tool display badge"
+          >
+        </a>
+
+      </div>
+
+      <p class="site-logo-footer__caption">
+        CREATE: Cross-REalm modelling and assessment of Aquatic ecosystem services –
+        Towards a science-based design of nature-based solutions to tackle eutrophication.
+      </p>
+      <p class="site-logo-footer__caption">
+        © Mohammad Reza Eini 2026 (email: hydmre[at]gmail.com)
+      </p>
+    </div>
+  </div>
+{% endblock %}

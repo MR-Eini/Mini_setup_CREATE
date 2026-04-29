@@ -1,0 +1,78 @@
+site_name: Mini_setup_CREATE
+site_description: SWAT+ setup and scenario preparation toolkit for OPTAIN-style workflows
+site_author: Mohammad Reza Eini
+site_url: https://mr-eini.github.io/Mini_setup_CREATE/
+
+repo_url: https://github.com/MR-Eini/Mini_setup_CREATE
+repo_name: MR-Eini/Mini_setup_CREATE
+edit_uri: edit/main/site_docs/
+
+docs_dir: site_docs
+site_dir: site
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.action.edit
+  palette:
+    - scheme: default
+      primary: blue grey
+      accent: light blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue grey
+      accent: light blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+
+nav:
+  - Home: index.md
+  - Getting started: getting-started.md
+  - Workflows:
+      - 1_Setup: setup.md
+      - 2_SWATdoctR: swatdoctr.md
+      - 3_CropYield / softcal: crop-yield-softcal.md
+      - 4_RiverDischarge / hardcal: river-discharge-hardcal.md
+      - 5_NBS: nbs.md
+  - Troubleshooting: troubleshooting.md
+  - References: references.md
+  
