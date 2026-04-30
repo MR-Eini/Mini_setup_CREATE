@@ -3,6 +3,9 @@
 
 This repository provides a **step-by-step workflow** for regenerating a SWAT+ project from **pre-processed inputs**, performing essential diagnostics, and (optionally) proceeding to **soft (crop yield)** and **hard (river discharge)** calibration stages.
 
+
+Webpage: https://mr-eini.github.io/Mini_setup_CREATE/
+
 ![Workflow overview](assets/workflow1.png)
 ## Contents
 
